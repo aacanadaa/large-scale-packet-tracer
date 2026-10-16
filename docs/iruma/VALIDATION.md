@@ -156,8 +156,16 @@ failure. `tools/pt_capture.py` was written for this and now
 2. does not touch the window until the workspace has drawn, and
 3. answers the prompt with **Escape**, not Return.
 
-The screenshots in [`img/`](img/) are the result: the real Packet Tracer
-workspace, with the twelve tier bands, device labels and link indicators.
+The screenshots in [`img/`](img/) are the real Packet Tracer workspace — the
+twelve tier bands, device labels and link indicators — but they were captured by
+**driving a loaded instance directly**, not by the tool. On the same machine and
+file, an untouched Packet Tracer instance held the document open and drawn for
+20+ minutes, while runs that polled it with `import -window root` every ten
+seconds repeatedly ended with the document closed and an empty 541 MB process.
+The wait logic is right; the polling is the remaining suspect, and
+`pt_capture.py` now says so in its own docstring and exposes `--probe-interval`
+to poll less often. **Automated capture of a lab this size is not a solved
+problem here.**
 
 **A control was run throughout.** The known-good `YOKOHAMA_AMLC_smoke.pkt`
 (206 devices) from this same repository renders in this environment, and a

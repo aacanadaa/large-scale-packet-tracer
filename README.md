@@ -359,11 +359,17 @@ immediately link-breaking; they are listed in
 > with **no interaction at all**: at 10.5 minutes the title still carried the
 > file path, the prompt was up, RSS was 4.95 GB and the canvas had 4,578
 > saturated pixels — loaded, drawn and stable. That run is the control.
-> `tools/pt_capture.py` was written for this: it waits for evidence that
-> something was drawn, touches nothing until then, and answers with Escape. A
-> known-good control (`YOKOHAMA_AMLC_smoke.pkt`) and a three-device lab were
+> A known-good control (`YOKOHAMA_AMLC_smoke.pkt`) and a three-device lab were
 > batched with every capture, which is what localised the fault to the harness
 > rather than the lab.
+>
+> **The published screenshots were captured by driving a loaded instance
+> directly, not by an automated harness.** `tools/pt_capture.py` encodes the
+> wait logic — evidence of drawing, no window touch until then, Escape for the
+> prompt — but it is not reliable at this size here: runs that polled the
+> process with `import -window root` every ten seconds repeatedly ended with the
+> document closed, while an untouched instance held it open and drawn for 20+
+> minutes. That limitation is stated in the tool's own docstring.
 >
 > **Convergence and end-to-end traffic have not been independently measured** on
 > the IRUMA-AB build. The render is evidence that Packet Tracer accepted every

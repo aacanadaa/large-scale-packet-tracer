@@ -24,6 +24,16 @@ baked in here.
    which is indistinguishable from a load failure.  Escape selects **No** and
    leaves every device in its original state, and the loaded topology survives.
 
+4. **It is still not reliable at this size here, and you should know that
+   before trusting it.** On the same machine and the same file, an untouched
+   Packet Tracer instance held the document open and drawn for 20+ minutes, while
+   runs that polled it with `import -window root` every ten seconds repeatedly
+   ended with the document closed and an empty 541 MB process. The wait logic is
+   right; the polling is the remaining suspect. **The screenshots published in
+   `docs/iruma/img/` were captured by driving a loaded instance directly, not by
+   this tool.** Treat this tool as a starting point, and use
+   `--probe-interval` to poll less aggressively.
+
     python3 tools/pt_capture.py out/IRUMA_AB.pkt --outdir build/pt_capture
 """
 from __future__ import annotations
@@ -106,6 +116,9 @@ def main(argv=None) -> int:
                     help="saturated sampled pixels that count as 'drawn'")
     ap.add_argument("--stable-samples", type=int, default=3)
     ap.add_argument("--zoom-clicks", type=int, default=24)
+    ap.add_argument("--probe-interval", type=float, default=20.0,
+                    help="seconds between canvas probes; polling less often is "
+                         "kinder to Packet Tracer (see the docstring)")
     a = ap.parse_args(argv)
 
     tc = V.Toolchain.probe()
@@ -163,7 +176,7 @@ def main(argv=None) -> int:
             stable = stable + 1 if ink >= a.ink_threshold else 0
             if stable >= a.stable_samples:
                 break
-            time.sleep(5)
+            time.sleep(a.probe_interval)
         if stable < a.stable_samples:
             raise SystemExit(
                 f"nothing was drawn within {a.load_timeout:.0f}s "
