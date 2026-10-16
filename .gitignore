@@ -1,9 +1,9 @@
-# Build output and intermediate artefacts.  The canonical .pkt files for each
-# lab are committed at the lab root; re-running a generator writes fresh copies
-# under its own out/ and build/ directories.
+# Build output and intermediate artefacts.  The canonical .pkt files are
+# committed at the repository root; re-running a generator writes fresh copies
+# under generator/out/ and generator/build/.
 __pycache__/
 *.pyc
-labs/*/generator/out/
-labs/*/generator/build/
-labs/*/generator/docs/
-labs/*/generator/*.pkt
+generator/out/
+generator/build/
+generator/docs/
+generator/*.pkt
