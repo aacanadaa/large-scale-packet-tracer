@@ -355,10 +355,15 @@ immediately link-breaking; they are listed in
 > **Yes**, which rewrites every affected device's script and **closes the
 > document**, leaving an empty window that is indistinguishable from a load
 > failure. Pressing **Escape** chooses **No** and the loaded topology survives.
+> Resizing the document window before the load finishes breaks it too. Measured
+> with **no interaction at all**: at 10.5 minutes the title still carried the
+> file path, the prompt was up, RSS was 4.95 GB and the canvas had 4,578
+> saturated pixels — loaded, drawn and stable. That run is the control.
 > `tools/pt_capture.py` was written for this: it waits for evidence that
-> something was drawn and answers with Escape. A known-good control
-> (`YOKOHAMA_AMLC_smoke.pkt`) and a three-device lab were batched with every
-> capture, which is what localised the fault to the harness rather than the lab.
+> something was drawn, touches nothing until then, and answers with Escape. A
+> known-good control (`YOKOHAMA_AMLC_smoke.pkt`) and a three-device lab were
+> batched with every capture, which is what localised the fault to the harness
+> rather than the lab.
 >
 > **Convergence and end-to-end traffic have not been independently measured** on
 > the IRUMA-AB build. The render is evidence that Packet Tracer accepted every

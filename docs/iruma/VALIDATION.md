@@ -131,21 +131,30 @@ Measured directly on this machine, the truth is:
 
 | Observation | Measurement |
 | --- | --- |
-| Time to load and draw a 392-device lab | **~8 minutes** (RSS ≈ 4.2 GB) |
-| Does the workspace draw? | **yes** — it draws *behind* the modal prompt |
+| Time to load and draw a 392-device lab | **8–10 minutes** on an otherwise idle machine (RSS ≈ 4.2–5.0 GB); up to **~25 minutes** when another Packet Tracer instance is competing |
+| Does the workspace draw? | **yes** — and it draws *behind* the modal prompt, which is why "is anything on the canvas" works as the load signal |
 | Is the prompt a failure? | no: `This file contains 32 device(s) that have outdated run-time scripts`, offering Yes / No / Update and Make a Copy |
 | What does **Return** choose? | **Yes** — rewrite every affected device's run-time script |
 | What does that do to a 392-device lab? | **closes the document**, leaving an empty untitled window |
 | What does **Escape** choose? | **No** — leaves every device in its original state, and the loaded topology survives |
+| What else breaks the load? | **resizing the document window before the load finishes.** A tool that resizes first and waits second ends up driving a window Packet Tracer has already replaced |
 
-So the first captures in this repository were blank **because the harness pressed
-Return**, and the resulting empty window is indistinguishable from a load
+Measured with **no interaction at all**, at 10.5 minutes: title
+`Cisco Packet Tracer - …/IRUMA_AB.pkt - `, the prompt present, RSS 4.95 GB, and
+4,578 saturated canvas pixels — i.e. loaded, drawn and stable. That run is the
+control for the tool: everything the tool does beyond waiting was suspect until
+it was removed.
+
+So the first captures in this repository were blank for two harness reasons —
+**pressing Return** (which chooses Yes) and **resizing before the load
+finished** — and the resulting empty window is indistinguishable from a load
 failure. `tools/pt_capture.py` was written for this and now
 
 1. waits for **evidence that something was drawn** (saturated pixels inside a
    measured canvas rectangle, which reads exactly zero while the file is still
-   parsing) rather than for a dialog to disappear, and
-2. answers the prompt with **Escape**, not Return.
+   parsing) rather than for a dialog to disappear,
+2. does not touch the window until the workspace has drawn, and
+3. answers the prompt with **Escape**, not Return.
 
 The screenshots in [`img/`](img/) are the result: the real Packet Tracer
 workspace, with the twelve tier bands, device labels and link indicators.
@@ -197,9 +206,10 @@ Two of these are worth generalising, because they are the same mistake twice:
 * **No convergence or traffic measurement** on this build (see gate 6). The
   render is evidence that the file is structurally sound and that Packet Tracer
   accepted every device, port and link name — not that every path forwards.
-* **Opening this lab is slow.** About eight minutes and ~4.2 GB of RSS before
-  the workspace is drawn, on this machine. A smaller profile opens far faster
-  and is the better choice for iterating.
+* **Opening this lab is slow, and variably so.** 8–10 minutes and ~4.2–5.0 GB
+  of RSS before the workspace is drawn, on this machine, and up to ~25 minutes
+  if another Packet Tracer instance is running. A smaller profile opens far
+  faster and is the better choice for iterating.
 * **The physical workspace** (`PACKETTRACER5/PHYSICALWORKSPACE`) was not opened
   and inspected. The braced-UUID plumbing there is the one that reports
   "corrupted Physical Workspace data", and it is unchecked here.

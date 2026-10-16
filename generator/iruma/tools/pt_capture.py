@@ -98,8 +98,10 @@ def main(argv=None) -> int:
     ap.add_argument("lab", type=Path)
     ap.add_argument("--outdir", type=Path, default=ROOT / "build" / "pt_capture")
     ap.add_argument("--screen", default="1600x1000")
-    ap.add_argument("--load-timeout", type=float, default=1800.0,
-                    help="seconds to allow Packet Tracer to parse and draw")
+    ap.add_argument("--load-timeout", type=float, default=2400.0,
+                    help="seconds to allow Packet Tracer to parse and draw; "
+                         "measured at 8-10 min for 392 devices when the machine "
+                         "is otherwise idle, and up to ~25 min under contention")
     ap.add_argument("--ink-threshold", type=int, default=600,
                     help="saturated sampled pixels that count as 'drawn'")
     ap.add_argument("--stable-samples", type=int, default=3)
@@ -121,17 +123,11 @@ def main(argv=None) -> int:
     try:
         pt.launch(work)
         main = pt._main or pt.window
-        # Fill the virtual screen first: a 3900x3900 page cannot fit any
-        # readable viewport, and Packet Tracer restores its own geometry when
-        # loading finishes, so this is repeated after the load.
-        for cmd in (("windowsize", str(main), str(W - 20), str(H - 60)),
-                    ("windowmove", str(main), "0", "0")):
-            try:
-                xdo(*cmd, timeout=15.0)
-            except Exception:                                  # noqa: BLE001
-                pass
-            time.sleep(1.0)
-
+        # Deliberately NOT resized yet.  Packet Tracer restores its own saved
+        # geometry when a load finishes, so a resize before that point is
+        # silently undone -- and resizing the document window while it is still
+        # parsing is one more thing that can go wrong.  The window is resized
+        # after the workspace has been observed to draw.
         # The canvas is the white workspace between Packet Tracer's chrome.
         # Measured on a 1600x1000 screen with the window at (0,0): the
         # Logical/Physical tab bar and the workspace border are a dark blue
@@ -144,7 +140,11 @@ def main(argv=None) -> int:
             gx, gy, gw, gh = xdo.geometry(main)
         except Exception:                                      # noqa: BLE001
             gx, gy, gw, gh = 0, 0, W, H
-        canvas = (gx + 22, gy + 142, max(200, gw - 60), 596)
+        # Height-relative, because Packet Tracer's default window (950x700) and
+        # a maximised one (1580x940) put the device palette at different
+        # y-offsets.  A fixed height samples the palette, whose icons are highly
+        # saturated, and reports a blank workspace as "loaded".
+        canvas = (gx + 22, gy + 142, max(200, gw - 60), max(120, gh - 340))
         print(f"  canvas region {canvas} (window {gx},{gy} {gw}x{gh})")
 
         deadline = time.time() + a.load_timeout
@@ -152,7 +152,10 @@ def main(argv=None) -> int:
         stable = 0
         ink = 0
         while time.time() < deadline:
-            answered = answer_prompts(xdo, pt, screen, 5)
+            # Dismiss informational prompts only *after* the workspace has drawn.
+            # The prompt is raised once the devices are on the page, so waiting
+            # for ink first means nothing is clicked while the file is parsing.
+            answered = answer_prompts(xdo, pt, screen, 5) if ink else 0
             shot = screen.capture("_probe.png")
             ink = canvas_ink(screen, shot, canvas)
             print(f"  t={int(time.time() - (deadline - a.load_timeout)):>4}s "
@@ -167,6 +170,8 @@ def main(argv=None) -> int:
                 f"(last ink={ink}); the workspace is still blank")
         print("loaded: workspace has content")
 
+        # Now that the load is confirmed, grow the window: a 3900x3900 page is
+        # unreadable in a 950x700 viewport, and resizing is safe at this point.
         # Re-assert geometry now that the load has completed.
         for cmd in (("windowsize", str(main), str(W - 20), str(H - 60)),
                     ("windowmove", str(main), "0", "0")):
