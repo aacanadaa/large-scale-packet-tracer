@@ -1,0 +1,355 @@
+name,model,tier,role,site,mgmt_ip
+CARRIER-NTT-EDGE,Cloud-PT,T1-edge,NTT Communications transit cloud (AS65011),EDGE,
+CARRIER-KDDI-EDGE,Cloud-PT,T1-edge,KDDI transit cloud (diverse backup carrier),EDGE,
+IRM-EDGE-RTR-01,ISR4331,T1-edge,"Base edge router A (eBGP to carriers, AS65010)",EDGE,10.255.0.1
+IRM-EDGE-RTR-02,ISR4331,T1-edge,"Base edge router B (eBGP, diverse path)",EDGE,10.255.0.2
+FW-INTERNET-EDGE,5505,T1-edge,Internet / liaison DMZ edge firewall,EDGE,10.99.0.2
+MOD-BACKBONE-GW,ISR4331,T1-edge,Japan Ministry of Defense backbone gateway (eBGP AS65012),EDGE,10.255.0.3
+YOKOTA-ATC-GW,ISR4331,T1-edge,Yokota AB approach/departure control liaison (APP/DEP for Iruma),EDGE,10.255.0.4
+JWS-II-WX-GW,ISR4331,T1-edge,"JWS-II integrated weather system feed, Air Weather Group (Fuchu)",EDGE,10.255.0.5
+SPPOL-AIR-GW,ISR4331,T1-edge,Saitama Prefectural Police Air Corps liaison (co-located hangar),EDGE,10.255.0.6
+SIGINT-BRANCH-GW,ISR4331,T1-edge,"Signals Intelligence HQ radio branch, Iruma detachment",EDGE,10.255.0.7
+EDGE-DMZ-SW,2960-24TT,T1-edge,Liaison DMZ access switch (partner file exchange),EDGE,10.100.110.10
+LIAISON-FILE-SVR,Server-PT,T1-edge,Liaison file exchange broker (AS2 / SFTP),EDGE,10.100.110.20
+EDGE-PROXY-01,Server-PT,T1-edge,Internet proxy / content filter for the base,EDGE,10.100.110.21
+EDGE-MAIL-RELAY,Server-PT,T1-edge,Official mail relay / gateway,EDGE,10.100.110.22
+IRM-CORE-SW-01,3650-24PS,T2-core,"Base collapsed core A (OSPF area 0, iBGP edge)",CORE,10.255.0.8
+IRM-CORE-SW-02,3650-24PS,T2-core,"Base collapsed core B (OSPF area 0, iBGP edge)",CORE,10.255.0.9
+IRM-CORE-RTR-01,ISR4331,T2-core,"Base core router A (OSPF ABR, iBGP speaker)",CORE,10.255.0.10
+IRM-CORE-RTR-02,ISR4331,T2-core,"Base core router B (OSPF ABR, iBGP speaker)",CORE,10.255.0.11
+IRM-WAN-EDGE-01,2911,T2-core,Base WAN edge (primary carrier),CORE,10.255.0.12
+IRM-WAN-EDGE-02,2911,T2-core,Base WAN edge (backup carrier),CORE,10.255.0.13
+IRM-DCI-RTR-01,ISR4331,T2-core,Data-centre interconnect router (MDC <-> BDC),CORE,10.255.0.14
+IRM-NETOPS-GW-01,ISR4331,T2-core,Out-of-band management gateway / NetOps edge,CORE,10.255.0.15
+NETOPS-SW-01,2960-24TT,T2-core,Base NetOps / base communications enclave switch,NOC,10.200.40.11
+NETOPS-NMS-01,Server-PT,T2-core,Network management station (SNMP / syslog / NetFlow),NOC,10.200.40.21
+NETOPS-JUMP-01,Server-PT,T2-core,Privileged jump host (all admin access transits here),NOC,10.200.40.22
+NETOPS-CYBER-OBS,CyberObserver,T2-core,Base cyber defence anomaly / OT intrusion detection,NOC,10.200.40.23
+NETOPS-TAP-01,Sniffer,T2-core,NetOps packet capture tap,NOC,10.200.40.24
+NETOPS-TACACS-01,Server-PT,T2-core,TACACS+ / command accounting collector,NOC,10.200.40.25
+MDC-SPINE-01,3650-24PS,T3-mdc,"MDC spine A (VLAN 60 gateway, HSRP active)",MDC,10.11.60.11
+MDC-SPINE-02,3650-24PS,T3-mdc,MDC spine B (HSRP standby),MDC,10.11.60.12
+MDC-LEAF-01,3560-24PS,T3-mdc,MDC leaf A (core services),MDC,10.11.60.13
+MDC-LEAF-02,3560-24PS,T3-mdc,MDC leaf B (CADF / CACW / OSW mission applications),MDC,10.11.60.14
+FW-MDC-PERIMETER,5505,T3-mdc,MDC perimeter firewall (outside/inside),MDC,10.99.1.2
+FW-MDC-INT,5505,T3-mdc,MDC internal segmentation firewall (apps / services),MDC,10.99.2.2
+DNS-SVR-01,Server-PT,T3-mdc,Authoritative DNS - iruma-ab.example.jp,MDC,10.11.60.21
+DNS-SVR-02,Server-PT,T3-mdc,Secondary DNS (zone replicated),MDC,10.11.60.22
+DHCP-SVR-01,Server-PT,T3-mdc,Base DHCP (all zones),MDC,10.11.60.23
+DHCP-SVR-02,Server-PT,T3-mdc,Standby DHCP node (no pools held),MDC,10.11.60.24
+NTP-SVR-01,Server-PT,T3-mdc,"Stratum-2 NTP, GPS disciplined",MDC,10.11.60.25
+NTP-SVR-02,Server-PT,T3-mdc,Standby NTP node,MDC,10.11.60.26
+SYSLOG-SVR-01,Server-PT,T3-mdc,Central syslog / SIEM collector,MDC,10.11.60.27
+SYSLOG-SVR-02,Server-PT,T3-mdc,Standby syslog archive,MDC,10.11.60.28
+AAA-SVR-01,Server-PT,T3-mdc,RADIUS + TACACS+ (Cisco ACS),MDC,10.11.60.29
+AAA-SVR-02,Server-PT,T3-mdc,Standby AAA node,MDC,10.11.60.30
+TFTP-ARCHIVE-01,Server-PT,T3-mdc,Configuration and image archive,MDC,10.11.60.31
+ADSYS-OPS-01,Server-PT,T3-mdc,Air defence system operations (CACW / OSW mission system),MDC,10.11.60.48
+SORTIE-TASK-01,Server-PT,T3-mdc,Sortie tasking and flying programme service,MDC,10.11.60.41
+MISSION-PLAN-01,Server-PT,T3-mdc,Mission planning and route generation,MDC,10.11.60.42
+ATO-SVR-01,Server-PT,T3-mdc,Air tasking order distribution,MDC,10.11.60.43
+MX-MIS-01,Server-PT,T3-mdc,Maintenance management information system,MDC,10.11.60.44
+SUPPLY-APP-01,Server-PT,T3-mdc,Supply chain and spares management,MDC,10.11.60.45
+FLTREC-SVR-01,Server-PT,T3-mdc,Aircrew flight records and currency,MDC,10.11.60.46
+AIRFIELD-OPS-01,Server-PT,T3-mdc,Airfield operations and movements,MDC,10.11.60.47
+WX-INTEG-01,Server-PT,T3-mdc,Weather integration for flight planning,MDC,10.11.60.49
+PERS-SVR-01,Server-PT,T3-mdc,Personnel and establishment records,MDC,10.11.60.50
+TRAINING-LMS-01,Server-PT,T3-mdc,Aircrew and technical training management,MDC,10.11.60.51
+IRM-PORTAL-01,Server-PT,T3-mdc,Base intranet portal (HTTPS),MDC,10.11.60.52
+BDC-SPINE-01,3650-24PS,T4-bdc,Backup site spine (standby mission services gateway),BDC,10.12.60.11
+BDC-LEAF-01,3560-24PS,T4-bdc,Backup site server access,BDC,10.12.60.12
+FW-BDC-PERIMETER,5505,T4-bdc,Backup site perimeter firewall,BDC,10.99.4.2
+BDC-SORTIE-APP,Server-PT,T4-bdc,Standby sortie tasking (replication target),BDC,10.12.60.41
+BDC-MISSION-DB,Server-PT,T4-bdc,Standby mission planning database,BDC,10.12.60.42
+BDC-SUPPLY-APP,Server-PT,T4-bdc,Standby supply chain application,BDC,10.12.60.43
+BDC-DNS-SVR-01,Server-PT,T4-bdc,Standby DNS resolver,BDC,10.12.60.44
+BDC-REPLICA-SVR,Server-PT,T4-bdc,Asynchronous replication target,BDC,10.12.60.45
+BDC-BACKUP-VAULT,Server-PT,T4-bdc,Offline backup vault,BDC,10.12.60.46
+BDC-ADSYS-APP,Server-PT,T4-bdc,Standby air defence system node,BDC,10.12.60.47
+OPSEC-FW-OUTER,5505,T5-opsec,Enclave outer firewall (base -> enclave DMZ),OPSEC,172.21.255.1
+OPSEC-FW-INNER,5505,T5-opsec,Enclave inner firewall (DMZ -> mission database),OPSEC,172.21.255.2
+OPSEC-DMZ-SW-01,3560-24PS,T5-opsec,"Enclave DMZ switch (tasking brokers, workstations)",OPSEC,172.21.10.10
+OPSEC-DB-SW-01,3560-24PS,T5-opsec,"Enclave protected switch (mission database, HSM)",OPSEC,172.21.20.10
+OPSEC-IDS-01,CyberObserver,T5-opsec,Enclave intrusion detection sensor,OPSEC,172.21.10.20
+OPSEC-TAP-01,Sniffer,T5-opsec,Enclave audit / intercept tap,OPSEC,172.21.10.21
+OPSEC-MSNDB-01,Server-PT,T5-opsec,"Mission database (primary, encrypted at rest)",OPSEC,172.21.20.21
+OPSEC-MSNDB-02,Server-PT,T5-opsec,Mission database (synchronous standby),OPSEC,172.21.20.22
+OPSEC-ATO-BROKER-01,Server-PT,T5-opsec,Air tasking order broker (primary),OPSEC,172.21.10.31
+OPSEC-TASKING-APP-01,Server-PT,T5-opsec,Tasking and fragging application,OPSEC,172.21.10.32
+OPSEC-HSM-KEY-01,Server-PT,T5-opsec,Hardware security module / key custodian,OPSEC,172.21.20.23
+OPSEC-AUDIT-LOG-01,Server-PT,T5-opsec,Immutable enclave audit log (WORM),OPSEC,172.21.20.24
+OPSEC-CRYPT-01,Server-PT,T5-opsec,Cryptographic gateway to the MoD backbone,OPSEC,172.21.10.33
+OPSEC-WS-01,PC-PT,T5-opsec,Mission planning workstation (enclave),OPSEC,172.21.10.40
+OPSEC-WS-02,PC-PT,T5-opsec,Mission planning workstation (enclave),OPSEC,172.21.10.41
+AOC-RTR-01,ISR4331,T6-aoc,Air operations centre router (active),AOC,10.20.40.2
+AOC-RTR-02,ISR4331,T6-aoc,Air operations centre router (standby),AOC,10.20.40.3
+AOC-DSW-01,3560-24PS,T6-aoc,AOC distribution switch A,AOC,10.20.40.11
+AOC-DSW-02,3560-24PS,T6-aoc,AOC distribution switch B,AOC,10.20.40.12
+AOC-ACC-01,2960-24TT,T6-aoc,Control tower cab access switch,AOC,10.20.40.21
+AOC-ACC-02,2960-24TT,T6-aoc,CADF HQ operations floor access,AOC,10.20.40.22
+TWR-POS-CTL-01,Server-PT,T6-aoc,Tower position controller (local control 322.200 MHz),AOC,10.20.20.30
+TWR-DISPLAY-01,Server-PT,T6-aoc,Tower situational display processor,AOC,10.20.20.31
+GND-MOVEMENT-CTL,Server-PT,T6-aoc,Ground movement control position (275.800 MHz),AOC,10.20.20.32
+APCH-DISPLAY-01,Server-PT,T6-aoc,Approach control display (Yokota APP/DEP co-ordination),AOC,10.20.20.33
+AOC-VIDWALL-01,Server-PT,T6-aoc,CADF HQ operations video wall controller,AOC,10.20.10.34
+FLT-DATA-SVR-01,Server-PT,T6-aoc,Flight data processing and strip printing,AOC,10.20.20.35
+AOC-OPS-WS-01,PC-PT,T6-aoc,CADF HQ operations controller workstation,AOC,10.20.10.40
+AOC-OPS-WS-02,PC-PT,T6-aoc,CADF HQ operations controller workstation,AOC,10.20.10.41
+AOC-OPS-WS-03,PC-PT,T6-aoc,CADF HQ operations controller workstation,AOC,10.20.10.42
+TWR-RADIO-01,7960,T6-aoc,Tower / ground radio dispatch console,AOC,10.20.30.20
+TWR-RADIO-02,7960,T6-aoc,Tower / ground radio dispatch console,AOC,10.20.30.21
+ATC-RTR-01,ISR4331,T7-atc,ATC and navaid router (active),ATC,10.21.40.2
+ATC-RTR-02,ISR4331,T7-atc,ATC and navaid router (standby),ATC,10.21.40.3
+ATC-SW-01,IE-9320,T7-atc,ATC radar and navaid industrial switch A,ATC,10.21.40.11
+ATC-SW-02,IE-3400,T7-atc,ATC navaid and airfield lighting switch B,ATC,10.21.40.12
+GCA-RADAR-SVR-01,Server-PT,T7-atc,GCA / precision approach radar processor (GCA 335.600 MHz),ATC,10.21.140.20
+ASR-PROC-SVR-01,Server-PT,T7-atc,Air surveillance radar plot extractor (CACW),ATC,10.21.140.21
+NAVAID-MON-01,Server-PT,T7-atc,Navaid status and drift monitoring (TACAN ident YLT),ATC,10.21.140.22
+ATIS-SVR-01,Server-PT,T7-atc,Automatic terminal information service (voice),ATC,10.21.30.23
+D-ATIS-SVR-01,Server-PT,T7-atc,Digital ATIS / departure information,ATC,10.21.20.24
+ATC-RECORDER-01,Server-PT,T7-atc,ATC voice and radar recording (statutory retention),ATC,10.21.20.25
+PAR-CTL-01,PLC-PT,T7-atc,Airfield system PLC - precision approach radar azimuth/elevation control,21,10.21.70.30
+TACAN-CTL-01,PLC-PT,T7-atc,Airfield system PLC - TACAN beacon control and monitoring (ident YLT),21,10.21.140.31
+ILS-CTL-17,PLC-PT,T7-atc,"Airfield system PLC - instrument landing system, runway 17 localiser/glidepath",21,10.21.140.32
+ILS-CTL-35,PLC-PT,T7-atc,"Airfield system PLC - instrument landing system, runway 35 localiser/glidepath",21,10.21.140.33
+RWY-LIGHT-CTL-01,PLC-PT,T7-atc,"Airfield system PLC - runway 17/35 edge, threshold and centreline lighting control",21,10.21.70.34
+TWY-LIGHT-CTL-01,PLC-PT,T7-atc,Airfield system PLC - parallel taxiway lighting and guidance sign control,21,10.21.70.35
+APCH-LGT-CTL-01,PLC-PT,T7-atc,"Airfield system PLC - approach lighting, PAPI and sequenced flasher control",21,10.21.70.36
+ARFF-ALERT-CTL-01,PLC-PT,T7-atc,Airfield system PLC - crash alarm and ARFF alerting relay from the tower,21,10.21.70.37
+ATC-HMI-01,HMI-PT,T7-atc,Airfield engineering panel (lighting and navaids),21,10.21.70.45
+ATC-HMI-02,HMI-PT,T7-atc,Airfield engineering panel (lighting and navaids),21,10.21.70.46
+402SQ-SW-01,2960-24TT,T8-tenants,402 Hikotai - 2nd Tactical Airlift Group flying squadron (C-2 / RC-2 / U-4),402SQ,10.30.40.10
+402SQ-OPS-SVR,Server-PT,T8-tenants,402 Hikotai operations and tasking server,402SQ,10.30.20.20
+402SQ-OPS-WS-01,PC-PT,T8-tenants,402 Hikotai operations desk workstation,402SQ,10.30.10.30
+402SQ-OPS-WS-02,PC-PT,T8-tenants,402 Hikotai operations desk workstation,402SQ,10.30.10.31
+402SQ-MX-SVR,Server-PT,T8-tenants,402 Hikotai maintenance and servicing record server,402SQ,10.30.60.20
+402SQ-EFB-01,Laptop-PT,T8-tenants,402 Hikotai electronic flight bag (aircrew tablet),402SQ,10.30.50.30
+402SQ-RADIO-01,7960,T8-tenants,402 Hikotai squadron radio dispatch position,402SQ,10.30.30.20
+402SQ-HGR-SW-01,2960-24TT,T8-tenants,402 Hikotai hangar industrial segment switch,402SQ,10.30.40.11
+402SQ-HGR-PLC-01,PLC-PT,T8-tenants,402 Hikotai hangar door and servicing-bay interlock PLC,30,10.30.70.20
+402SQ-HGR-FIRE,Fire Monitor,T8-tenants,402 Hikotai hangar high-expansion foam fire suppression monitor,30,10.30.90.20
+ARWHAS-SW-01,2960-24TT,T8-tenants,Iruma Helicopter Airlift Sq - Air Rescue Wing helicopter airlift squadron (CH-47J),ARWHAS,10.31.40.10
+ARWHAS-OPS-SVR,Server-PT,T8-tenants,Iruma Helicopter Airlift Sq operations and tasking server,ARWHAS,10.31.20.20
+ARWHAS-OPS-WS-01,PC-PT,T8-tenants,Iruma Helicopter Airlift Sq operations desk workstation,ARWHAS,10.31.10.30
+ARWHAS-OPS-WS-02,PC-PT,T8-tenants,Iruma Helicopter Airlift Sq operations desk workstation,ARWHAS,10.31.10.31
+ARWHAS-MX-SVR,Server-PT,T8-tenants,Iruma Helicopter Airlift Sq maintenance and servicing record server,ARWHAS,10.31.60.20
+ARWHAS-EFB-01,Laptop-PT,T8-tenants,Iruma Helicopter Airlift Sq electronic flight bag (aircrew tablet),ARWHAS,10.31.50.30
+ARWHAS-RADIO-01,7960,T8-tenants,Iruma Helicopter Airlift Sq squadron radio dispatch position,ARWHAS,10.31.30.20
+ARWHAS-HGR-SW-01,2960-24TT,T8-tenants,Iruma Helicopter Airlift Sq hangar industrial segment switch,ARWHAS,10.31.40.11
+ARWHAS-HGR-PLC-01,PLC-PT,T8-tenants,Iruma Helicopter Airlift Sq hangar door and servicing-bay interlock PLC,31,10.31.70.20
+ARWHAS-HGR-FIRE,Fire Monitor,T8-tenants,Iruma Helicopter Airlift Sq hangar high-expansion foam fire suppression monitor,31,10.31.90.20
+FCS-SW-01,2960-24TT,T8-tenants,Hiko Tenken-tai - Flight Check Squadron - national navaid and ATC flight inspection (U-125 / U-680A),FCS,10.32.40.10
+FCS-OPS-SVR,Server-PT,T8-tenants,Hiko Tenken-tai operations and tasking server,FCS,10.32.20.20
+FCS-OPS-WS-01,PC-PT,T8-tenants,Hiko Tenken-tai operations desk workstation,FCS,10.32.10.30
+FCS-OPS-WS-02,PC-PT,T8-tenants,Hiko Tenken-tai operations desk workstation,FCS,10.32.10.31
+FCS-MX-SVR,Server-PT,T8-tenants,Hiko Tenken-tai maintenance and servicing record server,FCS,10.32.60.20
+FCS-EFB-01,Laptop-PT,T8-tenants,Hiko Tenken-tai electronic flight bag (aircrew tablet),FCS,10.32.50.30
+FCS-RADIO-01,7960,T8-tenants,Hiko Tenken-tai squadron radio dispatch position,FCS,10.32.30.20
+FCS-HGR-SW-01,2960-24TT,T8-tenants,Hiko Tenken-tai hangar industrial segment switch,FCS,10.32.40.11
+FCS-HGR-PLC-01,PLC-PT,T8-tenants,Hiko Tenken-tai hangar door and servicing-bay interlock PLC,32,10.32.70.20
+FCS-HGR-FIRE,Fire Monitor,T8-tenants,Hiko Tenken-tai hangar high-expansion foam fire suppression monitor,32,10.32.90.20
+EWC-SW-01,2960-24TT,T8-tenants,Denshi Sentai - Electronic Warfare Squadron / Electronic Flight Measurement Squadron (RC-2),EWC,10.33.40.10
+EWC-OPS-SVR,Server-PT,T8-tenants,Denshi Sentai operations and tasking server,EWC,10.33.20.20
+EWC-OPS-WS-01,PC-PT,T8-tenants,Denshi Sentai operations desk workstation,EWC,10.33.10.30
+EWC-OPS-WS-02,PC-PT,T8-tenants,Denshi Sentai operations desk workstation,EWC,10.33.10.31
+CAMG-SW-01,2960-24TT,T8-tenants,Chubu Koshagun - Central Air Defence Missile Group - Patriot PAC-3,CAMG,10.34.40.10
+CAMG-OPS-SVR,Server-PT,T8-tenants,Chubu Koshagun operations and tasking server,CAMG,10.34.20.20
+CAMG-OPS-WS-01,PC-PT,T8-tenants,Chubu Koshagun operations desk workstation,CAMG,10.34.10.30
+CAMG-OPS-WS-02,PC-PT,T8-tenants,Chubu Koshagun operations desk workstation,CAMG,10.34.10.31
+CACE-SW-01,2960-24TT,T8-tenants,Chubu Shisetsu-tai - Central Air Facility Squadron - airfield and facility engineering,CACE,10.35.40.10
+CACE-OPS-SVR,Server-PT,T8-tenants,Chubu Shisetsu-tai operations and tasking server,CACE,10.35.20.20
+CACE-OPS-WS-01,PC-PT,T8-tenants,Chubu Shisetsu-tai operations desk workstation,CACE,10.35.10.30
+CACE-OPS-WS-02,PC-PT,T8-tenants,Chubu Shisetsu-tai operations desk workstation,CACE,10.35.10.31
+ASAR-SW-01,2960-24TT,T8-tenants,Aeromedical Safety Res Unit - Aeromedical and flight safety research unit (2025),ASAR,10.36.40.10
+ASAR-OPS-SVR,Server-PT,T8-tenants,Aeromedical Safety Res Unit operations and tasking server,ASAR,10.36.20.20
+ASAR-OPS-WS-01,PC-PT,T8-tenants,Aeromedical Safety Res Unit operations desk workstation,ASAR,10.36.10.30
+ASAR-OPS-WS-02,PC-PT,T8-tenants,Aeromedical Safety Res Unit operations desk workstation,ASAR,10.36.10.31
+IHS-RTR-01,ISR4331,T8-tenants,JSDF Iruma Hospital zone router (OSPF ABR),HOSP,10.44.40.2
+IHS-SW-01,2960-24TT,T8-tenants,JSDF Iruma Hospital LAN switch,HOSP,10.44.40.11
+IHS-MED-SVR,Server-PT,T8-tenants,Hospital medical records and appointments,HOSP,10.44.60.20
+IHS-RECEPT-CTL,Server-PT,T8-tenants,Outpatient reception and queue management,HOSP,10.44.60.21
+IHS-WS-01,PC-PT,T8-tenants,Hospital clinical workstation,HOSP,10.44.10.30
+IHS-WS-02,PC-PT,T8-tenants,Hospital clinical workstation,HOSP,10.44.10.31
+IHS-CAM-01,Webcam,T8-tenants,JSDF Iruma Hospital - hospital entrance and pharmacy CCTV,44,10.44.80.30
+IHS-DOOR-01,Door,T8-tenants,JSDF Iruma Hospital - pharmacy controlled-substance store door controller,44,10.44.80.40
+IHS-SMOKE-01,Smoke Detector,T8-tenants,JSDF Iruma Hospital - hospital ward smoke detection,44,10.44.90.30
+IHS-OXY-MON-01,Atm Pressure Monitor(0),T8-tenants,JSDF Iruma Hospital - medical oxygen plant pressure monitoring,44,10.44.90.31
+APRON-AGG-01,IE-9320,T9-apron,Apron industrial aggregation A (aprons and helipads),APRON,10.45.40.3
+APRON-AGG-02,IE-9320,T9-apron,Apron industrial aggregation B (flight line and ARFF),APRON,10.45.40.4
+APRON-W-SW-01,IE-3400,T9-apron,west apron industrial switch (main concrete apron - airlift parking),APRON,10.45.40.11
+APRON-W-GSE-01,PLC-PT,T9-apron,west apron ground support equipment and power cart control,45,10.45.120.25
+APRON-W-FUEL-01,PLC-PT,T9-apron,west apron apron refuelling point and bonding interlock,45,10.45.70.26
+APRON-W-LGT-01,Light,T9-apron,west apron apron floodlighting and obstruction lights,45,10.45.70.27
+APRON-W-CAM-01,Webcam,T9-apron,west apron apron surveillance camera head,45,10.45.80.28
+APRON-W-FOD-01,Motion Detector,T9-apron,west apron apron movement and debris detection,45,10.45.90.29
+APRON-N-SW-01,IE-3400,T9-apron,north apron industrial switch (north-west apron on the hangar line),APRON,10.45.40.12
+APRON-N-GSE-01,PLC-PT,T9-apron,north apron ground support equipment and power cart control,45,10.45.120.30
+APRON-N-FUEL-01,PLC-PT,T9-apron,north apron apron refuelling point and bonding interlock,45,10.45.70.31
+APRON-N-LGT-01,Light,T9-apron,north apron apron floodlighting and obstruction lights,45,10.45.70.32
+APRON-N-CAM-01,Webcam,T9-apron,north apron apron surveillance camera head,45,10.45.80.33
+APRON-N-FOD-01,Motion Detector,T9-apron,north apron apron movement and debris detection,45,10.45.90.34
+APRON-H-SW-01,IE-3400,T9-apron,helipad dispersal industrial switch (dispersed helicopter landing pads),APRON,10.45.40.13
+APRON-H-GSE-01,PLC-PT,T9-apron,helipad dispersal ground support equipment and power cart control,45,10.45.120.35
+APRON-H-FUEL-01,PLC-PT,T9-apron,helipad dispersal apron refuelling point and bonding interlock,45,10.45.70.36
+APRON-H-LGT-01,Light,T9-apron,helipad dispersal apron floodlighting and obstruction lights,45,10.45.70.37
+APRON-H-CAM-01,Webcam,T9-apron,helipad dispersal apron surveillance camera head,45,10.45.80.38
+APRON-H-FOD-01,Motion Detector,T9-apron,helipad dispersal apron movement and debris detection,45,10.45.90.39
+FLT-LINE-SW-01,IE-9320,T9-apron,"Flight line industrial switch A (hot refuelling, GSE)",APRON,10.45.40.20
+FLT-LINE-SW-02,IE-3400,T9-apron,"Flight line industrial switch B (ARFF, sweep, birds)",APRON,10.45.40.21
+FUEL-CTL-01,PLC-PT,T9-apron,Airfield PLC - bulk fuel issue and hot-refuelling control,45,10.45.70.100
+HOTFUEL-CTL-01,PLC-PT,T9-apron,Airfield PLC - hot refuelling point interlock and metering,45,10.45.70.101
+RWY-SWEEP-PLC,PLC-PT,T9-apron,Airfield PLC - runway sweep and FOD clearance tasking,45,10.45.120.100
+TOW-TRACTOR-PLC,PLC-PT,T9-apron,Airfield PLC - tow tractor and aircraft movement control,45,10.45.120.101
+GSE-MAINT-PLC,PLC-PT,T9-apron,Airfield PLC - GSE maintenance bay and test bench control,45,10.45.120.102
+ARFF-DISP-SVR,Server-PT,T9-apron,"Airfield rescue and firefighting dispatch (RESCUE 138.050 MHz, crash alarm relay)",APRON,10.45.60.30
+BIRD-CONTROL-SVR,Server-PT,T9-apron,Bird activity control and dispersal tasking,APRON,10.45.60.31
+FOLLOWME-SVR-01,Server-PT,T9-apron,Follow-me and marshalling task dispatch,APRON,10.45.60.32
+ARFF-CMD-WS-01,PC-PT,T9-apron,ARFF watch room command workstation,APRON,10.45.10.40
+ARFF-VEH-PLC-01,PLC-PT,T9-apron,ARFF vehicle readiness and foam-system monitor,45,10.45.70.102
+GND-VEH-01,PLC-PT,T9-apron,"GND-VEH-01 airfield ground vehicle controller (follow-me, fuelling, towing)",APRON,10.45.120.60
+GND-VEH-02,PLC-PT,T9-apron,"GND-VEH-02 airfield ground vehicle controller (follow-me, fuelling, towing)",APRON,10.45.120.61
+GND-VEH-03,PLC-PT,T9-apron,"GND-VEH-03 airfield ground vehicle controller (follow-me, fuelling, towing)",APRON,10.45.120.62
+GND-VEH-04,PLC-PT,T9-apron,"GND-VEH-04 airfield ground vehicle controller (follow-me, fuelling, towing)",APRON,10.45.120.63
+GND-VEH-05,PLC-PT,T9-apron,"GND-VEH-05 airfield ground vehicle controller (follow-me, fuelling, towing)",APRON,10.45.120.64
+GND-VEH-06,PLC-PT,T9-apron,"GND-VEH-06 airfield ground vehicle controller (follow-me, fuelling, towing)",APRON,10.45.120.65
+IWS-RTR-01,ISR4331,T10-wx,Iruma Weather Squadron zone router (OSPF ABR),WX,10.25.40.2
+IWS-SW-01,2960-24TT,T10-wx,Iruma Weather Squadron LAN switch,WX,10.25.40.11
+IWS-FCST-SVR,Server-PT,T10-wx,Local forecasting and briefing production,WX,10.25.60.20
+IWS-OBS-SVR,Server-PT,T10-wx,Surface and upper-air observation ingest,WX,10.25.60.21
+IWS-DISSEM-SVR,Server-PT,T10-wx,"Weather dissemination to aircrew, ATC and CADF HQ",WX,10.25.60.22
+IWS-JWS-CLIENT,Server-PT,T10-wx,JWS-II integrated weather system client (Air Weather Group),WX,10.25.60.23
+WIND-DET-01,Wind Detector,T10-wx,"anemometer, runway 35 touchdown zone",25,10.25.90.20
+WIND-DET-02,Wind Detector,T10-wx,"anemometer, runway 17 touchdown zone",25,10.25.90.21
+TEMP-DET-01,Temperature Monitor,T10-wx,"air temperature and dewpoint, instrument field",25,10.25.90.22
+HUMID-DET-01,Humidity Monitor,T10-wx,"relative humidity, instrument field",25,10.25.90.23
+PRESS-DET-01,Atm Pressure Monitor(0),T10-wx,"barometric pressure, instrument field",25,10.25.90.24
+RAIN-DET-01,Water Level Monitor,T10-wx,rain gauge and precipitation accumulation,25,10.25.90.25
+VIS-DET-01,Light,T10-wx,"visibility and ambient light sensor, instrument field",25,10.25.90.26
+RVR-DET-01,Light,T10-wx,"runway visual range transmissometer, runway 35",25,10.25.90.27
+IWS-BALLOON-CTL,PLC-PT,T10-wx,Upper-air balloon release and radiosonde tracking control,25,10.25.70.30
+IWS-HMI-01,HMI-PT,T10-wx,Forecaster panel (instrument status),25,10.25.70.31
+IWS-MOBILE-CTL,PLC-PT,T10-wx,Mobile observation system deployment control,25,10.25.70.32
+DEP-RTR-01,ISR4331,T11-depot,Air depot zone router (OSPF ABR),DEPOT,10.55.40.2
+3DEP-SW-01,2960-24TT,T11-depot,3rd Air Depot electronics and met-materiel switch,DEPOT,10.55.40.11
+4DEP-SW-01,2960-24TT,T11-depot,4th Air Depot general supply switch,DEPOT,10.55.40.12
+3DEP-WMS-SVR,Server-PT,T11-depot,Depot warehouse management system,DEPOT,10.55.60.20
+3DEP-ELX-SVR,Server-PT,T11-depot,Communications and electronics repair bench management,DEPOT,10.55.60.21
+3DEP-MET-SVR,Server-PT,T11-depot,Meteorological materiel calibration and stock,DEPOT,10.55.60.22
+4DEP-SUPPLY-SVR,Server-PT,T11-depot,General supply chain and spares application,DEPOT,10.55.60.23
+DEP-HIST-01,Server-PT,T11-depot,Depot stock movement historian,DEPOT,10.55.60.24
+DEP-RFID-01,RFID Reader,T11-depot,Warehouse bay 1 stock RFID portal,55,10.55.90.20
+DEP-RFID-02,RFID Reader,T11-depot,Warehouse bay 2 stock RFID portal,55,10.55.90.21
+DEP-RFID-03,RFID Reader,T11-depot,Warehouse bay 3 stock RFID portal,55,10.55.90.22
+DEP-RFID-04,RFID Reader,T11-depot,Warehouse bay 4 stock RFID portal,55,10.55.90.23
+DEP-FORK-PLC-01,PLC-PT,T11-depot,Warehouse forklift 1 guidance controller,55,10.55.120.20
+DEP-FORK-PLC-02,PLC-PT,T11-depot,Warehouse forklift 2 guidance controller,55,10.55.120.21
+DEP-TERM-01,PC-PT,T11-depot,Depot stores and issue terminal,DEPOT,10.55.10.40
+DEP-TERM-02,PC-PT,T11-depot,Depot stores and issue terminal,DEPOT,10.55.10.41
+DEP-TERM-03,PC-PT,T11-depot,Depot stores and issue terminal,DEPOT,10.55.10.42
+DEP-TERM-04,PC-PT,T11-depot,Depot stores and issue terminal,DEPOT,10.55.10.43
+DEP-TERM-05,PC-PT,T11-depot,Depot stores and issue terminal,DEPOT,10.55.10.44
+DEP-TERM-06,PC-PT,T11-depot,Depot stores and issue terminal,DEPOT,10.55.10.45
+DEP-CAM-01,Webcam,T11-depot,Warehouse aisle 1 security camera,55,10.55.80.30
+DEP-DOOR-01,Door,T11-depot,Warehouse secure store door 1 controller,55,10.55.80.40
+DEP-CAM-02,Webcam,T11-depot,Warehouse aisle 2 security camera,55,10.55.80.31
+DEP-DOOR-02,Door,T11-depot,Warehouse secure store door 2 controller,55,10.55.80.41
+DEP-SMOKE-01,Smoke Detector,T11-depot,Warehouse bay 1 smoke detection,55,10.55.90.40
+DEP-SMOKE-02,Smoke Detector,T11-depot,Warehouse bay 2 smoke detection,55,10.55.90.41
+DEP-FIRE-01,Fire Monitor,T11-depot,Depot sprinkler and fire monitor,55,10.55.90.50
+DEP-PWR-01,Power Meter,T11-depot,Depot switchboard power meter,55,10.55.70.50
+POL-RTR-01,ISR4331,T12-pol,Bulk fuel farm zone router (OSPF ABR),POL,10.60.40.2
+POL-SW-01,IE-3400,T12-pol,Fuel farm tank farm industrial switch (ex-rated),POL,10.60.40.11
+POL-SW-02,IE-2000,T12-pol,Fuel farm pump house and issue point switch,POL,10.60.40.12
+POL-SW-03,IE-3400,T12-pol,Fuel farm tank gauging switch (level and leak detection),POL,10.60.40.13
+POL-FUEL-SVR,Server-PT,T12-pol,Fuel stock accounting and issue authorisation,POL,10.60.60.20
+POL-PUMP-PLC-01,PLC-PT,T12-pol,Fuel farm PLC - main fuel transfer pump set control,60,10.60.70.20
+POL-PUMP-PLC-02,PLC-PT,T12-pol,Fuel farm PLC - backup pump set and filtration control,60,10.60.70.21
+POL-TK01-PLC,PLC-PT,T12-pol,"AVTUR 1 tank gauging and valve control (jet fuel, west bund)",60,10.60.70.30
+POL-TK01-LEVEL,Water Level Monitor,T12-pol,AVTUR 1 tank level and water-bottom detection,60,10.60.130.30
+POL-TK02-PLC,PLC-PT,T12-pol,"AVTUR 2 tank gauging and valve control (jet fuel, west bund)",60,10.60.70.31
+POL-TK02-LEVEL,Water Level Monitor,T12-pol,AVTUR 2 tank level and water-bottom detection,60,10.60.130.31
+POL-TK03-PLC,PLC-PT,T12-pol,"AVTUR 3 tank gauging and valve control (jet fuel, east bund)",60,10.60.70.32
+POL-TK03-LEVEL,Water Level Monitor,T12-pol,AVTUR 3 tank level and water-bottom detection,60,10.60.130.32
+POL-TK04-PLC,PLC-PT,T12-pol,"AVTUR 4 tank gauging and valve control (jet fuel, east bund)",60,10.60.70.33
+POL-TK04-LEVEL,Water Level Monitor,T12-pol,AVTUR 4 tank level and water-bottom detection,60,10.60.130.33
+POL-TK05-PLC,PLC-PT,T12-pol,AVGAS 1 tank gauging and valve control (aviation gasoline),60,10.60.70.34
+POL-TK05-LEVEL,Water Level Monitor,T12-pol,AVGAS 1 tank level and water-bottom detection,60,10.60.130.34
+POL-LEAK-01,Water Level Monitor,T12-pol,Fuel farm bund 1 leak detection,60,10.60.130.60
+POL-FIRE-01,Fire Monitor,T12-pol,Fuel farm bund 1 foam fire suppression monitor,60,10.60.90.60
+POL-LEAK-02,Water Level Monitor,T12-pol,Fuel farm bund 2 leak detection,60,10.60.130.61
+POL-FIRE-02,Fire Monitor,T12-pol,Fuel farm bund 2 foam fire suppression monitor,60,10.60.90.61
+POL-SIREN-01,Siren,T12-pol,Fuel farm evacuation alarm,60,10.60.90.70
+POL-HMI-01,HMI-PT,T12-pol,Fuel farm operator panel,60,10.60.70.70
+POL-METER-01,Power Meter,T12-pol,Fuel farm pump house power meter,60,10.60.70.80
+SEC-RTR-01,ISR4331,T13-sec,Security forces zone router (OSPF ABR),SEC,10.70.40.2
+SEC-SW-01,3560-24PS,T13-sec,Physical security PoE switch A,SEC,10.70.40.11
+SEC-SW-02,2960-24TT,T13-sec,Physical security PoE switch B,SEC,10.70.40.12
+CCTV-NVR-01,Server-PT,T13-sec,CCTV recording and video analytics,SEC,10.70.80.20
+ACS-DOOR-SVR-01,Server-PT,T13-sec,Door access control and credential service,SEC,10.70.80.21
+PERIM-CAM-01,Webcam,T13-sec,Perimeter CCTV camera head - perimeter north,70,10.70.80.30
+PERIM-CAM-02,Webcam,T13-sec,Perimeter CCTV camera head - perimeter east,70,10.70.80.31
+PERIM-CAM-03,Webcam,T13-sec,Perimeter CCTV camera head - perimeter south,70,10.70.80.32
+PERIM-CAM-04,Webcam,T13-sec,Perimeter CCTV camera head - perimeter west,70,10.70.80.33
+PERIM-CAM-05,Webcam,T13-sec,Perimeter CCTV camera head - main gate,70,10.70.80.34
+PERIM-CAM-06,Webcam,T13-sec,Perimeter CCTV camera head - hangar line,70,10.70.80.35
+PERIM-CAM-07,Webcam,T13-sec,Perimeter CCTV camera head - perimeter north,70,10.70.80.36
+PERIM-CAM-08,Webcam,T13-sec,Perimeter CCTV camera head - perimeter east,70,10.70.80.37
+PERIM-CAM-09,Webcam,T13-sec,Perimeter CCTV camera head - perimeter south,70,10.70.80.38
+ACS-DOOR-01,Door,T13-sec,Controlled door 1 access controller,70,10.70.80.60
+ACS-DOOR-02,Door,T13-sec,Controlled door 2 access controller,70,10.70.80.61
+ACS-DOOR-03,Door,T13-sec,Controlled door 3 access controller,70,10.70.80.62
+ACS-DOOR-04,Door,T13-sec,Controlled door 4 access controller,70,10.70.80.63
+PERIM-TRIP-01,Trip Sensor,T13-sec,Perimeter intrusion trip sensor line 1,70,10.70.90.30
+PERIM-TRIP-02,Trip Sensor,T13-sec,Perimeter intrusion trip sensor line 2,70,10.70.90.31
+PERIM-SIREN-01,Siren,T13-sec,perimeter intrusion alarm and dispersal siren,70,10.70.90.40
+SEC-FIRE-01,Fire Monitor,T13-sec,crash crew building fire monitor,70,10.70.90.41
+SEC-CO-01,CO Detector,T13-sec,appliance bay carbon monoxide detection,70,10.70.90.42
+SEC-SMOKE-01,Smoke Detector,T13-sec,security operations room smoke detection,70,10.70.90.43
+GATE-HOUSE-SW-01,2960-24TT,T13-sec,Main gate house access switch,SEC,10.70.40.21
+GATE-HOUSE-WS-01,PC-PT,T13-sec,Main gate pass and visitor processing workstation,SEC,10.70.10.30
+GATE-HOUSE-CAM-01,Webcam,T13-sec,Main gate vehicle inspection camera,70,10.70.80.70
+UTIL-RTR-01,ISR4331,T14-util,Utilities and standby power zone router (OSPF ABR),UTIL,10.75.40.2
+UTIL-SW-01,IE-3400,T14-util,Substation and standby power industrial switch,UTIL,10.75.40.11
+UTIL-SW-02,IE-2000,T14-util,Base services industrial switch,UTIL,10.75.40.12
+SUBSTN-PLC-01,PLC-PT,T14-util,Base utilities - Primary substation protection and switching PLC,75,10.75.70.20
+GENERATOR-PLC-01,PLC-PT,T14-util,Base utilities - Standby generator start and load-transfer PLC,75,10.75.70.21
+UPS-CTL-01,PLC-PT,T14-util,Base utilities - UPS and static transfer switch controller,75,10.75.70.22
+PWR-METER-01,Power Meter,T14-util,Base electrical power quality meter 1,75,10.75.70.30
+PWR-METER-02,Power Meter,T14-util,Base electrical power quality meter 2,75,10.75.70.31
+PWR-METER-03,Power Meter,T14-util,Base electrical power quality meter 3,75,10.75.70.32
+PWR-METER-04,Power Meter,T14-util,Base electrical power quality meter 4,75,10.75.70.33
+UTIL-SMOKE-01,Smoke Detector,T14-util,substation smoke detection,75,10.75.90.20
+UTIL-SMOKE-02,Smoke Detector,T14-util,standby generator hall smoke detection,75,10.75.90.21
+UTIL-WATER-01,Water Level Monitor,T14-util,base water reservoir level and pump control,75,10.75.90.22
+UTIL-FIRE-01,Fire Monitor,T14-util,substation fire suppression monitor,75,10.75.90.23
+UTIL-BATT-01,Battery,T14-util,grid-scale battery energy storage controller,75,10.75.70.40
+UTIL-SOLAR-01,Solar Panel,T14-util,base solar photovoltaic array controller,75,10.75.70.41
+UTIL-HMI-01,HMI-PT,T14-util,Base utilities operator panel (power and water),75,10.75.70.50
+IRM-WLC-01,WLC-3504,T15-wlan,"Base WLAN controller A (aircrew, apron, guest)",WLAN,10.80.40.2
+IRM-WLC-02,WLC-3504,T15-wlan,Base WLAN controller B (HA pair),WLAN,10.80.40.3
+WLAN-DSW-01,3560-24PS,T15-wlan,WLAN distribution switch (PoE),WLAN,10.80.40.11
+WLAN-ACC-01,2960-24TT,T15-wlan,WLAN access switch (outdoor APs),WLAN,10.80.40.12
+IRM-AP-01,AccessPoint-PT-N,T15-wlan,Outdoor 802.11ac AP - APRON coverage,WLAN,10.80.40.30
+IRM-AP-02,AccessPoint-PT-N,T15-wlan,Outdoor 802.11ac AP - TENANT coverage,WLAN,10.80.40.31
+IRM-AP-03,AccessPoint-PT-N,T15-wlan,Outdoor 802.11ac AP - DEPOT coverage,WLAN,10.80.40.32
+IRM-AP-04,AccessPoint-PT-N,T15-wlan,Outdoor 802.11ac AP - TOWER coverage,WLAN,10.80.40.33
+IRM-AP-05,AccessPoint-PT-N,T15-wlan,Outdoor 802.11ac AP - POL coverage,WLAN,10.80.40.34
+IRM-AP-06,AccessPoint-PT-N,T15-wlan,Outdoor 802.11ac AP - SECURITY coverage,WLAN,10.80.40.35
+IRM-AP-07,AccessPoint-PT-N,T15-wlan,Outdoor 802.11ac AP - APRON coverage,WLAN,10.80.40.36
+IRM-AP-08,AccessPoint-PT-N,T15-wlan,Outdoor 802.11ac AP - TENANT coverage,WLAN,10.80.40.37
+IRM-AP-09,AccessPoint-PT-N,T15-wlan,Outdoor 802.11ac AP - DEPOT coverage,WLAN,10.80.40.38
+EFB-01,TabletPC-PT,T16-mobile,Aircrew electronic flight bag tablet,MOBILE,10.20.50.60
+EFB-02,TabletPC-PT,T16-mobile,Aircrew electronic flight bag tablet,MOBILE,10.20.50.61
+EFB-03,TabletPC-PT,T16-mobile,Aircrew electronic flight bag tablet,MOBILE,10.20.50.62
+EFB-04,TabletPC-PT,T16-mobile,Aircrew electronic flight bag tablet,MOBILE,10.20.50.63
+EFB-05,TabletPC-PT,T16-mobile,Aircrew electronic flight bag tablet,MOBILE,10.20.50.64
+EFB-06,TabletPC-PT,T16-mobile,Aircrew electronic flight bag tablet,MOBILE,10.20.50.65
+EFB-07,TabletPC-PT,T16-mobile,Aircrew electronic flight bag tablet,MOBILE,10.20.50.66
+EFB-08,TabletPC-PT,T16-mobile,Aircrew electronic flight bag tablet,MOBILE,10.20.50.67
+EFB-09,TabletPC-PT,T16-mobile,Aircrew electronic flight bag tablet,MOBILE,10.20.50.68
+EFB-10,TabletPC-PT,T16-mobile,Aircrew electronic flight bag tablet,MOBILE,10.20.50.69
+EFB-11,TabletPC-PT,T16-mobile,Aircrew electronic flight bag tablet,MOBILE,10.20.50.70
+EFB-12,TabletPC-PT,T16-mobile,Aircrew electronic flight bag tablet,MOBILE,10.20.50.71
+HANDSET-01,SMARTPHONE-PT,T16-mobile,Base duty handset (voice and alerting),MOBILE,10.20.50.90
+HANDSET-02,SMARTPHONE-PT,T16-mobile,Base duty handset (voice and alerting),MOBILE,10.20.50.91
+HANDSET-03,SMARTPHONE-PT,T16-mobile,Base duty handset (voice and alerting),MOBILE,10.20.50.92

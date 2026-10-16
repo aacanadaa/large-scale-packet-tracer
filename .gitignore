@@ -7,3 +7,9 @@ generator/out/
 generator/build/
 generator/docs/
 generator/*.pkt
+# Per-lab subdirectories (generator/<lab>/) follow the same rule: the
+# canonical .pkt files are committed at the repository root and each lab's
+# published documents under docs/<lab>/.
+generator/*/out/
+generator/*/build/
+generator/*/docs/

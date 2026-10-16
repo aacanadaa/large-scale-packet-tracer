@@ -1,0 +1,1183 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="3280" height="2672" viewBox="0 0 3280 2672" font-family="Helvetica,Arial,sans-serif">
+<rect width="3280" height="2672" fill="#fbfbfd"/>
+<rect x="20" y="80" width="3240" height="106" rx="8" fill="#7b1fa2" opacity="0.06"/>
+<text x="32" y="100" font-size="15" font-weight="bold" fill="#7b1fa2">Carrier &amp; external liaison edge <tspan font-weight="normal" fill="#666">(14 devices)</tspan></text>
+<rect x="20" y="216" width="3240" height="106" rx="8" fill="#c62828" opacity="0.06"/>
+<text x="32" y="236" font-size="15" font-weight="bold" fill="#c62828">Base backbone &amp; NetOps <tspan font-weight="normal" fill="#666">(14 devices)</tspan></text>
+<rect x="20" y="352" width="3240" height="198" rx="8" fill="#1565c0" opacity="0.06"/>
+<text x="32" y="372" font-size="15" font-weight="bold" fill="#1565c0">Air defence &amp; mission DC (+ backup) <tspan font-weight="normal" fill="#666">(42 devices)</tspan></text>
+<rect x="20" y="580" width="3240" height="106" rx="8" fill="#4a148c" opacity="0.06"/>
+<text x="32" y="600" font-size="15" font-weight="bold" fill="#4a148c">Operations-security enclave <tspan font-weight="normal" fill="#666">(15 devices)</tspan></text>
+<rect x="20" y="716" width="3240" height="152" rx="8" fill="#00695c" opacity="0.06"/>
+<text x="32" y="736" font-size="15" font-weight="bold" fill="#00695c">Air Operations Centre / tower <tspan font-weight="normal" fill="#666">(17 devices)</tspan></text>
+<rect x="20" y="898" width="3240" height="152" rx="8" fill="#ef6c00" opacity="0.06"/>
+<text x="32" y="918" font-size="15" font-weight="bold" fill="#ef6c00">Air traffic control &amp; navaids <tspan font-weight="normal" fill="#666">(20 devices)</tspan></text>
+<rect x="20" y="1080" width="3240" height="290" rx="8" fill="#f9a825" opacity="0.06"/>
+<text x="32" y="1100" font-size="15" font-weight="bold" fill="#f9a825">Tenant squadrons, hangars, hospital <tspan font-weight="normal" fill="#666">(70 devices)</tspan></text>
+<rect x="20" y="1400" width="3240" height="244" rx="8" fill="#2e7d32" opacity="0.06"/>
+<text x="32" y="1420" font-size="15" font-weight="bold" fill="#2e7d32">Apron, flight line &amp; vehicles <tspan font-weight="normal" fill="#666">(46 devices)</tspan></text>
+<rect x="20" y="1674" width="3240" height="152" rx="8" fill="#00838f" opacity="0.06"/>
+<text x="32" y="1694" font-size="15" font-weight="bold" fill="#00838f">Air Weather Squadron <tspan font-weight="normal" fill="#666">(17 devices)</tspan></text>
+<rect x="20" y="1856" width="3240" height="244" rx="8" fill="#5d4037" opacity="0.06"/>
+<text x="32" y="1876" font-size="15" font-weight="bold" fill="#5d4037">Air depots &amp; bulk fuel farm <tspan font-weight="normal" fill="#666">(56 devices)</tspan></text>
+<rect x="20" y="2130" width="3240" height="290" rx="8" fill="#0277bd" opacity="0.06"/>
+<text x="32" y="2150" font-size="15" font-weight="bold" fill="#0277bd">Security, utilities &amp; wireless <tspan font-weight="normal" fill="#666">(63 devices)</tspan></text>
+<rect x="20" y="2450" width="3240" height="152" rx="8" fill="#455a64" opacity="0.06"/>
+<text x="32" y="2470" font-size="15" font-weight="bold" fill="#455a64">Mobile estate <tspan font-weight="normal" fill="#666">(18 devices)</tspan></text>
+<line x1="490" y1="246" x2="700" y2="246" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="490" y1="246" x2="70" y2="246" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="700" y1="246" x2="280" y2="246" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="490" y1="246" x2="280" y2="246" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="700" y1="246" x2="70" y2="246" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="70" y1="246" x2="1330" y2="246" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="280" y1="246" x2="1540" y2="246" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="1330" y1="246" x2="1540" y2="246" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="490" y1="246" x2="910" y2="246" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="700" y1="246" x2="1120" y2="246" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="490" y1="246" x2="1330" y2="110" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="700" y1="246" x2="1540" y2="110" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="280" y1="110" x2="1330" y2="110" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="70" y1="110" x2="1540" y2="110" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="1330" y1="110" x2="1120" y2="110" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="1120" y1="110" x2="490" y2="110" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="490" y1="110" x2="2170" y2="110" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="490" y1="110" x2="2800" y2="110" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="490" y1="110" x2="1750" y2="110" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="490" y1="110" x2="2590" y2="110" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="490" y1="110" x2="2380" y2="110" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="490" y1="110" x2="1960" y2="110" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="490" y1="110" x2="910" y2="110" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="490" y1="110" x2="700" y2="110" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="490" y1="246" x2="1540" y2="428" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="1540" y1="428" x2="2380" y2="428" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="2380" y1="428" x2="2590" y2="428" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="2380" y1="428" x2="1960" y2="428" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="2590" y1="428" x2="1330" y2="428" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="1330" y1="428" x2="2170" y2="428" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="1960" y1="428" x2="2170" y2="428" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="1960" y1="428" x2="490" y2="428" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="1960" y1="428" x2="700" y2="428" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="1960" y1="428" x2="70" y2="428" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="1960" y1="428" x2="280" y2="428" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="1960" y1="428" x2="280" y2="474" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="1960" y1="428" x2="490" y2="474" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="1960" y1="428" x2="1540" y2="474" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="1960" y1="428" x2="1750" y2="474" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="1960" y1="428" x2="70" y2="382" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="1960" y1="428" x2="280" y2="382" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="1960" y1="428" x2="1960" y2="474" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="1960" y1="428" x2="490" y2="382" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="1960" y1="428" x2="1120" y2="474" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="1960" y1="428" x2="2800" y2="428" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="1960" y1="428" x2="910" y2="382" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="1960" y1="428" x2="3010" y2="428" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="1960" y1="428" x2="1330" y2="474" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="1960" y1="428" x2="910" y2="428" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="1960" y1="428" x2="700" y2="382" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="1960" y1="428" x2="2380" y2="474" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="1960" y1="428" x2="700" y2="474" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="1960" y1="428" x2="2170" y2="474" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="1960" y1="428" x2="1750" y2="428" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="1960" y1="428" x2="910" y2="474" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="2170" y1="428" x2="70" y2="474" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="2170" y1="428" x2="3010" y2="382" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="700" y1="246" x2="1120" y2="428" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="1120" y1="428" x2="2590" y2="382" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="2590" y1="382" x2="1750" y2="382" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="1750" y1="382" x2="2380" y2="382" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="1750" y1="382" x2="1960" y2="382" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="1750" y1="382" x2="2800" y2="382" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="1750" y1="382" x2="1540" y2="382" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="1750" y1="382" x2="2170" y2="382" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="1750" y1="382" x2="1330" y2="382" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="1750" y1="382" x2="1120" y2="382" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="700" y1="246" x2="1330" y2="610" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="1330" y1="610" x2="910" y2="610" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="1330" y1="610" x2="1120" y2="610" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="1120" y1="610" x2="700" y2="610" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="910" y1="610" x2="1750" y2="610" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="910" y1="610" x2="2380" y2="610" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="910" y1="610" x2="70" y2="610" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="910" y1="610" x2="2590" y2="610" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="910" y1="610" x2="490" y2="610" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="910" y1="610" x2="2800" y2="610" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="910" y1="610" x2="3010" y2="610" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="700" y1="610" x2="1960" y2="610" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="700" y1="610" x2="2170" y2="610" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="700" y1="610" x2="1540" y2="610" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="700" y1="610" x2="280" y2="610" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="490" y1="246" x2="1540" y2="746" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="700" y1="246" x2="1750" y2="746" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="1540" y1="746" x2="490" y2="746" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="1750" y1="746" x2="700" y2="746" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="490" y1="746" x2="700" y2="746" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="490" y1="746" x2="70" y2="746" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="700" y1="746" x2="280" y2="746" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="70" y1="746" x2="3010" y2="746" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="70" y1="746" x2="2800" y2="746" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="70" y1="746" x2="2590" y2="746" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="70" y1="746" x2="2170" y2="746" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="70" y1="746" x2="1960" y2="746" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="70" y1="746" x2="2380" y2="746" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="70" y1="746" x2="910" y2="746" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="70" y1="746" x2="1120" y2="746" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="280" y1="746" x2="1330" y2="746" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="280" y1="746" x2="70" y2="792" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="280" y1="746" x2="280" y2="792" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="490" y1="246" x2="1330" y2="928" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="700" y1="246" x2="1540" y2="928" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="1330" y1="928" x2="1750" y2="928" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="1540" y1="928" x2="1960" y2="928" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="1750" y1="928" x2="1960" y2="928" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="1750" y1="928" x2="2590" y2="928" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="1750" y1="928" x2="490" y2="928" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="1750" y1="928" x2="70" y2="974" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="1750" y1="928" x2="2170" y2="928" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="1750" y1="928" x2="2380" y2="928" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="1750" y1="928" x2="1120" y2="928" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="1750" y1="928" x2="280" y2="974" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="1750" y1="928" x2="700" y2="974" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="1750" y1="928" x2="2800" y2="928" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="1750" y1="928" x2="3010" y2="928" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="1960" y1="928" x2="490" y2="974" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="1960" y1="928" x2="910" y2="974" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="1960" y1="928" x2="70" y2="928" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="1960" y1="928" x2="280" y2="928" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="1960" y1="928" x2="700" y2="928" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="1960" y1="928" x2="910" y2="928" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="490" y1="246" x2="1960" y2="1110" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="1960" y1="1110" x2="1120" y2="1110" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="1960" y1="1110" x2="1330" y2="1110" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="1960" y1="1110" x2="1540" y2="1110" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="1960" y1="1110" x2="910" y2="1110" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="1960" y1="1110" x2="70" y2="1110" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="1960" y1="1110" x2="1750" y2="1110" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="1960" y1="1110" x2="700" y2="1110" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="700" y1="1110" x2="490" y2="1110" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="700" y1="1110" x2="280" y2="1110" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="490" y1="246" x2="910" y2="1156" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="910" y1="1156" x2="70" y2="1156" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="910" y1="1156" x2="280" y2="1156" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="910" y1="1156" x2="490" y2="1156" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="910" y1="1156" x2="3010" y2="1110" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="910" y1="1156" x2="2170" y2="1110" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="910" y1="1156" x2="700" y2="1156" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="910" y1="1156" x2="2800" y2="1110" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="2800" y1="1110" x2="2590" y2="1110" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="2800" y1="1110" x2="2380" y2="1110" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="490" y1="246" x2="70" y2="1248" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="70" y1="1248" x2="2380" y2="1202" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="70" y1="1248" x2="2590" y2="1202" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="70" y1="1248" x2="2800" y2="1202" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="70" y1="1248" x2="2170" y2="1202" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="70" y1="1248" x2="1330" y2="1202" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="70" y1="1248" x2="3010" y2="1202" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="70" y1="1248" x2="1960" y2="1202" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="1960" y1="1202" x2="1750" y2="1202" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="1960" y1="1202" x2="1540" y2="1202" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="490" y1="246" x2="1960" y2="1294" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="1960" y1="1294" x2="1120" y2="1294" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="1960" y1="1294" x2="1330" y2="1294" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="1960" y1="1294" x2="1540" y2="1294" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="1960" y1="1294" x2="910" y2="1294" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="1960" y1="1294" x2="70" y2="1294" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="1960" y1="1294" x2="1750" y2="1294" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="1960" y1="1294" x2="700" y2="1294" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="700" y1="1294" x2="490" y2="1294" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="700" y1="1294" x2="280" y2="1294" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="490" y1="246" x2="1120" y2="1202" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="1120" y1="1202" x2="490" y2="1202" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="1120" y1="1202" x2="700" y2="1202" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="1120" y1="1202" x2="910" y2="1202" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="490" y1="246" x2="280" y2="1202" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="280" y1="1202" x2="2800" y2="1156" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="280" y1="1202" x2="3010" y2="1156" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="280" y1="1202" x2="70" y2="1202" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="490" y1="246" x2="2590" y2="1156" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="2590" y1="1156" x2="1960" y2="1156" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="2590" y1="1156" x2="2170" y2="1156" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="2590" y1="1156" x2="2380" y2="1156" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="490" y1="246" x2="1750" y2="1156" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="1750" y1="1156" x2="1120" y2="1156" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="1750" y1="1156" x2="1330" y2="1156" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="1750" y1="1156" x2="1540" y2="1156" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="490" y1="246" x2="3010" y2="1248" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="3010" y1="1248" x2="2380" y2="1248" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="3010" y1="1248" x2="2590" y2="1248" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="3010" y1="1248" x2="2800" y2="1248" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="700" y1="246" x2="1330" y2="1248" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="1330" y1="1248" x2="1750" y2="1248" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="1750" y1="1248" x2="700" y2="1248" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="1750" y1="1248" x2="1120" y2="1248" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="1750" y1="1248" x2="1960" y2="1248" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="1750" y1="1248" x2="2170" y2="1248" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="1750" y1="1248" x2="280" y2="1248" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="1750" y1="1248" x2="490" y2="1248" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="1750" y1="1248" x2="1540" y2="1248" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="1750" y1="1248" x2="910" y2="1248" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="490" y1="246" x2="70" y2="1430" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="700" y1="246" x2="280" y2="1430" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="70" y1="1430" x2="280" y2="1430" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="70" y1="1430" x2="2170" y2="1476" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="2170" y1="1476" x2="1750" y2="1476" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="2170" y1="1476" x2="1540" y2="1476" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="2170" y1="1476" x2="1960" y2="1476" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="2170" y1="1476" x2="1120" y2="1476" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="2170" y1="1476" x2="1330" y2="1476" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="70" y1="1430" x2="2800" y2="1430" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="2800" y1="1430" x2="2380" y2="1430" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="2800" y1="1430" x2="2170" y2="1430" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="2800" y1="1430" x2="2590" y2="1430" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="2800" y1="1430" x2="1750" y2="1430" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="2800" y1="1430" x2="1960" y2="1430" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="70" y1="1430" x2="1540" y2="1430" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="1540" y1="1430" x2="1120" y2="1430" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="1540" y1="1430" x2="910" y2="1430" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="1540" y1="1430" x2="1330" y2="1430" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="1540" y1="1430" x2="490" y2="1430" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="1540" y1="1430" x2="700" y2="1430" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="70" y1="1430" x2="910" y2="1476" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="910" y1="1476" x2="490" y2="1476" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="910" y1="1476" x2="280" y2="1476" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="910" y1="1476" x2="700" y2="1476" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="910" y1="1476" x2="3010" y2="1430" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="910" y1="1476" x2="70" y2="1476" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="280" y1="1430" x2="70" y2="1522" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="280" y1="1430" x2="280" y2="1522" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="70" y1="1522" x2="280" y2="1522" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="70" y1="1522" x2="2590" y2="1476" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="70" y1="1522" x2="3010" y2="1476" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="70" y1="1522" x2="490" y2="1522" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="70" y1="1522" x2="2380" y2="1476" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="70" y1="1522" x2="700" y2="1522" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="70" y1="1522" x2="2800" y2="1522" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="70" y1="1522" x2="3010" y2="1522" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="280" y1="1522" x2="70" y2="1568" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="280" y1="1522" x2="2590" y2="1522" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="280" y1="1522" x2="2800" y2="1476" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="1750" y1="1704" x2="1960" y2="1704" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="1960" y1="1704" x2="700" y2="1704" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="1960" y1="1704" x2="1540" y2="1704" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="1960" y1="1704" x2="490" y2="1704" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="1960" y1="1704" x2="1120" y2="1704" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="1960" y1="1704" x2="70" y2="1750" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="1960" y1="1704" x2="280" y2="1750" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="1960" y1="1704" x2="2800" y2="1704" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="1960" y1="1704" x2="70" y2="1704" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="1960" y1="1704" x2="2170" y2="1704" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="1960" y1="1704" x2="2380" y2="1704" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="1960" y1="1704" x2="3010" y2="1704" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="1960" y1="1704" x2="2590" y2="1704" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="1960" y1="1704" x2="280" y2="1704" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="1960" y1="1704" x2="910" y2="1704" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="1960" y1="1704" x2="1330" y2="1704" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="490" y1="246" x2="910" y2="1932" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="910" y1="1932" x2="490" y2="1886" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="490" y1="1886" x2="1120" y2="1886" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="490" y1="1886" x2="700" y2="1886" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="490" y1="1886" x2="70" y2="1886" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="490" y1="1886" x2="280" y2="1886" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="490" y1="1886" x2="910" y2="1886" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="490" y1="1886" x2="2800" y2="1886" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="490" y1="1886" x2="70" y2="1932" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="490" y1="1886" x2="280" y2="1932" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="490" y1="1886" x2="490" y2="1932" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="490" y1="1886" x2="700" y2="1932" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="490" y1="1886" x2="2380" y2="1886" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="490" y1="1886" x2="2590" y2="1886" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="490" y1="1886" x2="1540" y2="1932" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="1120" y1="1886" x2="1750" y2="1932" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="1120" y1="1886" x2="1960" y2="1932" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="1120" y1="1886" x2="2170" y2="1932" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="1120" y1="1886" x2="2380" y2="1932" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="1120" y1="1886" x2="2590" y2="1932" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="1120" y1="1886" x2="2800" y2="1932" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="1120" y1="1886" x2="3010" y2="1932" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="1120" y1="1886" x2="1330" y2="1886" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="1120" y1="1886" x2="1750" y2="1886" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="1120" y1="1886" x2="1540" y2="1886" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="1120" y1="1886" x2="1960" y2="1886" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="1120" y1="1886" x2="1120" y2="1932" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="1120" y1="1886" x2="1330" y2="1932" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="1120" y1="1886" x2="2170" y2="1886" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="1120" y1="1886" x2="3010" y2="1886" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="700" y1="246" x2="1960" y2="1978" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="1960" y1="1978" x2="2380" y2="1978" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="2380" y1="1978" x2="2590" y2="1978" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="2380" y1="1978" x2="2800" y2="1978" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="2380" y1="1978" x2="490" y2="1978" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="2380" y1="1978" x2="70" y2="2024" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="2380" y1="1978" x2="490" y2="2024" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="2380" y1="1978" x2="910" y2="2024" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="2380" y1="1978" x2="1330" y2="2024" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="2380" y1="1978" x2="1750" y2="2024" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="2380" y1="1978" x2="2170" y2="2024" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="2800" y1="1978" x2="3010" y2="1978" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="2800" y1="1978" x2="280" y2="2024" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="2800" y1="1978" x2="700" y2="2024" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="2800" y1="1978" x2="1120" y2="2024" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="2800" y1="1978" x2="1540" y2="2024" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="2800" y1="1978" x2="1960" y2="2024" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="2590" y1="1978" x2="1540" y2="1978" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="2590" y1="1978" x2="1750" y2="1978" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="2590" y1="1978" x2="910" y2="1978" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="2590" y1="1978" x2="70" y2="1978" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="2590" y1="1978" x2="1120" y2="1978" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="2590" y1="1978" x2="280" y2="1978" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="2590" y1="1978" x2="2170" y2="1978" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="2590" y1="1978" x2="700" y2="1978" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="2590" y1="1978" x2="1330" y2="1978" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="490" y1="246" x2="70" y2="2298" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="70" y1="2298" x2="490" y2="2298" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="490" y1="2298" x2="700" y2="2298" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="490" y1="2298" x2="1540" y2="2160" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="490" y1="2298" x2="1120" y2="2160" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="490" y1="2298" x2="910" y2="2160" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="490" y1="2298" x2="1960" y2="2206" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="490" y1="2298" x2="2170" y2="2206" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="490" y1="2298" x2="2380" y2="2206" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="490" y1="2298" x2="2590" y2="2206" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="490" y1="2298" x2="2800" y2="2206" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="490" y1="2298" x2="3010" y2="2206" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="490" y1="2298" x2="70" y2="2252" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="490" y1="2298" x2="280" y2="2252" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="490" y1="2298" x2="490" y2="2252" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="490" y1="2298" x2="700" y2="2252" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="700" y1="2298" x2="910" y2="2252" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="700" y1="2298" x2="1120" y2="2252" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="700" y1="2298" x2="70" y2="2160" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="700" y1="2298" x2="280" y2="2160" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="700" y1="2298" x2="490" y2="2160" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="700" y1="2298" x2="700" y2="2160" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="700" y1="2298" x2="1540" y2="2252" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="700" y1="2298" x2="1750" y2="2252" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="700" y1="2298" x2="1330" y2="2252" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="700" y1="2298" x2="3010" y2="2252" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="700" y1="2298" x2="2800" y2="2252" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="700" y1="2298" x2="280" y2="2298" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="1540" y1="2160" x2="1750" y2="2160" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="1540" y1="2160" x2="1330" y2="2160" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="700" y1="246" x2="1960" y2="2298" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="1960" y1="2298" x2="2800" y2="2298" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="2800" y1="2298" x2="3010" y2="2298" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="2800" y1="2298" x2="910" y2="2298" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="2800" y1="2298" x2="1960" y2="2160" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="2800" y1="2298" x2="1120" y2="2298" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="2800" y1="2298" x2="1960" y2="2252" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="2800" y1="2298" x2="2170" y2="2252" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="2800" y1="2298" x2="2380" y2="2252" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="3010" y1="2298" x2="2590" y2="2252" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="3010" y1="2298" x2="2170" y2="2298" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="3010" y1="2298" x2="2380" y2="2298" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="3010" y1="2298" x2="70" y2="2344" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="3010" y1="2298" x2="1540" y2="2298" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="3010" y1="2298" x2="1330" y2="2298" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="3010" y1="2298" x2="2590" y2="2298" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="3010" y1="2298" x2="1750" y2="2298" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="490" y1="246" x2="490" y2="2344" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="490" y1="2344" x2="1540" y2="2206" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="280" y1="2344" x2="490" y2="2344" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="280" y1="2344" x2="1750" y2="2206" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="490" y1="2344" x2="2170" y2="2160" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="490" y1="2344" x2="2380" y2="2160" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="490" y1="2344" x2="2590" y2="2160" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="490" y1="2344" x2="2800" y2="2160" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="490" y1="2344" x2="3010" y2="2160" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="490" y1="2344" x2="70" y2="2206" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="490" y1="2344" x2="280" y2="2206" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="490" y1="2344" x2="490" y2="2206" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="490" y1="2344" x2="700" y2="2206" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="490" y1="2344" x2="910" y2="2206" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="280" y1="2344" x2="1120" y2="2206" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="280" y1="2344" x2="1330" y2="2206" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="1120" y1="246" x2="2380" y2="246" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="2380" y1="246" x2="2170" y2="246" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="2380" y1="246" x2="1960" y2="246" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="2380" y1="246" x2="1750" y2="246" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="2380" y1="246" x2="2800" y2="246" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<line x1="2380" y1="246" x2="2590" y2="246" stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>
+<circle cx="70" cy="110" r="6" fill="#7b1fa2"/>
+<text x="80" y="114" font-size="9" fill="#222">CARRIER-KDDI-EDGE</text>
+<circle cx="280" cy="110" r="6" fill="#7b1fa2"/>
+<text x="290" y="114" font-size="9" fill="#222">CARRIER-NTT-EDGE</text>
+<circle cx="490" cy="110" r="6" fill="#7b1fa2"/>
+<text x="500" y="114" font-size="9" fill="#222">EDGE-DMZ-SW</text>
+<circle cx="700" cy="110" r="6" fill="#7b1fa2"/>
+<text x="710" y="114" font-size="9" fill="#222">EDGE-MAIL-RELAY</text>
+<circle cx="910" cy="110" r="6" fill="#7b1fa2"/>
+<text x="920" y="114" font-size="9" fill="#222">EDGE-PROXY-01</text>
+<circle cx="1120" cy="110" r="6" fill="#7b1fa2"/>
+<text x="1130" y="114" font-size="9" fill="#222">FW-INTERNET-EDGE</text>
+<circle cx="1330" cy="110" r="6" fill="#7b1fa2"/>
+<text x="1340" y="114" font-size="9" fill="#222">IRM-EDGE-RTR-01</text>
+<circle cx="1540" cy="110" r="6" fill="#7b1fa2"/>
+<text x="1550" y="114" font-size="9" fill="#222">IRM-EDGE-RTR-02</text>
+<circle cx="1750" cy="110" r="6" fill="#7b1fa2"/>
+<text x="1760" y="114" font-size="9" fill="#222">JWS-II-WX-GW</text>
+<circle cx="1960" cy="110" r="6" fill="#7b1fa2"/>
+<text x="1970" y="114" font-size="9" fill="#222">LIAISON-FILE-SVR</text>
+<circle cx="2170" cy="110" r="6" fill="#7b1fa2"/>
+<text x="2180" y="114" font-size="9" fill="#222">MOD-BACKBONE-GW</text>
+<circle cx="2380" cy="110" r="6" fill="#7b1fa2"/>
+<text x="2390" y="114" font-size="9" fill="#222">SIGINT-BRANCH-GW</text>
+<circle cx="2590" cy="110" r="6" fill="#7b1fa2"/>
+<text x="2600" y="114" font-size="9" fill="#222">SPPOL-AIR-GW</text>
+<circle cx="2800" cy="110" r="6" fill="#7b1fa2"/>
+<text x="2810" y="114" font-size="9" fill="#222">YOKOTA-ATC-GW</text>
+<circle cx="70" cy="246" r="6" fill="#c62828"/>
+<text x="80" y="250" font-size="9" fill="#222">IRM-CORE-RTR-01</text>
+<circle cx="280" cy="246" r="6" fill="#c62828"/>
+<text x="290" y="250" font-size="9" fill="#222">IRM-CORE-RTR-02</text>
+<circle cx="490" cy="246" r="6" fill="#c62828"/>
+<text x="500" y="250" font-size="9" fill="#222">IRM-CORE-SW-01</text>
+<circle cx="700" cy="246" r="6" fill="#c62828"/>
+<text x="710" y="250" font-size="9" fill="#222">IRM-CORE-SW-02</text>
+<circle cx="910" cy="246" r="6" fill="#c62828"/>
+<text x="920" y="250" font-size="9" fill="#222">IRM-DCI-RTR-01</text>
+<circle cx="1120" cy="246" r="6" fill="#c62828"/>
+<text x="1130" y="250" font-size="9" fill="#222">IRM-NETOPS-GW-01</text>
+<circle cx="1330" cy="246" r="6" fill="#c62828"/>
+<text x="1340" y="250" font-size="9" fill="#222">IRM-WAN-EDGE-01</text>
+<circle cx="1540" cy="246" r="6" fill="#c62828"/>
+<text x="1550" y="250" font-size="9" fill="#222">IRM-WAN-EDGE-02</text>
+<circle cx="1750" cy="246" r="6" fill="#c62828"/>
+<text x="1760" y="250" font-size="9" fill="#222">NETOPS-CYBER-OBS</text>
+<circle cx="1960" cy="246" r="6" fill="#c62828"/>
+<text x="1970" y="250" font-size="9" fill="#222">NETOPS-JUMP-01</text>
+<circle cx="2170" cy="246" r="6" fill="#c62828"/>
+<text x="2180" y="250" font-size="9" fill="#222">NETOPS-NMS-01</text>
+<circle cx="2380" cy="246" r="6" fill="#c62828"/>
+<text x="2390" y="250" font-size="9" fill="#222">NETOPS-SW-01</text>
+<circle cx="2590" cy="246" r="6" fill="#c62828"/>
+<text x="2600" y="250" font-size="9" fill="#222">NETOPS-TACACS-01</text>
+<circle cx="2800" cy="246" r="6" fill="#c62828"/>
+<text x="2810" y="250" font-size="9" fill="#222">NETOPS-TAP-01</text>
+<circle cx="70" cy="382" r="6" fill="#1565c0"/>
+<text x="80" y="386" font-size="9" fill="#222">AAA-SVR-01</text>
+<circle cx="280" cy="382" r="6" fill="#1565c0"/>
+<text x="290" y="386" font-size="9" fill="#222">AAA-SVR-02</text>
+<circle cx="490" cy="382" r="6" fill="#1565c0"/>
+<text x="500" y="386" font-size="9" fill="#222">ADSYS-OPS-01</text>
+<circle cx="700" cy="382" r="6" fill="#1565c0"/>
+<text x="710" y="386" font-size="9" fill="#222">AIRFIELD-OPS-01</text>
+<circle cx="910" cy="382" r="6" fill="#1565c0"/>
+<text x="920" y="386" font-size="9" fill="#222">ATO-SVR-01</text>
+<circle cx="1120" cy="382" r="6" fill="#1565c0"/>
+<text x="1130" y="386" font-size="9" fill="#222">BDC-ADSYS-APP</text>
+<circle cx="1330" cy="382" r="6" fill="#1565c0"/>
+<text x="1340" y="386" font-size="9" fill="#222">BDC-BACKUP-VAULT</text>
+<circle cx="1540" cy="382" r="6" fill="#1565c0"/>
+<text x="1550" y="386" font-size="9" fill="#222">BDC-DNS-SVR-01</text>
+<circle cx="1750" cy="382" r="6" fill="#1565c0"/>
+<text x="1760" y="386" font-size="9" fill="#222">BDC-LEAF-01</text>
+<circle cx="1960" cy="382" r="6" fill="#1565c0"/>
+<text x="1970" y="386" font-size="9" fill="#222">BDC-MISSION-DB</text>
+<circle cx="2170" cy="382" r="6" fill="#1565c0"/>
+<text x="2180" y="386" font-size="9" fill="#222">BDC-REPLICA-SVR</text>
+<circle cx="2380" cy="382" r="6" fill="#1565c0"/>
+<text x="2390" y="386" font-size="9" fill="#222">BDC-SORTIE-APP</text>
+<circle cx="2590" cy="382" r="6" fill="#1565c0"/>
+<text x="2600" y="386" font-size="9" fill="#222">BDC-SPINE-01</text>
+<circle cx="2800" cy="382" r="6" fill="#1565c0"/>
+<text x="2810" y="386" font-size="9" fill="#222">BDC-SUPPLY-APP</text>
+<circle cx="3010" cy="382" r="6" fill="#1565c0"/>
+<text x="3020" y="386" font-size="9" fill="#222">DATA-HISTORIAN</text>
+<circle cx="70" cy="428" r="6" fill="#1565c0"/>
+<text x="80" y="432" font-size="9" fill="#222">DHCP-SVR-01</text>
+<circle cx="280" cy="428" r="6" fill="#1565c0"/>
+<text x="290" y="432" font-size="9" fill="#222">DHCP-SVR-02</text>
+<circle cx="490" cy="428" r="6" fill="#1565c0"/>
+<text x="500" y="432" font-size="9" fill="#222">DNS-SVR-01</text>
+<circle cx="700" cy="428" r="6" fill="#1565c0"/>
+<text x="710" y="432" font-size="9" fill="#222">DNS-SVR-02</text>
+<circle cx="910" cy="428" r="6" fill="#1565c0"/>
+<text x="920" y="432" font-size="9" fill="#222">FLTREC-SVR-01</text>
+<circle cx="1120" cy="428" r="6" fill="#1565c0"/>
+<text x="1130" y="432" font-size="9" fill="#222">FW-BDC-PERIMETER</text>
+<circle cx="1330" cy="428" r="6" fill="#1565c0"/>
+<text x="1340" y="432" font-size="9" fill="#222">FW-MDC-INT</text>
+<circle cx="1540" cy="428" r="6" fill="#1565c0"/>
+<text x="1550" y="432" font-size="9" fill="#222">FW-MDC-PERIMETER</text>
+<circle cx="1750" cy="428" r="6" fill="#1565c0"/>
+<text x="1760" y="432" font-size="9" fill="#222">IRM-PORTAL-01</text>
+<circle cx="1960" cy="428" r="6" fill="#1565c0"/>
+<text x="1970" y="432" font-size="9" fill="#222">MDC-LEAF-01</text>
+<circle cx="2170" cy="428" r="6" fill="#1565c0"/>
+<text x="2180" y="432" font-size="9" fill="#222">MDC-LEAF-02</text>
+<circle cx="2380" cy="428" r="6" fill="#1565c0"/>
+<text x="2390" y="432" font-size="9" fill="#222">MDC-SPINE-01</text>
+<circle cx="2590" cy="428" r="6" fill="#1565c0"/>
+<text x="2600" y="432" font-size="9" fill="#222">MDC-SPINE-02</text>
+<circle cx="2800" cy="428" r="6" fill="#1565c0"/>
+<text x="2810" y="432" font-size="9" fill="#222">MISSION-PLAN-01</text>
+<circle cx="3010" cy="428" r="6" fill="#1565c0"/>
+<text x="3020" y="432" font-size="9" fill="#222">MX-MIS-01</text>
+<circle cx="70" cy="474" r="6" fill="#1565c0"/>
+<text x="80" y="478" font-size="9" fill="#222">NETFLOW-SVR-01</text>
+<circle cx="280" cy="474" r="6" fill="#1565c0"/>
+<text x="290" y="478" font-size="9" fill="#222">NTP-SVR-01</text>
+<circle cx="490" cy="474" r="6" fill="#1565c0"/>
+<text x="500" y="478" font-size="9" fill="#222">NTP-SVR-02</text>
+<circle cx="700" cy="474" r="6" fill="#1565c0"/>
+<text x="710" y="478" font-size="9" fill="#222">PERS-SVR-01</text>
+<circle cx="910" cy="474" r="6" fill="#1565c0"/>
+<text x="920" y="478" font-size="9" fill="#222">PKI-CA-01</text>
+<circle cx="1120" cy="474" r="6" fill="#1565c0"/>
+<text x="1130" y="478" font-size="9" fill="#222">SORTIE-TASK-01</text>
+<circle cx="1330" cy="474" r="6" fill="#1565c0"/>
+<text x="1340" y="478" font-size="9" fill="#222">SUPPLY-APP-01</text>
+<circle cx="1540" cy="474" r="6" fill="#1565c0"/>
+<text x="1550" y="478" font-size="9" fill="#222">SYSLOG-SVR-01</text>
+<circle cx="1750" cy="474" r="6" fill="#1565c0"/>
+<text x="1760" y="478" font-size="9" fill="#222">SYSLOG-SVR-02</text>
+<circle cx="1960" cy="474" r="6" fill="#1565c0"/>
+<text x="1970" y="478" font-size="9" fill="#222">TFTP-ARCHIVE-01</text>
+<circle cx="2170" cy="474" r="6" fill="#1565c0"/>
+<text x="2180" y="478" font-size="9" fill="#222">TRAINING-LMS-01</text>
+<circle cx="2380" cy="474" r="6" fill="#1565c0"/>
+<text x="2390" y="478" font-size="9" fill="#222">WX-INTEG-01</text>
+<circle cx="70" cy="610" r="6" fill="#4a148c"/>
+<text x="80" y="614" font-size="9" fill="#222">OPSEC-ATO-BROKER-01</text>
+<circle cx="280" cy="610" r="6" fill="#4a148c"/>
+<text x="290" y="614" font-size="9" fill="#222">OPSEC-AUDIT-LOG-01</text>
+<circle cx="490" cy="610" r="6" fill="#4a148c"/>
+<text x="500" y="614" font-size="9" fill="#222">OPSEC-CRYPT-01</text>
+<circle cx="700" cy="610" r="6" fill="#4a148c"/>
+<text x="710" y="614" font-size="9" fill="#222">OPSEC-DB-SW-01</text>
+<circle cx="910" cy="610" r="6" fill="#4a148c"/>
+<text x="920" y="614" font-size="9" fill="#222">OPSEC-DMZ-SW-01</text>
+<circle cx="1120" cy="610" r="6" fill="#4a148c"/>
+<text x="1130" y="614" font-size="9" fill="#222">OPSEC-FW-INNER</text>
+<circle cx="1330" cy="610" r="6" fill="#4a148c"/>
+<text x="1340" y="614" font-size="9" fill="#222">OPSEC-FW-OUTER</text>
+<circle cx="1540" cy="610" r="6" fill="#4a148c"/>
+<text x="1550" y="614" font-size="9" fill="#222">OPSEC-HSM-KEY-01</text>
+<circle cx="1750" cy="610" r="6" fill="#4a148c"/>
+<text x="1760" y="614" font-size="9" fill="#222">OPSEC-IDS-01</text>
+<circle cx="1960" cy="610" r="6" fill="#4a148c"/>
+<text x="1970" y="614" font-size="9" fill="#222">OPSEC-MSNDB-01</text>
+<circle cx="2170" cy="610" r="6" fill="#4a148c"/>
+<text x="2180" y="614" font-size="9" fill="#222">OPSEC-MSNDB-02</text>
+<circle cx="2380" cy="610" r="6" fill="#4a148c"/>
+<text x="2390" y="614" font-size="9" fill="#222">OPSEC-TAP-01</text>
+<circle cx="2590" cy="610" r="6" fill="#4a148c"/>
+<text x="2600" y="614" font-size="9" fill="#222">OPSEC-TASKING-APP-01</text>
+<circle cx="2800" cy="610" r="6" fill="#4a148c"/>
+<text x="2810" y="614" font-size="9" fill="#222">OPSEC-WS-01</text>
+<circle cx="3010" cy="610" r="6" fill="#4a148c"/>
+<text x="3020" y="614" font-size="9" fill="#222">OPSEC-WS-02</text>
+<circle cx="70" cy="746" r="6" fill="#00695c"/>
+<text x="80" y="750" font-size="9" fill="#222">AOC-ACC-01</text>
+<circle cx="280" cy="746" r="6" fill="#00695c"/>
+<text x="290" y="750" font-size="9" fill="#222">AOC-ACC-02</text>
+<circle cx="490" cy="746" r="6" fill="#00695c"/>
+<text x="500" y="750" font-size="9" fill="#222">AOC-DSW-01</text>
+<circle cx="700" cy="746" r="6" fill="#00695c"/>
+<text x="710" y="750" font-size="9" fill="#222">AOC-DSW-02</text>
+<circle cx="910" cy="746" r="6" fill="#00695c"/>
+<text x="920" y="750" font-size="9" fill="#222">AOC-OPS-WS-01</text>
+<circle cx="1120" cy="746" r="6" fill="#00695c"/>
+<text x="1130" y="750" font-size="9" fill="#222">AOC-OPS-WS-02</text>
+<circle cx="1330" cy="746" r="6" fill="#00695c"/>
+<text x="1340" y="750" font-size="9" fill="#222">AOC-OPS-WS-03</text>
+<circle cx="1540" cy="746" r="6" fill="#00695c"/>
+<text x="1550" y="750" font-size="9" fill="#222">AOC-RTR-01</text>
+<circle cx="1750" cy="746" r="6" fill="#00695c"/>
+<text x="1760" y="750" font-size="9" fill="#222">AOC-RTR-02</text>
+<circle cx="1960" cy="746" r="6" fill="#00695c"/>
+<text x="1970" y="750" font-size="9" fill="#222">AOC-VIDWALL-01</text>
+<circle cx="2170" cy="746" r="6" fill="#00695c"/>
+<text x="2180" y="750" font-size="9" fill="#222">APCH-DISPLAY-01</text>
+<circle cx="2380" cy="746" r="6" fill="#00695c"/>
+<text x="2390" y="750" font-size="9" fill="#222">FLT-DATA-SVR-01</text>
+<circle cx="2590" cy="746" r="6" fill="#00695c"/>
+<text x="2600" y="750" font-size="9" fill="#222">GND-MOVEMENT-CTL</text>
+<circle cx="2800" cy="746" r="6" fill="#00695c"/>
+<text x="2810" y="750" font-size="9" fill="#222">TWR-DISPLAY-01</text>
+<circle cx="3010" cy="746" r="6" fill="#00695c"/>
+<text x="3020" y="750" font-size="9" fill="#222">TWR-POS-CTL-01</text>
+<circle cx="70" cy="792" r="6" fill="#00695c"/>
+<text x="80" y="796" font-size="9" fill="#222">TWR-RADIO-01</text>
+<circle cx="280" cy="792" r="6" fill="#00695c"/>
+<text x="290" y="796" font-size="9" fill="#222">TWR-RADIO-02</text>
+<circle cx="70" cy="928" r="6" fill="#ef6c00"/>
+<text x="80" y="932" font-size="9" fill="#222">APCH-LGT-CTL-01</text>
+<circle cx="280" cy="928" r="6" fill="#ef6c00"/>
+<text x="290" y="932" font-size="9" fill="#222">ARFF-ALERT-CTL-01</text>
+<circle cx="490" cy="928" r="6" fill="#ef6c00"/>
+<text x="500" y="932" font-size="9" fill="#222">ASR-PROC-SVR-01</text>
+<circle cx="700" cy="928" r="6" fill="#ef6c00"/>
+<text x="710" y="932" font-size="9" fill="#222">ATC-HMI-01</text>
+<circle cx="910" cy="928" r="6" fill="#ef6c00"/>
+<text x="920" y="932" font-size="9" fill="#222">ATC-HMI-02</text>
+<circle cx="1120" cy="928" r="6" fill="#ef6c00"/>
+<text x="1130" y="932" font-size="9" fill="#222">ATC-RECORDER-01</text>
+<circle cx="1330" cy="928" r="6" fill="#ef6c00"/>
+<text x="1340" y="932" font-size="9" fill="#222">ATC-RTR-01</text>
+<circle cx="1540" cy="928" r="6" fill="#ef6c00"/>
+<text x="1550" y="932" font-size="9" fill="#222">ATC-RTR-02</text>
+<circle cx="1750" cy="928" r="6" fill="#ef6c00"/>
+<text x="1760" y="932" font-size="9" fill="#222">ATC-SW-01</text>
+<circle cx="1960" cy="928" r="6" fill="#ef6c00"/>
+<text x="1970" y="932" font-size="9" fill="#222">ATC-SW-02</text>
+<circle cx="2170" cy="928" r="6" fill="#ef6c00"/>
+<text x="2180" y="932" font-size="9" fill="#222">ATIS-SVR-01</text>
+<circle cx="2380" cy="928" r="6" fill="#ef6c00"/>
+<text x="2390" y="932" font-size="9" fill="#222">D-ATIS-SVR-01</text>
+<circle cx="2590" cy="928" r="6" fill="#ef6c00"/>
+<text x="2600" y="932" font-size="9" fill="#222">GCA-RADAR-SVR-01</text>
+<circle cx="2800" cy="928" r="6" fill="#ef6c00"/>
+<text x="2810" y="932" font-size="9" fill="#222">ILS-CTL-17</text>
+<circle cx="3010" cy="928" r="6" fill="#ef6c00"/>
+<text x="3020" y="932" font-size="9" fill="#222">ILS-CTL-35</text>
+<circle cx="70" cy="974" r="6" fill="#ef6c00"/>
+<text x="80" y="978" font-size="9" fill="#222">NAVAID-MON-01</text>
+<circle cx="280" cy="974" r="6" fill="#ef6c00"/>
+<text x="290" y="978" font-size="9" fill="#222">PAR-CTL-01</text>
+<circle cx="490" cy="974" r="6" fill="#ef6c00"/>
+<text x="500" y="978" font-size="9" fill="#222">RWY-LIGHT-CTL-01</text>
+<circle cx="700" cy="974" r="6" fill="#ef6c00"/>
+<text x="710" y="978" font-size="9" fill="#222">TACAN-CTL-01</text>
+<circle cx="910" cy="974" r="6" fill="#ef6c00"/>
+<text x="920" y="978" font-size="9" fill="#222">TWY-LIGHT-CTL-01</text>
+<circle cx="70" cy="1110" r="6" fill="#f9a825"/>
+<text x="80" y="1114" font-size="9" fill="#222">402SQ-EFB-01</text>
+<circle cx="280" cy="1110" r="6" fill="#f9a825"/>
+<text x="290" y="1114" font-size="9" fill="#222">402SQ-HGR-FIRE</text>
+<circle cx="490" cy="1110" r="6" fill="#f9a825"/>
+<text x="500" y="1114" font-size="9" fill="#222">402SQ-HGR-PLC-01</text>
+<circle cx="700" cy="1110" r="6" fill="#f9a825"/>
+<text x="710" y="1114" font-size="9" fill="#222">402SQ-HGR-SW-01</text>
+<circle cx="910" cy="1110" r="6" fill="#f9a825"/>
+<text x="920" y="1114" font-size="9" fill="#222">402SQ-MX-SVR</text>
+<circle cx="1120" cy="1110" r="6" fill="#f9a825"/>
+<text x="1130" y="1114" font-size="9" fill="#222">402SQ-OPS-SVR</text>
+<circle cx="1330" cy="1110" r="6" fill="#f9a825"/>
+<text x="1340" y="1114" font-size="9" fill="#222">402SQ-OPS-WS-01</text>
+<circle cx="1540" cy="1110" r="6" fill="#f9a825"/>
+<text x="1550" y="1114" font-size="9" fill="#222">402SQ-OPS-WS-02</text>
+<circle cx="1750" cy="1110" r="6" fill="#f9a825"/>
+<text x="1760" y="1114" font-size="9" fill="#222">402SQ-RADIO-01</text>
+<circle cx="1960" cy="1110" r="6" fill="#f9a825"/>
+<text x="1970" y="1114" font-size="9" fill="#222">402SQ-SW-01</text>
+<circle cx="2170" cy="1110" r="6" fill="#f9a825"/>
+<text x="2180" y="1114" font-size="9" fill="#222">ARWHAS-EFB-01</text>
+<circle cx="2380" cy="1110" r="6" fill="#f9a825"/>
+<text x="2390" y="1114" font-size="9" fill="#222">ARWHAS-HGR-FIRE</text>
+<circle cx="2590" cy="1110" r="6" fill="#f9a825"/>
+<text x="2600" y="1114" font-size="9" fill="#222">ARWHAS-HGR-PLC-01</text>
+<circle cx="2800" cy="1110" r="6" fill="#f9a825"/>
+<text x="2810" y="1114" font-size="9" fill="#222">ARWHAS-HGR-SW-01</text>
+<circle cx="3010" cy="1110" r="6" fill="#f9a825"/>
+<text x="3020" y="1114" font-size="9" fill="#222">ARWHAS-MX-SVR</text>
+<circle cx="70" cy="1156" r="6" fill="#f9a825"/>
+<text x="80" y="1160" font-size="9" fill="#222">ARWHAS-OPS-SVR</text>
+<circle cx="280" cy="1156" r="6" fill="#f9a825"/>
+<text x="290" y="1160" font-size="9" fill="#222">ARWHAS-OPS-WS-01</text>
+<circle cx="490" cy="1156" r="6" fill="#f9a825"/>
+<text x="500" y="1160" font-size="9" fill="#222">ARWHAS-OPS-WS-02</text>
+<circle cx="700" cy="1156" r="6" fill="#f9a825"/>
+<text x="710" y="1160" font-size="9" fill="#222">ARWHAS-RADIO-01</text>
+<circle cx="910" cy="1156" r="6" fill="#f9a825"/>
+<text x="920" y="1160" font-size="9" fill="#222">ARWHAS-SW-01</text>
+<circle cx="1120" cy="1156" r="6" fill="#f9a825"/>
+<text x="1130" y="1160" font-size="9" fill="#222">ASAR-OPS-SVR</text>
+<circle cx="1330" cy="1156" r="6" fill="#f9a825"/>
+<text x="1340" y="1160" font-size="9" fill="#222">ASAR-OPS-WS-01</text>
+<circle cx="1540" cy="1156" r="6" fill="#f9a825"/>
+<text x="1550" y="1160" font-size="9" fill="#222">ASAR-OPS-WS-02</text>
+<circle cx="1750" cy="1156" r="6" fill="#f9a825"/>
+<text x="1760" y="1160" font-size="9" fill="#222">ASAR-SW-01</text>
+<circle cx="1960" cy="1156" r="6" fill="#f9a825"/>
+<text x="1970" y="1160" font-size="9" fill="#222">CACE-OPS-SVR</text>
+<circle cx="2170" cy="1156" r="6" fill="#f9a825"/>
+<text x="2180" y="1160" font-size="9" fill="#222">CACE-OPS-WS-01</text>
+<circle cx="2380" cy="1156" r="6" fill="#f9a825"/>
+<text x="2390" y="1160" font-size="9" fill="#222">CACE-OPS-WS-02</text>
+<circle cx="2590" cy="1156" r="6" fill="#f9a825"/>
+<text x="2600" y="1160" font-size="9" fill="#222">CACE-SW-01</text>
+<circle cx="2800" cy="1156" r="6" fill="#f9a825"/>
+<text x="2810" y="1160" font-size="9" fill="#222">CAMG-OPS-SVR</text>
+<circle cx="3010" cy="1156" r="6" fill="#f9a825"/>
+<text x="3020" y="1160" font-size="9" fill="#222">CAMG-OPS-WS-01</text>
+<circle cx="70" cy="1202" r="6" fill="#f9a825"/>
+<text x="80" y="1206" font-size="9" fill="#222">CAMG-OPS-WS-02</text>
+<circle cx="280" cy="1202" r="6" fill="#f9a825"/>
+<text x="290" y="1206" font-size="9" fill="#222">CAMG-SW-01</text>
+<circle cx="490" cy="1202" r="6" fill="#f9a825"/>
+<text x="500" y="1206" font-size="9" fill="#222">EWC-OPS-SVR</text>
+<circle cx="700" cy="1202" r="6" fill="#f9a825"/>
+<text x="710" y="1206" font-size="9" fill="#222">EWC-OPS-WS-01</text>
+<circle cx="910" cy="1202" r="6" fill="#f9a825"/>
+<text x="920" y="1206" font-size="9" fill="#222">EWC-OPS-WS-02</text>
+<circle cx="1120" cy="1202" r="6" fill="#f9a825"/>
+<text x="1130" y="1206" font-size="9" fill="#222">EWC-SW-01</text>
+<circle cx="1330" cy="1202" r="6" fill="#f9a825"/>
+<text x="1340" y="1206" font-size="9" fill="#222">FCS-EFB-01</text>
+<circle cx="1540" cy="1202" r="6" fill="#f9a825"/>
+<text x="1550" y="1206" font-size="9" fill="#222">FCS-HGR-FIRE</text>
+<circle cx="1750" cy="1202" r="6" fill="#f9a825"/>
+<text x="1760" y="1206" font-size="9" fill="#222">FCS-HGR-PLC-01</text>
+<circle cx="1960" cy="1202" r="6" fill="#f9a825"/>
+<text x="1970" y="1206" font-size="9" fill="#222">FCS-HGR-SW-01</text>
+<circle cx="2170" cy="1202" r="6" fill="#f9a825"/>
+<text x="2180" y="1206" font-size="9" fill="#222">FCS-MX-SVR</text>
+<circle cx="2380" cy="1202" r="6" fill="#f9a825"/>
+<text x="2390" y="1206" font-size="9" fill="#222">FCS-OPS-SVR</text>
+<circle cx="2590" cy="1202" r="6" fill="#f9a825"/>
+<text x="2600" y="1206" font-size="9" fill="#222">FCS-OPS-WS-01</text>
+<circle cx="2800" cy="1202" r="6" fill="#f9a825"/>
+<text x="2810" y="1206" font-size="9" fill="#222">FCS-OPS-WS-02</text>
+<circle cx="3010" cy="1202" r="6" fill="#f9a825"/>
+<text x="3020" y="1206" font-size="9" fill="#222">FCS-RADIO-01</text>
+<circle cx="70" cy="1248" r="6" fill="#f9a825"/>
+<text x="80" y="1252" font-size="9" fill="#222">FCS-SW-01</text>
+<circle cx="280" cy="1248" r="6" fill="#f9a825"/>
+<text x="290" y="1252" font-size="9" fill="#222">IHS-CAM-01</text>
+<circle cx="490" cy="1248" r="6" fill="#f9a825"/>
+<text x="500" y="1252" font-size="9" fill="#222">IHS-DOOR-01</text>
+<circle cx="700" cy="1248" r="6" fill="#f9a825"/>
+<text x="710" y="1252" font-size="9" fill="#222">IHS-MED-SVR</text>
+<circle cx="910" cy="1248" r="6" fill="#f9a825"/>
+<text x="920" y="1252" font-size="9" fill="#222">IHS-OXY-MON-01</text>
+<circle cx="1120" cy="1248" r="6" fill="#f9a825"/>
+<text x="1130" y="1252" font-size="9" fill="#222">IHS-RECEPT-CTL</text>
+<circle cx="1330" cy="1248" r="6" fill="#f9a825"/>
+<text x="1340" y="1252" font-size="9" fill="#222">IHS-RTR-01</text>
+<circle cx="1540" cy="1248" r="6" fill="#f9a825"/>
+<text x="1550" y="1252" font-size="9" fill="#222">IHS-SMOKE-01</text>
+<circle cx="1750" cy="1248" r="6" fill="#f9a825"/>
+<text x="1760" y="1252" font-size="9" fill="#222">IHS-SW-01</text>
+<circle cx="1960" cy="1248" r="6" fill="#f9a825"/>
+<text x="1970" y="1252" font-size="9" fill="#222">IHS-WS-01</text>
+<circle cx="2170" cy="1248" r="6" fill="#f9a825"/>
+<text x="2180" y="1252" font-size="9" fill="#222">IHS-WS-02</text>
+<circle cx="2380" cy="1248" r="6" fill="#f9a825"/>
+<text x="2390" y="1252" font-size="9" fill="#222">IMP-OPS-SVR</text>
+<circle cx="2590" cy="1248" r="6" fill="#f9a825"/>
+<text x="2600" y="1252" font-size="9" fill="#222">IMP-OPS-WS-01</text>
+<circle cx="2800" cy="1248" r="6" fill="#f9a825"/>
+<text x="2810" y="1252" font-size="9" fill="#222">IMP-OPS-WS-02</text>
+<circle cx="3010" cy="1248" r="6" fill="#f9a825"/>
+<text x="3020" y="1252" font-size="9" fill="#222">IMP-SW-01</text>
+<circle cx="70" cy="1294" r="6" fill="#f9a825"/>
+<text x="80" y="1298" font-size="9" fill="#222">SI-EFB-01</text>
+<circle cx="280" cy="1294" r="6" fill="#f9a825"/>
+<text x="290" y="1298" font-size="9" fill="#222">SI-HGR-FIRE</text>
+<circle cx="490" cy="1294" r="6" fill="#f9a825"/>
+<text x="500" y="1298" font-size="9" fill="#222">SI-HGR-PLC-01</text>
+<circle cx="700" cy="1294" r="6" fill="#f9a825"/>
+<text x="710" y="1298" font-size="9" fill="#222">SI-HGR-SW-01</text>
+<circle cx="910" cy="1294" r="6" fill="#f9a825"/>
+<text x="920" y="1298" font-size="9" fill="#222">SI-MX-SVR</text>
+<circle cx="1120" cy="1294" r="6" fill="#f9a825"/>
+<text x="1130" y="1298" font-size="9" fill="#222">SI-OPS-SVR</text>
+<circle cx="1330" cy="1294" r="6" fill="#f9a825"/>
+<text x="1340" y="1298" font-size="9" fill="#222">SI-OPS-WS-01</text>
+<circle cx="1540" cy="1294" r="6" fill="#f9a825"/>
+<text x="1550" y="1298" font-size="9" fill="#222">SI-OPS-WS-02</text>
+<circle cx="1750" cy="1294" r="6" fill="#f9a825"/>
+<text x="1760" y="1298" font-size="9" fill="#222">SI-RADIO-01</text>
+<circle cx="1960" cy="1294" r="6" fill="#f9a825"/>
+<text x="1970" y="1298" font-size="9" fill="#222">SI-SW-01</text>
+<circle cx="70" cy="1430" r="6" fill="#2e7d32"/>
+<text x="80" y="1434" font-size="9" fill="#222">APRON-AGG-01</text>
+<circle cx="280" cy="1430" r="6" fill="#2e7d32"/>
+<text x="290" y="1434" font-size="9" fill="#222">APRON-AGG-02</text>
+<circle cx="490" cy="1430" r="6" fill="#2e7d32"/>
+<text x="500" y="1434" font-size="9" fill="#222">APRON-H-CAM-01</text>
+<circle cx="700" cy="1430" r="6" fill="#2e7d32"/>
+<text x="710" y="1434" font-size="9" fill="#222">APRON-H-FOD-01</text>
+<circle cx="910" cy="1430" r="6" fill="#2e7d32"/>
+<text x="920" y="1434" font-size="9" fill="#222">APRON-H-FUEL-01</text>
+<circle cx="1120" cy="1430" r="6" fill="#2e7d32"/>
+<text x="1130" y="1434" font-size="9" fill="#222">APRON-H-GSE-01</text>
+<circle cx="1330" cy="1430" r="6" fill="#2e7d32"/>
+<text x="1340" y="1434" font-size="9" fill="#222">APRON-H-LGT-01</text>
+<circle cx="1540" cy="1430" r="6" fill="#2e7d32"/>
+<text x="1550" y="1434" font-size="9" fill="#222">APRON-H-SW-01</text>
+<circle cx="1750" cy="1430" r="6" fill="#2e7d32"/>
+<text x="1760" y="1434" font-size="9" fill="#222">APRON-N-CAM-01</text>
+<circle cx="1960" cy="1430" r="6" fill="#2e7d32"/>
+<text x="1970" y="1434" font-size="9" fill="#222">APRON-N-FOD-01</text>
+<circle cx="2170" cy="1430" r="6" fill="#2e7d32"/>
+<text x="2180" y="1434" font-size="9" fill="#222">APRON-N-FUEL-01</text>
+<circle cx="2380" cy="1430" r="6" fill="#2e7d32"/>
+<text x="2390" y="1434" font-size="9" fill="#222">APRON-N-GSE-01</text>
+<circle cx="2590" cy="1430" r="6" fill="#2e7d32"/>
+<text x="2600" y="1434" font-size="9" fill="#222">APRON-N-LGT-01</text>
+<circle cx="2800" cy="1430" r="6" fill="#2e7d32"/>
+<text x="2810" y="1434" font-size="9" fill="#222">APRON-N-SW-01</text>
+<circle cx="3010" cy="1430" r="6" fill="#2e7d32"/>
+<text x="3020" y="1434" font-size="9" fill="#222">APRON-P-CAM-01</text>
+<circle cx="70" cy="1476" r="6" fill="#2e7d32"/>
+<text x="80" y="1480" font-size="9" fill="#222">APRON-P-FOD-01</text>
+<circle cx="280" cy="1476" r="6" fill="#2e7d32"/>
+<text x="290" y="1480" font-size="9" fill="#222">APRON-P-FUEL-01</text>
+<circle cx="490" cy="1476" r="6" fill="#2e7d32"/>
+<text x="500" y="1480" font-size="9" fill="#222">APRON-P-GSE-01</text>
+<circle cx="700" cy="1476" r="6" fill="#2e7d32"/>
+<text x="710" y="1480" font-size="9" fill="#222">APRON-P-LGT-01</text>
+<circle cx="910" cy="1476" r="6" fill="#2e7d32"/>
+<text x="920" y="1480" font-size="9" fill="#222">APRON-P-SW-01</text>
+<circle cx="1120" cy="1476" r="6" fill="#2e7d32"/>
+<text x="1130" y="1480" font-size="9" fill="#222">APRON-W-CAM-01</text>
+<circle cx="1330" cy="1476" r="6" fill="#2e7d32"/>
+<text x="1340" y="1480" font-size="9" fill="#222">APRON-W-FOD-01</text>
+<circle cx="1540" cy="1476" r="6" fill="#2e7d32"/>
+<text x="1550" y="1480" font-size="9" fill="#222">APRON-W-FUEL-01</text>
+<circle cx="1750" cy="1476" r="6" fill="#2e7d32"/>
+<text x="1760" y="1480" font-size="9" fill="#222">APRON-W-GSE-01</text>
+<circle cx="1960" cy="1476" r="6" fill="#2e7d32"/>
+<text x="1970" y="1480" font-size="9" fill="#222">APRON-W-LGT-01</text>
+<circle cx="2170" cy="1476" r="6" fill="#2e7d32"/>
+<text x="2180" y="1480" font-size="9" fill="#222">APRON-W-SW-01</text>
+<circle cx="2380" cy="1476" r="6" fill="#2e7d32"/>
+<text x="2390" y="1480" font-size="9" fill="#222">ARFF-CMD-WS-01</text>
+<circle cx="2590" cy="1476" r="6" fill="#2e7d32"/>
+<text x="2600" y="1480" font-size="9" fill="#222">ARFF-DISP-SVR</text>
+<circle cx="2800" cy="1476" r="6" fill="#2e7d32"/>
+<text x="2810" y="1480" font-size="9" fill="#222">ARFF-VEH-PLC-01</text>
+<circle cx="3010" cy="1476" r="6" fill="#2e7d32"/>
+<text x="3020" y="1480" font-size="9" fill="#222">BIRD-CONTROL-SVR</text>
+<circle cx="70" cy="1522" r="6" fill="#2e7d32"/>
+<text x="80" y="1526" font-size="9" fill="#222">FLT-LINE-SW-01</text>
+<circle cx="280" cy="1522" r="6" fill="#2e7d32"/>
+<text x="290" y="1526" font-size="9" fill="#222">FLT-LINE-SW-02</text>
+<circle cx="490" cy="1522" r="6" fill="#2e7d32"/>
+<text x="500" y="1526" font-size="9" fill="#222">FOLLOWME-SVR-01</text>
+<circle cx="700" cy="1522" r="6" fill="#2e7d32"/>
+<text x="710" y="1526" font-size="9" fill="#222">FUEL-CTL-01</text>
+<circle cx="910" cy="1522" r="6" fill="#2e7d32"/>
+<text x="920" y="1526" font-size="9" fill="#222">GND-VEH-01</text>
+<circle cx="1120" cy="1522" r="6" fill="#2e7d32"/>
+<text x="1130" y="1526" font-size="9" fill="#222">GND-VEH-02</text>
+<circle cx="1330" cy="1522" r="6" fill="#2e7d32"/>
+<text x="1340" y="1526" font-size="9" fill="#222">GND-VEH-03</text>
+<circle cx="1540" cy="1522" r="6" fill="#2e7d32"/>
+<text x="1550" y="1526" font-size="9" fill="#222">GND-VEH-04</text>
+<circle cx="1750" cy="1522" r="6" fill="#2e7d32"/>
+<text x="1760" y="1526" font-size="9" fill="#222">GND-VEH-05</text>
+<circle cx="1960" cy="1522" r="6" fill="#2e7d32"/>
+<text x="1970" y="1526" font-size="9" fill="#222">GND-VEH-06</text>
+<circle cx="2170" cy="1522" r="6" fill="#2e7d32"/>
+<text x="2180" y="1526" font-size="9" fill="#222">GND-VEH-07</text>
+<circle cx="2380" cy="1522" r="6" fill="#2e7d32"/>
+<text x="2390" y="1526" font-size="9" fill="#222">GND-VEH-08</text>
+<circle cx="2590" cy="1522" r="6" fill="#2e7d32"/>
+<text x="2600" y="1526" font-size="9" fill="#222">GSE-MAINT-PLC</text>
+<circle cx="2800" cy="1522" r="6" fill="#2e7d32"/>
+<text x="2810" y="1526" font-size="9" fill="#222">HOTFUEL-CTL-01</text>
+<circle cx="3010" cy="1522" r="6" fill="#2e7d32"/>
+<text x="3020" y="1526" font-size="9" fill="#222">RWY-SWEEP-PLC</text>
+<circle cx="70" cy="1568" r="6" fill="#2e7d32"/>
+<text x="80" y="1572" font-size="9" fill="#222">TOW-TRACTOR-PLC</text>
+<circle cx="70" cy="1704" r="6" fill="#00838f"/>
+<text x="80" y="1708" font-size="9" fill="#222">HUMID-DET-01</text>
+<circle cx="280" cy="1704" r="6" fill="#00838f"/>
+<text x="290" y="1708" font-size="9" fill="#222">IWS-BALLOON-CTL</text>
+<circle cx="490" cy="1704" r="6" fill="#00838f"/>
+<text x="500" y="1708" font-size="9" fill="#222">IWS-DISSEM-SVR</text>
+<circle cx="700" cy="1704" r="6" fill="#00838f"/>
+<text x="710" y="1708" font-size="9" fill="#222">IWS-FCST-SVR</text>
+<circle cx="910" cy="1704" r="6" fill="#00838f"/>
+<text x="920" y="1708" font-size="9" fill="#222">IWS-HMI-01</text>
+<circle cx="1120" cy="1704" r="6" fill="#00838f"/>
+<text x="1130" y="1708" font-size="9" fill="#222">IWS-JWS-CLIENT</text>
+<circle cx="1330" cy="1704" r="6" fill="#00838f"/>
+<text x="1340" y="1708" font-size="9" fill="#222">IWS-MOBILE-CTL</text>
+<circle cx="1540" cy="1704" r="6" fill="#00838f"/>
+<text x="1550" y="1708" font-size="9" fill="#222">IWS-OBS-SVR</text>
+<circle cx="1750" cy="1704" r="6" fill="#00838f"/>
+<text x="1760" y="1708" font-size="9" fill="#222">IWS-RTR-01</text>
+<circle cx="1960" cy="1704" r="6" fill="#00838f"/>
+<text x="1970" y="1708" font-size="9" fill="#222">IWS-SW-01</text>
+<circle cx="2170" cy="1704" r="6" fill="#00838f"/>
+<text x="2180" y="1708" font-size="9" fill="#222">PRESS-DET-01</text>
+<circle cx="2380" cy="1704" r="6" fill="#00838f"/>
+<text x="2390" y="1708" font-size="9" fill="#222">RAIN-DET-01</text>
+<circle cx="2590" cy="1704" r="6" fill="#00838f"/>
+<text x="2600" y="1708" font-size="9" fill="#222">RVR-DET-01</text>
+<circle cx="2800" cy="1704" r="6" fill="#00838f"/>
+<text x="2810" y="1708" font-size="9" fill="#222">TEMP-DET-01</text>
+<circle cx="3010" cy="1704" r="6" fill="#00838f"/>
+<text x="3020" y="1708" font-size="9" fill="#222">VIS-DET-01</text>
+<circle cx="70" cy="1750" r="6" fill="#00838f"/>
+<text x="80" y="1754" font-size="9" fill="#222">WIND-DET-01</text>
+<circle cx="280" cy="1750" r="6" fill="#00838f"/>
+<text x="290" y="1754" font-size="9" fill="#222">WIND-DET-02</text>
+<circle cx="70" cy="1886" r="6" fill="#5d4037"/>
+<text x="80" y="1890" font-size="9" fill="#222">3DEP-ELX-SVR</text>
+<circle cx="280" cy="1886" r="6" fill="#5d4037"/>
+<text x="290" y="1890" font-size="9" fill="#222">3DEP-MET-SVR</text>
+<circle cx="490" cy="1886" r="6" fill="#5d4037"/>
+<text x="500" y="1890" font-size="9" fill="#222">3DEP-SW-01</text>
+<circle cx="700" cy="1886" r="6" fill="#5d4037"/>
+<text x="710" y="1890" font-size="9" fill="#222">3DEP-WMS-SVR</text>
+<circle cx="910" cy="1886" r="6" fill="#5d4037"/>
+<text x="920" y="1890" font-size="9" fill="#222">4DEP-SUPPLY-SVR</text>
+<circle cx="1120" cy="1886" r="6" fill="#5d4037"/>
+<text x="1130" y="1890" font-size="9" fill="#222">4DEP-SW-01</text>
+<circle cx="1330" cy="1886" r="6" fill="#5d4037"/>
+<text x="1340" y="1890" font-size="9" fill="#222">DEP-CAM-01</text>
+<circle cx="1540" cy="1886" r="6" fill="#5d4037"/>
+<text x="1550" y="1890" font-size="9" fill="#222">DEP-CAM-02</text>
+<circle cx="1750" cy="1886" r="6" fill="#5d4037"/>
+<text x="1760" y="1890" font-size="9" fill="#222">DEP-DOOR-01</text>
+<circle cx="1960" cy="1886" r="6" fill="#5d4037"/>
+<text x="1970" y="1890" font-size="9" fill="#222">DEP-DOOR-02</text>
+<circle cx="2170" cy="1886" r="6" fill="#5d4037"/>
+<text x="2180" y="1890" font-size="9" fill="#222">DEP-FIRE-01</text>
+<circle cx="2380" cy="1886" r="6" fill="#5d4037"/>
+<text x="2390" y="1890" font-size="9" fill="#222">DEP-FORK-PLC-01</text>
+<circle cx="2590" cy="1886" r="6" fill="#5d4037"/>
+<text x="2600" y="1890" font-size="9" fill="#222">DEP-FORK-PLC-02</text>
+<circle cx="2800" cy="1886" r="6" fill="#5d4037"/>
+<text x="2810" y="1890" font-size="9" fill="#222">DEP-HIST-01</text>
+<circle cx="3010" cy="1886" r="6" fill="#5d4037"/>
+<text x="3020" y="1890" font-size="9" fill="#222">DEP-PWR-01</text>
+<circle cx="70" cy="1932" r="6" fill="#5d4037"/>
+<text x="80" y="1936" font-size="9" fill="#222">DEP-RFID-01</text>
+<circle cx="280" cy="1932" r="6" fill="#5d4037"/>
+<text x="290" y="1936" font-size="9" fill="#222">DEP-RFID-02</text>
+<circle cx="490" cy="1932" r="6" fill="#5d4037"/>
+<text x="500" y="1936" font-size="9" fill="#222">DEP-RFID-03</text>
+<circle cx="700" cy="1932" r="6" fill="#5d4037"/>
+<text x="710" y="1936" font-size="9" fill="#222">DEP-RFID-04</text>
+<circle cx="910" cy="1932" r="6" fill="#5d4037"/>
+<text x="920" y="1936" font-size="9" fill="#222">DEP-RTR-01</text>
+<circle cx="1120" cy="1932" r="6" fill="#5d4037"/>
+<text x="1130" y="1936" font-size="9" fill="#222">DEP-SMOKE-01</text>
+<circle cx="1330" cy="1932" r="6" fill="#5d4037"/>
+<text x="1340" y="1936" font-size="9" fill="#222">DEP-SMOKE-02</text>
+<circle cx="1540" cy="1932" r="6" fill="#5d4037"/>
+<text x="1550" y="1936" font-size="9" fill="#222">DEP-TERM-01</text>
+<circle cx="1750" cy="1932" r="6" fill="#5d4037"/>
+<text x="1760" y="1936" font-size="9" fill="#222">DEP-TERM-02</text>
+<circle cx="1960" cy="1932" r="6" fill="#5d4037"/>
+<text x="1970" y="1936" font-size="9" fill="#222">DEP-TERM-03</text>
+<circle cx="2170" cy="1932" r="6" fill="#5d4037"/>
+<text x="2180" y="1936" font-size="9" fill="#222">DEP-TERM-04</text>
+<circle cx="2380" cy="1932" r="6" fill="#5d4037"/>
+<text x="2390" y="1936" font-size="9" fill="#222">DEP-TERM-05</text>
+<circle cx="2590" cy="1932" r="6" fill="#5d4037"/>
+<text x="2600" y="1936" font-size="9" fill="#222">DEP-TERM-06</text>
+<circle cx="2800" cy="1932" r="6" fill="#5d4037"/>
+<text x="2810" y="1936" font-size="9" fill="#222">DEP-TERM-07</text>
+<circle cx="3010" cy="1932" r="6" fill="#5d4037"/>
+<text x="3020" y="1936" font-size="9" fill="#222">DEP-TERM-08</text>
+<circle cx="70" cy="1978" r="6" fill="#5d4037"/>
+<text x="80" y="1982" font-size="9" fill="#222">POL-FIRE-01</text>
+<circle cx="280" cy="1978" r="6" fill="#5d4037"/>
+<text x="290" y="1982" font-size="9" fill="#222">POL-FIRE-02</text>
+<circle cx="490" cy="1978" r="6" fill="#5d4037"/>
+<text x="500" y="1982" font-size="9" fill="#222">POL-FUEL-SVR</text>
+<circle cx="700" cy="1978" r="6" fill="#5d4037"/>
+<text x="710" y="1982" font-size="9" fill="#222">POL-HMI-01</text>
+<circle cx="910" cy="1978" r="6" fill="#5d4037"/>
+<text x="920" y="1982" font-size="9" fill="#222">POL-LEAK-01</text>
+<circle cx="1120" cy="1978" r="6" fill="#5d4037"/>
+<text x="1130" y="1982" font-size="9" fill="#222">POL-LEAK-02</text>
+<circle cx="1330" cy="1978" r="6" fill="#5d4037"/>
+<text x="1340" y="1982" font-size="9" fill="#222">POL-METER-01</text>
+<circle cx="1540" cy="1978" r="6" fill="#5d4037"/>
+<text x="1550" y="1982" font-size="9" fill="#222">POL-PUMP-PLC-01</text>
+<circle cx="1750" cy="1978" r="6" fill="#5d4037"/>
+<text x="1760" y="1982" font-size="9" fill="#222">POL-PUMP-PLC-02</text>
+<circle cx="1960" cy="1978" r="6" fill="#5d4037"/>
+<text x="1970" y="1982" font-size="9" fill="#222">POL-RTR-01</text>
+<circle cx="2170" cy="1978" r="6" fill="#5d4037"/>
+<text x="2180" y="1982" font-size="9" fill="#222">POL-SIREN-01</text>
+<circle cx="2380" cy="1978" r="6" fill="#5d4037"/>
+<text x="2390" y="1982" font-size="9" fill="#222">POL-SW-01</text>
+<circle cx="2590" cy="1978" r="6" fill="#5d4037"/>
+<text x="2600" y="1982" font-size="9" fill="#222">POL-SW-02</text>
+<circle cx="2800" cy="1978" r="6" fill="#5d4037"/>
+<text x="2810" y="1982" font-size="9" fill="#222">POL-SW-03</text>
+<circle cx="3010" cy="1978" r="6" fill="#5d4037"/>
+<text x="3020" y="1982" font-size="9" fill="#222">POL-TK01-LEVEL</text>
+<circle cx="70" cy="2024" r="6" fill="#5d4037"/>
+<text x="80" y="2028" font-size="9" fill="#222">POL-TK01-PLC</text>
+<circle cx="280" cy="2024" r="6" fill="#5d4037"/>
+<text x="290" y="2028" font-size="9" fill="#222">POL-TK02-LEVEL</text>
+<circle cx="490" cy="2024" r="6" fill="#5d4037"/>
+<text x="500" y="2028" font-size="9" fill="#222">POL-TK02-PLC</text>
+<circle cx="700" cy="2024" r="6" fill="#5d4037"/>
+<text x="710" y="2028" font-size="9" fill="#222">POL-TK03-LEVEL</text>
+<circle cx="910" cy="2024" r="6" fill="#5d4037"/>
+<text x="920" y="2028" font-size="9" fill="#222">POL-TK03-PLC</text>
+<circle cx="1120" cy="2024" r="6" fill="#5d4037"/>
+<text x="1130" y="2028" font-size="9" fill="#222">POL-TK04-LEVEL</text>
+<circle cx="1330" cy="2024" r="6" fill="#5d4037"/>
+<text x="1340" y="2028" font-size="9" fill="#222">POL-TK04-PLC</text>
+<circle cx="1540" cy="2024" r="6" fill="#5d4037"/>
+<text x="1550" y="2028" font-size="9" fill="#222">POL-TK05-LEVEL</text>
+<circle cx="1750" cy="2024" r="6" fill="#5d4037"/>
+<text x="1760" y="2028" font-size="9" fill="#222">POL-TK05-PLC</text>
+<circle cx="1960" cy="2024" r="6" fill="#5d4037"/>
+<text x="1970" y="2028" font-size="9" fill="#222">POL-TK06-LEVEL</text>
+<circle cx="2170" cy="2024" r="6" fill="#5d4037"/>
+<text x="2180" y="2028" font-size="9" fill="#222">POL-TK06-PLC</text>
+<circle cx="70" cy="2160" r="6" fill="#0277bd"/>
+<text x="80" y="2164" font-size="9" fill="#222">ACS-DOOR-01</text>
+<circle cx="280" cy="2160" r="6" fill="#0277bd"/>
+<text x="290" y="2164" font-size="9" fill="#222">ACS-DOOR-02</text>
+<circle cx="490" cy="2160" r="6" fill="#0277bd"/>
+<text x="500" y="2164" font-size="9" fill="#222">ACS-DOOR-03</text>
+<circle cx="700" cy="2160" r="6" fill="#0277bd"/>
+<text x="710" y="2164" font-size="9" fill="#222">ACS-DOOR-04</text>
+<circle cx="910" cy="2160" r="6" fill="#0277bd"/>
+<text x="920" y="2164" font-size="9" fill="#222">ACS-DOOR-SVR-01</text>
+<circle cx="1120" cy="2160" r="6" fill="#0277bd"/>
+<text x="1130" y="2164" font-size="9" fill="#222">CCTV-NVR-01</text>
+<circle cx="1330" cy="2160" r="6" fill="#0277bd"/>
+<text x="1340" y="2164" font-size="9" fill="#222">GATE-HOUSE-CAM-01</text>
+<circle cx="1540" cy="2160" r="6" fill="#0277bd"/>
+<text x="1550" y="2164" font-size="9" fill="#222">GATE-HOUSE-SW-01</text>
+<circle cx="1750" cy="2160" r="6" fill="#0277bd"/>
+<text x="1760" y="2164" font-size="9" fill="#222">GATE-HOUSE-WS-01</text>
+<circle cx="1960" cy="2160" r="6" fill="#0277bd"/>
+<text x="1970" y="2164" font-size="9" fill="#222">GENERATOR-PLC-01</text>
+<circle cx="2170" cy="2160" r="6" fill="#0277bd"/>
+<text x="2180" y="2164" font-size="9" fill="#222">IRM-AP-01</text>
+<circle cx="2380" cy="2160" r="6" fill="#0277bd"/>
+<text x="2390" y="2164" font-size="9" fill="#222">IRM-AP-02</text>
+<circle cx="2590" cy="2160" r="6" fill="#0277bd"/>
+<text x="2600" y="2164" font-size="9" fill="#222">IRM-AP-03</text>
+<circle cx="2800" cy="2160" r="6" fill="#0277bd"/>
+<text x="2810" y="2164" font-size="9" fill="#222">IRM-AP-04</text>
+<circle cx="3010" cy="2160" r="6" fill="#0277bd"/>
+<text x="3020" y="2164" font-size="9" fill="#222">IRM-AP-05</text>
+<circle cx="70" cy="2206" r="6" fill="#0277bd"/>
+<text x="80" y="2210" font-size="9" fill="#222">IRM-AP-06</text>
+<circle cx="280" cy="2206" r="6" fill="#0277bd"/>
+<text x="290" y="2210" font-size="9" fill="#222">IRM-AP-07</text>
+<circle cx="490" cy="2206" r="6" fill="#0277bd"/>
+<text x="500" y="2210" font-size="9" fill="#222">IRM-AP-08</text>
+<circle cx="700" cy="2206" r="6" fill="#0277bd"/>
+<text x="710" y="2210" font-size="9" fill="#222">IRM-AP-09</text>
+<circle cx="910" cy="2206" r="6" fill="#0277bd"/>
+<text x="920" y="2210" font-size="9" fill="#222">IRM-AP-10</text>
+<circle cx="1120" cy="2206" r="6" fill="#0277bd"/>
+<text x="1130" y="2210" font-size="9" fill="#222">IRM-AP-11</text>
+<circle cx="1330" cy="2206" r="6" fill="#0277bd"/>
+<text x="1340" y="2210" font-size="9" fill="#222">IRM-AP-12</text>
+<circle cx="1540" cy="2206" r="6" fill="#0277bd"/>
+<text x="1550" y="2210" font-size="9" fill="#222">IRM-WLC-01</text>
+<circle cx="1750" cy="2206" r="6" fill="#0277bd"/>
+<text x="1760" y="2210" font-size="9" fill="#222">IRM-WLC-02</text>
+<circle cx="1960" cy="2206" r="6" fill="#0277bd"/>
+<text x="1970" y="2210" font-size="9" fill="#222">PERIM-CAM-01</text>
+<circle cx="2170" cy="2206" r="6" fill="#0277bd"/>
+<text x="2180" y="2210" font-size="9" fill="#222">PERIM-CAM-02</text>
+<circle cx="2380" cy="2206" r="6" fill="#0277bd"/>
+<text x="2390" y="2210" font-size="9" fill="#222">PERIM-CAM-03</text>
+<circle cx="2590" cy="2206" r="6" fill="#0277bd"/>
+<text x="2600" y="2210" font-size="9" fill="#222">PERIM-CAM-04</text>
+<circle cx="2800" cy="2206" r="6" fill="#0277bd"/>
+<text x="2810" y="2210" font-size="9" fill="#222">PERIM-CAM-05</text>
+<circle cx="3010" cy="2206" r="6" fill="#0277bd"/>
+<text x="3020" y="2210" font-size="9" fill="#222">PERIM-CAM-06</text>
+<circle cx="70" cy="2252" r="6" fill="#0277bd"/>
+<text x="80" y="2256" font-size="9" fill="#222">PERIM-CAM-07</text>
+<circle cx="280" cy="2252" r="6" fill="#0277bd"/>
+<text x="290" y="2256" font-size="9" fill="#222">PERIM-CAM-08</text>
+<circle cx="490" cy="2252" r="6" fill="#0277bd"/>
+<text x="500" y="2256" font-size="9" fill="#222">PERIM-CAM-09</text>
+<circle cx="700" cy="2252" r="6" fill="#0277bd"/>
+<text x="710" y="2256" font-size="9" fill="#222">PERIM-CAM-10</text>
+<circle cx="910" cy="2252" r="6" fill="#0277bd"/>
+<text x="920" y="2256" font-size="9" fill="#222">PERIM-CAM-11</text>
+<circle cx="1120" cy="2252" r="6" fill="#0277bd"/>
+<text x="1130" y="2256" font-size="9" fill="#222">PERIM-CAM-12</text>
+<circle cx="1330" cy="2252" r="6" fill="#0277bd"/>
+<text x="1340" y="2256" font-size="9" fill="#222">PERIM-SIREN-01</text>
+<circle cx="1540" cy="2252" r="6" fill="#0277bd"/>
+<text x="1550" y="2256" font-size="9" fill="#222">PERIM-TRIP-01</text>
+<circle cx="1750" cy="2252" r="6" fill="#0277bd"/>
+<text x="1760" y="2256" font-size="9" fill="#222">PERIM-TRIP-02</text>
+<circle cx="1960" cy="2252" r="6" fill="#0277bd"/>
+<text x="1970" y="2256" font-size="9" fill="#222">PWR-METER-01</text>
+<circle cx="2170" cy="2252" r="6" fill="#0277bd"/>
+<text x="2180" y="2256" font-size="9" fill="#222">PWR-METER-02</text>
+<circle cx="2380" cy="2252" r="6" fill="#0277bd"/>
+<text x="2390" y="2256" font-size="9" fill="#222">PWR-METER-03</text>
+<circle cx="2590" cy="2252" r="6" fill="#0277bd"/>
+<text x="2600" y="2256" font-size="9" fill="#222">PWR-METER-04</text>
+<circle cx="2800" cy="2252" r="6" fill="#0277bd"/>
+<text x="2810" y="2256" font-size="9" fill="#222">SEC-CO-01</text>
+<circle cx="3010" cy="2252" r="6" fill="#0277bd"/>
+<text x="3020" y="2256" font-size="9" fill="#222">SEC-FIRE-01</text>
+<circle cx="70" cy="2298" r="6" fill="#0277bd"/>
+<text x="80" y="2302" font-size="9" fill="#222">SEC-RTR-01</text>
+<circle cx="280" cy="2298" r="6" fill="#0277bd"/>
+<text x="290" y="2302" font-size="9" fill="#222">SEC-SMOKE-01</text>
+<circle cx="490" cy="2298" r="6" fill="#0277bd"/>
+<text x="500" y="2302" font-size="9" fill="#222">SEC-SW-01</text>
+<circle cx="700" cy="2298" r="6" fill="#0277bd"/>
+<text x="710" y="2302" font-size="9" fill="#222">SEC-SW-02</text>
+<circle cx="910" cy="2298" r="6" fill="#0277bd"/>
+<text x="920" y="2302" font-size="9" fill="#222">SUBSTN-PLC-01</text>
+<circle cx="1120" cy="2298" r="6" fill="#0277bd"/>
+<text x="1130" y="2302" font-size="9" fill="#222">UPS-CTL-01</text>
+<circle cx="1330" cy="2298" r="6" fill="#0277bd"/>
+<text x="1340" y="2302" font-size="9" fill="#222">UTIL-BATT-01</text>
+<circle cx="1540" cy="2298" r="6" fill="#0277bd"/>
+<text x="1550" y="2302" font-size="9" fill="#222">UTIL-FIRE-01</text>
+<circle cx="1750" cy="2298" r="6" fill="#0277bd"/>
+<text x="1760" y="2302" font-size="9" fill="#222">UTIL-HMI-01</text>
+<circle cx="1960" cy="2298" r="6" fill="#0277bd"/>
+<text x="1970" y="2302" font-size="9" fill="#222">UTIL-RTR-01</text>
+<circle cx="2170" cy="2298" r="6" fill="#0277bd"/>
+<text x="2180" y="2302" font-size="9" fill="#222">UTIL-SMOKE-01</text>
+<circle cx="2380" cy="2298" r="6" fill="#0277bd"/>
+<text x="2390" y="2302" font-size="9" fill="#222">UTIL-SMOKE-02</text>
+<circle cx="2590" cy="2298" r="6" fill="#0277bd"/>
+<text x="2600" y="2302" font-size="9" fill="#222">UTIL-SOLAR-01</text>
+<circle cx="2800" cy="2298" r="6" fill="#0277bd"/>
+<text x="2810" y="2302" font-size="9" fill="#222">UTIL-SW-01</text>
+<circle cx="3010" cy="2298" r="6" fill="#0277bd"/>
+<text x="3020" y="2302" font-size="9" fill="#222">UTIL-SW-02</text>
+<circle cx="70" cy="2344" r="6" fill="#0277bd"/>
+<text x="80" y="2348" font-size="9" fill="#222">UTIL-WATER-01</text>
+<circle cx="280" cy="2344" r="6" fill="#0277bd"/>
+<text x="290" y="2348" font-size="9" fill="#222">WLAN-ACC-01</text>
+<circle cx="490" cy="2344" r="6" fill="#0277bd"/>
+<text x="500" y="2348" font-size="9" fill="#222">WLAN-DSW-01</text>
+<circle cx="70" cy="2480" r="6" fill="#455a64"/>
+<text x="80" y="2484" font-size="9" fill="#222">EFB-01</text>
+<circle cx="280" cy="2480" r="6" fill="#455a64"/>
+<text x="290" y="2484" font-size="9" fill="#222">EFB-02</text>
+<circle cx="490" cy="2480" r="6" fill="#455a64"/>
+<text x="500" y="2484" font-size="9" fill="#222">EFB-03</text>
+<circle cx="700" cy="2480" r="6" fill="#455a64"/>
+<text x="710" y="2484" font-size="9" fill="#222">EFB-04</text>
+<circle cx="910" cy="2480" r="6" fill="#455a64"/>
+<text x="920" y="2484" font-size="9" fill="#222">EFB-05</text>
+<circle cx="1120" cy="2480" r="6" fill="#455a64"/>
+<text x="1130" y="2484" font-size="9" fill="#222">EFB-06</text>
+<circle cx="1330" cy="2480" r="6" fill="#455a64"/>
+<text x="1340" y="2484" font-size="9" fill="#222">EFB-07</text>
+<circle cx="1540" cy="2480" r="6" fill="#455a64"/>
+<text x="1550" y="2484" font-size="9" fill="#222">EFB-08</text>
+<circle cx="1750" cy="2480" r="6" fill="#455a64"/>
+<text x="1760" y="2484" font-size="9" fill="#222">EFB-09</text>
+<circle cx="1960" cy="2480" r="6" fill="#455a64"/>
+<text x="1970" y="2484" font-size="9" fill="#222">EFB-10</text>
+<circle cx="2170" cy="2480" r="6" fill="#455a64"/>
+<text x="2180" y="2484" font-size="9" fill="#222">EFB-11</text>
+<circle cx="2380" cy="2480" r="6" fill="#455a64"/>
+<text x="2390" y="2484" font-size="9" fill="#222">EFB-12</text>
+<circle cx="2590" cy="2480" r="6" fill="#455a64"/>
+<text x="2600" y="2484" font-size="9" fill="#222">EFB-13</text>
+<circle cx="2800" cy="2480" r="6" fill="#455a64"/>
+<text x="2810" y="2484" font-size="9" fill="#222">EFB-14</text>
+<circle cx="3010" cy="2480" r="6" fill="#455a64"/>
+<text x="3020" y="2484" font-size="9" fill="#222">EFB-15</text>
+<circle cx="70" cy="2526" r="6" fill="#455a64"/>
+<text x="80" y="2530" font-size="9" fill="#222">HANDSET-01</text>
+<circle cx="280" cy="2526" r="6" fill="#455a64"/>
+<text x="290" y="2530" font-size="9" fill="#222">HANDSET-02</text>
+<circle cx="490" cy="2526" r="6" fill="#455a64"/>
+<text x="500" y="2530" font-size="9" fill="#222">HANDSET-03</text>
+</svg>
