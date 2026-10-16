@@ -1,0 +1,387 @@
+name,model,tier,role,site,mgmt_ip
+CARRIER-NTT-EDGE,Cloud-PT,T1-carrier-edge,NTT Communications transit cloud (AS65101),EDGE,
+CARRIER-KDDI-EDGE,Cloud-PT,T1-carrier-edge,KDDI transit cloud (backup carrier),EDGE,
+YML-CE-01,ISR4331,T1-carrier-edge,Carrier edge router A (eBGP AS65101),EDGE,10.255.0.1
+YML-CE-02,ISR4331,T1-carrier-edge,"Carrier edge router B (eBGP, diverse path)",EDGE,10.255.0.2
+FW-INTERNET-EDGE,5505,T1-carrier-edge,Internet/DMZ edge firewall (outside->dmz->inside),EDGE,10.99.0.2
+NACCS-CUSTOMS-GW,ISR4331,T1-carrier-edge,"Japan Customs NACCS gateway (eBGP AS65102, IPsec)",EDGE,10.255.0.3
+VTS-PORT-AUTH-GW,ISR4331,T1-carrier-edge,Vessel Traffic Service / port authority gateway,EDGE,10.255.0.4
+RAIL-OPERATOR-GW,ISR4331,T1-carrier-edge,Rail operator intermodal gateway (eBGP AS65103),EDGE,10.255.0.5
+SHIPLINE-EDI-GW,ISR4331,T1-carrier-edge,Shipping-line EDI community gateway (eBGP AS65104),EDGE,10.255.0.6
+EDGE-DMZ-SW,2960-24TT,T1-carrier-edge,Partner DMZ access switch (EDI / NACCS brokers),EDGE,10.100.110.10
+PARTNER-EDI-SVR,Server-PT,T1-carrier-edge,Partner EDI broker (AS2 / SFTP),EDGE,10.100.110.20
+YML-CORE-SW-01,3650-24PS,T2-backbone,"Terminal collapsed core A (OSPF area 0, iBGP edge)",CORE,10.255.0.7
+YML-CORE-SW-02,3650-24PS,T2-backbone,"Terminal collapsed core B (OSPF area 0, iBGP edge)",CORE,10.255.0.8
+YML-CORE-RTR-01,ISR4331,T2-backbone,Terminal core router / OSPF ABR / iBGP speaker,CORE,10.255.0.9
+YML-CORE-RTR-02,ISR4331,T2-backbone,Terminal core router / OSPF ABR / iBGP speaker,CORE,10.255.0.10
+YML-WAN-EDGE-01,2911,T2-backbone,Terminal WAN edge (primary carrier),CORE,10.255.0.11
+YML-WAN-EDGE-02,2911,T2-backbone,Terminal WAN edge (backup carrier),CORE,10.255.0.12
+YML-DCI-RTR-01,ISR4331,T2-backbone,Data-centre interconnect router (TDC<->DRC),CORE,10.255.0.13
+YML-MGMT-GW-01,ISR4331,T2-backbone,Out-of-band management gateway / NOC edge,CORE,10.255.0.14
+TDC-SPINE-01,3650-24PS,T3-primary-dc,"TDC spine A (VLAN 60 gateway, HSRP active)",TDC,10.11.60.11
+TDC-SPINE-02,3650-24PS,T3-primary-dc,TDC spine B (HSRP standby),TDC,10.11.60.12
+TDC-LEAF-01,3560-24PS,T3-primary-dc,TDC leaf A (server access),TDC,10.11.60.13
+TDC-LEAF-02,3560-24PS,T3-primary-dc,TDC leaf B (server access),TDC,10.11.60.14
+FW-TDC-PERIMETER,5505,T3-primary-dc,TDC perimeter firewall (inside/dmz),TDC,10.99.1.2
+FW-TDC-INT,5505,T3-primary-dc,TDC internal segmentation firewall,TDC,10.99.2.2
+DNS-SVR-01,Server-PT,T3-primary-dc,Authoritative DNS - yokohama-amlc.example.jp,TDC,10.11.60.21
+DNS-SVR-02,Server-PT,T3-primary-dc,Secondary DNS (zone replicated),TDC,10.11.60.22
+DHCP-SVR-01,Server-PT,T3-primary-dc,Terminal DHCP (all zones),TDC,10.11.60.23
+DHCP-SVR-02,Server-PT,T3-primary-dc,Terminal DHCP (HA pair),TDC,10.11.60.24
+NTP-SVR-01,Server-PT,T3-primary-dc,"Stratum-2 NTP, GPS disciplined",TDC,10.11.60.25
+NTP-SVR-02,Server-PT,T3-primary-dc,Secondary NTP,TDC,10.11.60.26
+SYSLOG-SVR-01,Server-PT,T3-primary-dc,Central syslog / SIEM collector,TDC,10.11.60.27
+SYSLOG-SVR-02,Server-PT,T3-primary-dc,Secondary syslog / archive,TDC,10.11.60.28
+AAA-SVR-01,Server-PT,T3-primary-dc,RADIUS + TACACS+ (Cisco ACS),TDC,10.11.60.29
+AAA-SVR-02,Server-PT,T3-primary-dc,Secondary AAA,TDC,10.11.60.30
+TFTP-ARCHIVE-01,Server-PT,T3-primary-dc,Configuration and image archive,TDC,10.11.60.42
+TOS-APP-01,Server-PT,T3-primary-dc,Terminal Operating System application server (primary),TDC,10.11.60.31
+TOS-APP-02,Server-PT,T3-primary-dc,TOS application server (HA pair),TDC,10.11.60.32
+WMS-APP-01,Server-PT,T3-primary-dc,Warehouse / yard management system,TDC,10.11.60.33
+EDI-BROKER-01,Server-PT,T3-primary-dc,EDI / AS2 broker to shipping lines,TDC,10.11.60.34
+GIS-YARD-01,Server-PT,T3-primary-dc,Yard GIS and block visualisation,TDC,10.11.60.35
+BILLING-SVR-01,Server-PT,T3-primary-dc,Tariff and billing engine,TDC,10.11.60.36
+VBS-SLOT-SVR,Server-PT,T3-primary-dc,Vehicle booking system / slot allocation,TDC,10.11.60.37
+CARGO-TRACK-01,Server-PT,T3-primary-dc,Container tracking and event service,TDC,10.11.60.38
+AGV-DISPATCH-01,Server-PT,T3-primary-dc,AGV fleet dispatch (safety critical),TDC,10.11.60.39
+CRANE-SCADA-01,Server-PT,T3-primary-dc,Crane SCADA / equipment management,TDC,10.11.60.40
+REEFER-MON-01,Server-PT,T3-primary-dc,Reefer temperature compliance service,TDC,10.11.60.41
+TML-PORTAL-01,Server-PT,T3-primary-dc,Terminal portal (HTTPS),TDC,10.11.60.43
+MAIL-RELAY-01,Server-PT,T3-primary-dc,Official mail relay,TDC,10.11.60.44
+DRC-SPINE-01,3650-24PS,T4-dr-site,DR site spine A (standby TOS),DRC,10.12.60.11
+DRC-LEAF-01,3560-24PS,T4-dr-site,DR site leaf / server access,DRC,10.12.60.12
+FW-DRC-PERIMETER,5505,T4-dr-site,DR site perimeter firewall,DRC,10.99.4.2
+DR-TOS-APP-01,Server-PT,T4-dr-site,Standby TOS application (replication target),DRC,10.12.60.41
+DR-MANIFEST-DB,Server-PT,T4-dr-site,Standby manifest / TOS database,DRC,10.12.60.42
+DR-WMS-APP-01,Server-PT,T4-dr-site,Standby yard management,DRC,10.12.60.43
+DR-DNS-SVR-01,Server-PT,T4-dr-site,DR DNS,DRC,10.12.60.44
+DR-REPLICA-SVR,Server-PT,T4-dr-site,Asynchronous replication target,DRC,10.12.60.45
+DR-BACKUP-VAULT,Server-PT,T4-dr-site,Offline backup vault (air-gapped),DRC,10.12.60.46
+CUS-FW-OUTER,5505,T5-customs,Customs enclave outer firewall (terminal -> customs DMZ),CUSTOMS,172.20.255.1
+CUS-FW-INNER,5505,T5-customs,Customs enclave inner firewall (DMZ -> manifest DB),CUSTOMS,172.20.255.2
+CUS-DMZ-SW-01,3560-24PS,T5-customs,Customs DMZ switch (NACCS brokers),CUSTOMS,172.20.10.10
+CUS-DB-SW-01,3560-24PS,T5-customs,Customs protected switch (manifest DB),CUSTOMS,172.20.20.10
+CUS-IDS-01,CyberObserver,T5-customs,Customs enclave intrusion detection sensor,CUSTOMS,172.20.10.20
+CUS-TAP-01,Sniffer,T5-customs,Customs enclave lawful-intercept / audit tap,CUSTOMS,172.20.10.21
+CUS-MANIFEST-DB-01,Server-PT,T5-customs,"Customs manifest database (primary, encrypted at rest)",CUSTOMS,172.20.20.21
+CUS-MANIFEST-DB-02,Server-PT,T5-customs,Customs manifest database (synchronous standby),CUSTOMS,172.20.20.22
+NACCS-BROKER-01,Server-PT,T5-customs,NACCS declaration broker (primary),CUSTOMS,172.20.10.31
+NACCS-BROKER-02,Server-PT,T5-customs,NACCS declaration broker (standby),CUSTOMS,172.20.10.32
+CUS-DECL-APP-01,Server-PT,T5-customs,Declaration processing application,CUSTOMS,172.20.10.33
+CUS-HSM-KEY-01,Server-PT,T5-customs,Hardware security module / key custodian,CUSTOMS,172.20.20.23
+CUS-AUDIT-LOG-01,Server-PT,T5-customs,Immutable customs audit log (WORM),CUSTOMS,172.20.20.24
+CUS-OFFICER-WS-01,PC-PT,T5-customs,Customs officer examination workstation,CUSTOMS,172.20.10.40
+CUS-OFFICER-WS-02,PC-PT,T5-customs,Customs officer examination workstation,CUSTOMS,172.20.10.41
+TOC-RTR-01,ISR4331,T6-control-tower,TOC zone router (active) / OSPF ABR,TOC,10.20.40.2
+TOC-RTR-02,ISR4331,T6-control-tower,TOC zone router (standby) / OSPF ABR,TOC,10.20.40.3
+TOC-DSW-01,3560-24PS,T6-control-tower,TOC distribution switch A,TOC,10.20.40.11
+TOC-DSW-02,3560-24PS,T6-control-tower,TOC distribution switch B,TOC,10.20.40.12
+TOC-ACC-01,2960-24TT,T6-control-tower,TOC operations floor access A,TOC,10.20.40.21
+TOC-ACC-02,2960-24TT,T6-control-tower,TOC operations floor access B,TOC,10.20.40.22
+TOC-VIDEO-WALL-1,Server-PT,T6-control-tower,Video wall controller (berth cameras),TOC,10.20.10.30
+TOC-GATE-VIEW-1,Server-PT,T6-control-tower,Gate OCR monitoring workstation,TOC,10.20.10.31
+TOS-DISPATCH-WS,Server-PT,T6-control-tower,TOS dispatch console,TOC,10.20.10.32
+TOC-OPS-WS-01,PC-PT,T6-control-tower,Terminal operations controller workstation,TOC,10.20.10.40
+TOC-OPS-WS-02,PC-PT,T6-control-tower,Terminal operations controller workstation,TOC,10.20.10.41
+TOC-OPS-WS-03,PC-PT,T6-control-tower,Terminal operations controller workstation,TOC,10.20.10.42
+TOC-OPS-WS-04,PC-PT,T6-control-tower,Terminal operations controller workstation,TOC,10.20.10.43
+TOC-RADIO-DISP-01,7960,T6-control-tower,Radio dispatch console (port operations VHF),TOC,10.20.30.20
+TOC-RADIO-DISP-02,7960,T6-control-tower,Radio dispatch console (port operations VHF),TOC,10.20.30.21
+BRT1-IAG-A,IE-9320,T7-berth-sts,"Minami-Honmoku BC-1 berth industrial aggregation A (deep-water 16.5 m, 2 x 24 000 TEU)",BC1,10.21.40.2
+BRT1-IAG-B,IE-9320,T7-berth-sts,"Minami-Honmoku BC-1 berth industrial aggregation B (deep-water 16.5 m, 2 x 24 000 TEU)",BC1,10.21.40.3
+STS01-SW-01,IE-3400,T7-berth-sts,STS01 crane control-cabinet industrial switch (berth 1),BC1,10.21.40.21
+STS01-PLC-01,PLC-PT,T7-berth-sts,STS01 gantry/ trolley motion controller (safety PLC),BC1,10.21.70.21
+STS01-HMI-01,HMI-PT,T7-berth-sts,STS01 crane operator panel,BC1,10.21.70.51
+STS01-RFID-01,RFID Reader,T7-berth-sts,STS01 spreader twistlock / container ID reader,BC1,10.21.90.21
+STS01-MOT-01,Motion Detector,T7-berth-sts,STS01 gantry travel and anti-collision sensor,BC1,10.21.90.51
+STS02-SW-01,IE-3400,T7-berth-sts,STS02 crane control-cabinet industrial switch (berth 1),BC1,10.21.40.22
+STS02-PLC-01,PLC-PT,T7-berth-sts,STS02 gantry/ trolley motion controller (safety PLC),BC1,10.21.70.22
+STS02-HMI-01,HMI-PT,T7-berth-sts,STS02 crane operator panel,BC1,10.21.70.52
+STS02-RFID-01,RFID Reader,T7-berth-sts,STS02 spreader twistlock / container ID reader,BC1,10.21.90.22
+STS02-MOT-01,Motion Detector,T7-berth-sts,STS02 gantry travel and anti-collision sensor,BC1,10.21.90.52
+STS03-SW-01,IE-3400,T7-berth-sts,STS03 crane control-cabinet industrial switch (berth 1),BC1,10.21.40.23
+STS03-PLC-01,PLC-PT,T7-berth-sts,STS03 gantry/ trolley motion controller (safety PLC),BC1,10.21.70.23
+STS03-HMI-01,HMI-PT,T7-berth-sts,STS03 crane operator panel,BC1,10.21.70.53
+STS03-RFID-01,RFID Reader,T7-berth-sts,STS03 spreader twistlock / container ID reader,BC1,10.21.90.23
+STS03-MOT-01,Motion Detector,T7-berth-sts,STS03 gantry travel and anti-collision sensor,BC1,10.21.90.53
+BRT2-IAG-A,IE-9320,T7-berth-sts,Minami-Honmoku BC-2 berth industrial aggregation A (deep-water 16.5 m),BC2,10.22.40.2
+BRT2-IAG-B,IE-9320,T7-berth-sts,Minami-Honmoku BC-2 berth industrial aggregation B (deep-water 16.5 m),BC2,10.22.40.3
+STS04-SW-01,IE-3400,T7-berth-sts,STS04 crane control-cabinet industrial switch (berth 2),BC2,10.22.40.24
+STS04-PLC-01,PLC-PT,T7-berth-sts,STS04 gantry/ trolley motion controller (safety PLC),BC2,10.22.70.24
+STS04-HMI-01,HMI-PT,T7-berth-sts,STS04 crane operator panel,BC2,10.22.70.54
+STS04-RFID-01,RFID Reader,T7-berth-sts,STS04 spreader twistlock / container ID reader,BC2,10.22.90.24
+STS04-MOT-01,Motion Detector,T7-berth-sts,STS04 gantry travel and anti-collision sensor,BC2,10.22.90.54
+STS05-SW-01,IE-3400,T7-berth-sts,STS05 crane control-cabinet industrial switch (berth 2),BC2,10.22.40.25
+STS05-PLC-01,PLC-PT,T7-berth-sts,STS05 gantry/ trolley motion controller (safety PLC),BC2,10.22.70.25
+STS05-HMI-01,HMI-PT,T7-berth-sts,STS05 crane operator panel,BC2,10.22.70.55
+STS05-RFID-01,RFID Reader,T7-berth-sts,STS05 spreader twistlock / container ID reader,BC2,10.22.90.25
+STS05-MOT-01,Motion Detector,T7-berth-sts,STS05 gantry travel and anti-collision sensor,BC2,10.22.90.55
+STS06-SW-01,IE-3400,T7-berth-sts,STS06 crane control-cabinet industrial switch (berth 2),BC2,10.22.40.26
+STS06-PLC-01,PLC-PT,T7-berth-sts,STS06 gantry/ trolley motion controller (safety PLC),BC2,10.22.70.26
+STS06-HMI-01,HMI-PT,T7-berth-sts,STS06 crane operator panel,BC2,10.22.70.56
+STS06-RFID-01,RFID Reader,T7-berth-sts,STS06 spreader twistlock / container ID reader,BC2,10.22.90.26
+STS06-MOT-01,Motion Detector,T7-berth-sts,STS06 gantry travel and anti-collision sensor,BC2,10.22.90.56
+BRT3-IAG-A,IE-9320,T7-berth-sts,"Honmoku D-4 berth industrial aggregation A (14.0 m, feeder + intra-Asia)",BC3,10.23.40.2
+BRT3-IAG-B,IE-9320,T7-berth-sts,"Honmoku D-4 berth industrial aggregation B (14.0 m, feeder + intra-Asia)",BC3,10.23.40.3
+STS07-SW-01,IE-3400,T7-berth-sts,STS07 crane control-cabinet industrial switch (berth 3),BC3,10.23.40.27
+STS07-PLC-01,PLC-PT,T7-berth-sts,STS07 gantry/ trolley motion controller (safety PLC),BC3,10.23.70.27
+STS07-HMI-01,HMI-PT,T7-berth-sts,STS07 crane operator panel,BC3,10.23.70.57
+STS07-RFID-01,RFID Reader,T7-berth-sts,STS07 spreader twistlock / container ID reader,BC3,10.23.90.27
+STS07-MOT-01,Motion Detector,T7-berth-sts,STS07 gantry travel and anti-collision sensor,BC3,10.23.90.57
+STS08-SW-01,IE-3400,T7-berth-sts,STS08 crane control-cabinet industrial switch (berth 3),BC3,10.23.40.28
+STS08-PLC-01,PLC-PT,T7-berth-sts,STS08 gantry/ trolley motion controller (safety PLC),BC3,10.23.70.28
+STS08-HMI-01,HMI-PT,T7-berth-sts,STS08 crane operator panel,BC3,10.23.70.58
+STS08-RFID-01,RFID Reader,T7-berth-sts,STS08 spreader twistlock / container ID reader,BC3,10.23.90.28
+STS08-MOT-01,Motion Detector,T7-berth-sts,STS08 gantry travel and anti-collision sensor,BC3,10.23.90.58
+STS09-SW-01,IE-3400,T7-berth-sts,STS09 crane control-cabinet industrial switch (berth 3),BC3,10.23.40.29
+STS09-PLC-01,PLC-PT,T7-berth-sts,STS09 gantry/ trolley motion controller (safety PLC),BC3,10.23.70.29
+STS09-HMI-01,HMI-PT,T7-berth-sts,STS09 crane operator panel,BC3,10.23.70.59
+STS09-RFID-01,RFID Reader,T7-berth-sts,STS09 spreader twistlock / container ID reader,BC3,10.23.90.29
+STS09-MOT-01,Motion Detector,T7-berth-sts,STS09 gantry travel and anti-collision sensor,BC3,10.23.90.59
+BRT4-IAG-A,IE-9320,T7-berth-sts,"Honmoku D-5 berth industrial aggregation A (14.0 m, feeder + intra-Asia)",BC4,10.24.40.2
+BRT4-IAG-B,IE-9320,T7-berth-sts,"Honmoku D-5 berth industrial aggregation B (14.0 m, feeder + intra-Asia)",BC4,10.24.40.3
+STS10-SW-01,IE-3400,T7-berth-sts,STS10 crane control-cabinet industrial switch (berth 4),BC4,10.24.40.30
+STS10-PLC-01,PLC-PT,T7-berth-sts,STS10 gantry/ trolley motion controller (safety PLC),BC4,10.24.70.30
+STS10-HMI-01,HMI-PT,T7-berth-sts,STS10 crane operator panel,BC4,10.24.70.60
+STS10-RFID-01,RFID Reader,T7-berth-sts,STS10 spreader twistlock / container ID reader,BC4,10.24.90.30
+STS10-MOT-01,Motion Detector,T7-berth-sts,STS10 gantry travel and anti-collision sensor,BC4,10.24.90.60
+STS11-SW-01,IE-3400,T7-berth-sts,STS11 crane control-cabinet industrial switch (berth 4),BC4,10.24.40.31
+STS11-PLC-01,PLC-PT,T7-berth-sts,STS11 gantry/ trolley motion controller (safety PLC),BC4,10.24.70.31
+STS11-HMI-01,HMI-PT,T7-berth-sts,STS11 crane operator panel,BC4,10.24.70.61
+STS11-RFID-01,RFID Reader,T7-berth-sts,STS11 spreader twistlock / container ID reader,BC4,10.24.90.31
+STS11-MOT-01,Motion Detector,T7-berth-sts,STS11 gantry travel and anti-collision sensor,BC4,10.24.90.61
+STS12-SW-01,IE-3400,T7-berth-sts,STS12 crane control-cabinet industrial switch (berth 4),BC4,10.24.40.32
+STS12-PLC-01,PLC-PT,T7-berth-sts,STS12 gantry/ trolley motion controller (safety PLC),BC4,10.24.70.32
+STS12-HMI-01,HMI-PT,T7-berth-sts,STS12 crane operator panel,BC4,10.24.70.62
+STS12-RFID-01,RFID Reader,T7-berth-sts,STS12 spreader twistlock / container ID reader,BC4,10.24.90.32
+STS12-MOT-01,Motion Detector,T7-berth-sts,STS12 gantry travel and anti-collision sensor,BC4,10.24.90.62
+YARD-AGG-01,IE-9320,T8-container-yard,Yard industrial aggregation switch A (blocks A-D),YARD,10.30.40.3
+YARD-AGG-02,IE-9320,T8-container-yard,Yard industrial aggregation switch B (blocks E-H),YARD,10.30.40.4
+YRD01-SW-01,IE-3400,T8-container-yard,YRD01 block A1 industrial switch (import laden),Y01,10.30.40.10
+YRD01-PLC-01,PLC-PT,T8-container-yard,"YRD01 RTG crane controller, block A1",Y01,10.30.70.10
+YRD01-RFID-01,RFID Reader,T8-container-yard,"YRD01 yard position RFID portal, block A1",Y01,10.30.90.11
+YRD01-TEMP-01,Temperature Monitor,T8-container-yard,"YRD01 reefer bank temperature monitor, block A1",Y01,10.30.130.12
+YRD01-SIREN-01,Siren,T8-container-yard,"YRD01 yard safety alarm, block A1",Y01,10.30.90.14
+YRD02-SW-01,IE-3400,T8-container-yard,YRD02 block A2 industrial switch (import laden),Y02,10.31.40.10
+YRD02-PLC-01,PLC-PT,T8-container-yard,"YRD02 RTG crane controller, block A2",Y02,10.31.70.10
+YRD02-RFID-01,RFID Reader,T8-container-yard,"YRD02 yard position RFID portal, block A2",Y02,10.31.90.11
+YRD02-TEMP-01,Temperature Monitor,T8-container-yard,"YRD02 reefer bank temperature monitor, block A2",Y02,10.31.130.12
+YRD02-SIREN-01,Siren,T8-container-yard,"YRD02 yard safety alarm, block A2",Y02,10.31.90.14
+YRD03-SW-01,IE-3400,T8-container-yard,YRD03 block A3 industrial switch (export laden),Y03,10.32.40.10
+YRD03-PLC-01,PLC-PT,T8-container-yard,"YRD03 RTG crane controller, block A3",Y03,10.32.70.10
+YRD03-RFID-01,RFID Reader,T8-container-yard,"YRD03 yard position RFID portal, block A3",Y03,10.32.90.11
+YRD03-TEMP-01,Temperature Monitor,T8-container-yard,"YRD03 reefer bank temperature monitor, block A3",Y03,10.32.130.12
+YRD03-SIREN-01,Siren,T8-container-yard,"YRD03 yard safety alarm, block A3",Y03,10.32.90.14
+YRD04-SW-01,IE-3400,T8-container-yard,YRD04 block A4 industrial switch (export laden),Y04,10.33.40.10
+YRD04-PLC-01,PLC-PT,T8-container-yard,"YRD04 RTG crane controller, block A4",Y04,10.33.70.10
+YRD04-RFID-01,RFID Reader,T8-container-yard,"YRD04 yard position RFID portal, block A4",Y04,10.33.90.11
+YRD04-TEMP-01,Temperature Monitor,T8-container-yard,"YRD04 reefer bank temperature monitor, block A4",Y04,10.33.130.12
+YRD04-SIREN-01,Siren,T8-container-yard,"YRD04 yard safety alarm, block A4",Y04,10.33.90.14
+YRD05-SW-01,IE-3400,T8-container-yard,YRD05 block B1 industrial switch (transshipment),Y05,10.34.40.10
+YRD05-PLC-01,PLC-PT,T8-container-yard,"YRD05 RTG crane controller, block B1",Y05,10.34.70.10
+YRD05-RFID-01,RFID Reader,T8-container-yard,"YRD05 yard position RFID portal, block B1",Y05,10.34.90.11
+YRD05-TEMP-01,Temperature Monitor,T8-container-yard,"YRD05 reefer bank temperature monitor, block B1",Y05,10.34.130.12
+YRD05-SIREN-01,Siren,T8-container-yard,"YRD05 yard safety alarm, block B1",Y05,10.34.90.14
+YRD06-SW-01,IE-3400,T8-container-yard,YRD06 block B2 industrial switch (transshipment),Y06,10.35.40.10
+YRD06-PLC-01,PLC-PT,T8-container-yard,"YRD06 RTG crane controller, block B2",Y06,10.35.70.10
+YRD06-RFID-01,RFID Reader,T8-container-yard,"YRD06 yard position RFID portal, block B2",Y06,10.35.90.11
+YRD06-TEMP-01,Temperature Monitor,T8-container-yard,"YRD06 reefer bank temperature monitor, block B2",Y06,10.35.130.12
+YRD06-SIREN-01,Siren,T8-container-yard,"YRD06 yard safety alarm, block B2",Y06,10.35.90.14
+YRD07-SW-01,IE-3400,T8-container-yard,YRD07 block B3 industrial switch (empty),Y07,10.36.40.10
+YRD07-PLC-01,PLC-PT,T8-container-yard,"YRD07 RTG crane controller, block B3",Y07,10.36.70.10
+YRD07-RFID-01,RFID Reader,T8-container-yard,"YRD07 yard position RFID portal, block B3",Y07,10.36.90.11
+YRD07-TEMP-01,Temperature Monitor,T8-container-yard,"YRD07 reefer bank temperature monitor, block B3",Y07,10.36.130.12
+YRD07-SIREN-01,Siren,T8-container-yard,"YRD07 yard safety alarm, block B3",Y07,10.36.90.14
+YRD08-SW-01,IE-3400,T8-container-yard,YRD08 block B4 industrial switch (empty),Y08,10.37.40.10
+YRD08-PLC-01,PLC-PT,T8-container-yard,"YRD08 RTG crane controller, block B4",Y08,10.37.70.10
+YRD08-RFID-01,RFID Reader,T8-container-yard,"YRD08 yard position RFID portal, block B4",Y08,10.37.90.11
+YRD08-TEMP-01,Temperature Monitor,T8-container-yard,"YRD08 reefer bank temperature monitor, block B4",Y08,10.37.130.12
+YRD08-SIREN-01,Siren,T8-container-yard,"YRD08 yard safety alarm, block B4",Y08,10.37.90.14
+YRD09-SW-01,IE-3400,T8-container-yard,YRD09 block C1 industrial switch (reefer),Y09,10.38.40.10
+YRD09-PLC-01,PLC-PT,T8-container-yard,"YRD09 RTG crane controller, block C1",Y09,10.38.70.10
+YRD09-RFID-01,RFID Reader,T8-container-yard,"YRD09 yard position RFID portal, block C1",Y09,10.38.90.11
+YRD09-TEMP-01,Temperature Monitor,T8-container-yard,"YRD09 reefer bank temperature monitor, block C1",Y09,10.38.130.12
+YRD09-SIREN-01,Siren,T8-container-yard,"YRD09 yard safety alarm, block C1",Y09,10.38.90.14
+YRD10-SW-01,IE-3400,T8-container-yard,YRD10 block C2 industrial switch (reefer),Y10,10.39.40.10
+YRD10-PLC-01,PLC-PT,T8-container-yard,"YRD10 RTG crane controller, block C2",Y10,10.39.70.10
+YRD10-RFID-01,RFID Reader,T8-container-yard,"YRD10 yard position RFID portal, block C2",Y10,10.39.90.11
+YRD10-TEMP-01,Temperature Monitor,T8-container-yard,"YRD10 reefer bank temperature monitor, block C2",Y10,10.39.130.12
+YRD10-SIREN-01,Siren,T8-container-yard,"YRD10 yard safety alarm, block C2",Y10,10.39.90.14
+YRD11-SW-01,IE-3400,T8-container-yard,YRD11 block C3 industrial switch (dangerous goods),Y11,10.40.40.10
+YRD11-PLC-01,PLC-PT,T8-container-yard,"YRD11 RTG crane controller, block C3",Y11,10.40.70.10
+YRD11-RFID-01,RFID Reader,T8-container-yard,"YRD11 yard position RFID portal, block C3",Y11,10.40.90.11
+YRD11-TEMP-01,Temperature Monitor,T8-container-yard,"YRD11 reefer bank temperature monitor, block C3",Y11,10.40.130.12
+YRD11-SIREN-01,Siren,T8-container-yard,"YRD11 yard safety alarm, block C3",Y11,10.40.90.14
+YRD12-SW-01,IE-3400,T8-container-yard,YRD12 block C4 industrial switch (dangerous goods),Y12,10.41.40.10
+YRD12-PLC-01,PLC-PT,T8-container-yard,"YRD12 RTG crane controller, block C4",Y12,10.41.70.10
+YRD12-RFID-01,RFID Reader,T8-container-yard,"YRD12 yard position RFID portal, block C4",Y12,10.41.90.11
+YRD12-TEMP-01,Temperature Monitor,T8-container-yard,"YRD12 reefer bank temperature monitor, block C4",Y12,10.41.130.12
+YRD12-SIREN-01,Siren,T8-container-yard,"YRD12 yard safety alarm, block C4",Y12,10.41.90.14
+YRD13-SW-01,IE-3400,T8-container-yard,YRD13 block D1 industrial switch (rail-served),Y13,10.42.40.10
+YRD13-PLC-01,PLC-PT,T8-container-yard,"YRD13 RTG crane controller, block D1",Y13,10.42.70.10
+YRD13-RFID-01,RFID Reader,T8-container-yard,"YRD13 yard position RFID portal, block D1",Y13,10.42.90.11
+YRD13-TEMP-01,Temperature Monitor,T8-container-yard,"YRD13 reefer bank temperature monitor, block D1",Y13,10.42.130.12
+YRD13-SIREN-01,Siren,T8-container-yard,"YRD13 yard safety alarm, block D1",Y13,10.42.90.14
+YRD14-SW-01,IE-3400,T8-container-yard,YRD14 block D2 industrial switch (rail-served),Y14,10.43.40.10
+YRD14-PLC-01,PLC-PT,T8-container-yard,"YRD14 RTG crane controller, block D2",Y14,10.43.70.10
+YRD14-RFID-01,RFID Reader,T8-container-yard,"YRD14 yard position RFID portal, block D2",Y14,10.43.90.11
+YRD14-TEMP-01,Temperature Monitor,T8-container-yard,"YRD14 reefer bank temperature monitor, block D2",Y14,10.43.130.12
+YRD14-SIREN-01,Siren,T8-container-yard,"YRD14 yard safety alarm, block D2",Y14,10.43.90.14
+YRD15-SW-01,IE-3400,T8-container-yard,YRD15 block D3 industrial switch (over-height / OOG),Y15,10.44.40.10
+YRD15-PLC-01,PLC-PT,T8-container-yard,"YRD15 RTG crane controller, block D3",Y15,10.44.70.10
+YRD15-RFID-01,RFID Reader,T8-container-yard,"YRD15 yard position RFID portal, block D3",Y15,10.44.90.11
+YRD15-TEMP-01,Temperature Monitor,T8-container-yard,"YRD15 reefer bank temperature monitor, block D3",Y15,10.44.130.12
+YRD15-SIREN-01,Siren,T8-container-yard,"YRD15 yard safety alarm, block D3",Y15,10.44.90.14
+YRD16-SW-01,IE-3400,T8-container-yard,YRD16 block D4 industrial switch (over-height / OOG),Y16,10.45.40.10
+YRD16-PLC-01,PLC-PT,T8-container-yard,"YRD16 RTG crane controller, block D4",Y16,10.45.70.10
+YRD16-RFID-01,RFID Reader,T8-container-yard,"YRD16 yard position RFID portal, block D4",Y16,10.45.90.11
+YRD16-TEMP-01,Temperature Monitor,T8-container-yard,"YRD16 reefer bank temperature monitor, block D4",Y16,10.45.130.12
+YRD16-SIREN-01,Siren,T8-container-yard,"YRD16 yard safety alarm, block D4",Y16,10.45.90.14
+AGV-RTR-01,ISR4331,T9-agv-fleet,AGV control zone router (active),AGV,10.50.40.2
+AGV-RTR-02,ISR4331,T9-agv-fleet,AGV control zone router (standby),AGV,10.50.40.3
+AGV-CTL-SW-01,IE-9320,T9-agv-fleet,AGV control-room industrial switch A,AGV,10.50.40.11
+AGV-CTL-SW-02,IE-9320,T9-agv-fleet,AGV control-room industrial switch B,AGV,10.50.40.12
+AGV-FLEET-DISP-01,Server-PT,T9-agv-fleet,"AGV fleet dispatcher (route optimisation, safety interlock)",AGV,10.50.60.21
+AGV-FLEET-DISP-02,Server-PT,T9-agv-fleet,AGV dispatcher HA pair,AGV,10.50.60.22
+AGV001-CTL,PLC-PT,T9-agv-fleet,AGV001 onboard vehicle controller (guidance + safety),AGV,10.50.120.30
+AGV002-CTL,PLC-PT,T9-agv-fleet,AGV002 onboard vehicle controller (guidance + safety),AGV,10.50.120.31
+AGV003-CTL,PLC-PT,T9-agv-fleet,AGV003 onboard vehicle controller (guidance + safety),AGV,10.50.120.32
+AGV004-CTL,PLC-PT,T9-agv-fleet,AGV004 onboard vehicle controller (guidance + safety),AGV,10.50.120.33
+AGV005-CTL,PLC-PT,T9-agv-fleet,AGV005 onboard vehicle controller (guidance + safety),AGV,10.50.120.34
+AGV006-CTL,PLC-PT,T9-agv-fleet,AGV006 onboard vehicle controller (guidance + safety),AGV,10.50.120.35
+AGV007-CTL,PLC-PT,T9-agv-fleet,AGV007 onboard vehicle controller (guidance + safety),AGV,10.50.120.36
+AGV008-CTL,PLC-PT,T9-agv-fleet,AGV008 onboard vehicle controller (guidance + safety),AGV,10.50.120.37
+AGV009-CTL,PLC-PT,T9-agv-fleet,AGV009 onboard vehicle controller (guidance + safety),AGV,10.50.120.38
+AGV010-CTL,PLC-PT,T9-agv-fleet,AGV010 onboard vehicle controller (guidance + safety),AGV,10.50.120.39
+AGV011-CTL,PLC-PT,T9-agv-fleet,AGV011 onboard vehicle controller (guidance + safety),AGV,10.50.120.40
+AGV012-CTL,PLC-PT,T9-agv-fleet,AGV012 onboard vehicle controller (guidance + safety),AGV,10.50.120.41
+GATE-RTR-01,ISR4331,T10-gate,Gate complex router (active),GATE,10.55.40.2
+GATE-RTR-02,ISR4331,T10-gate,Gate complex router (standby),GATE,10.55.40.3
+GATE-SW-01,IE-9320,T10-gate,Gate lane industrial switch A,GATE,10.55.40.11
+GATE-SW-02,IE-3400,T10-gate,Gate lane industrial switch B,GATE,10.55.40.12
+GATE-OCR-SVR-01,Server-PT,T10-gate,Container number OCR recognition service,GATE,10.55.60.21
+GATE-G1-RFID,RFID Reader,T10-gate,G1 inbound OCR 1 - vehicle/container RFID portal,GATE,10.55.70.30
+GATE-G1-BAR,PLC-PT,T10-gate,G1 inbound OCR 1 - barrier and weighbridge PLC,GATE,10.55.70.31
+GATE-G1-CAM,Webcam,T10-gate,G1 inbound OCR 1 - OCR camera head,GATE,10.55.70.32
+GATE-G2-RFID,RFID Reader,T10-gate,G2 inbound OCR 2 - vehicle/container RFID portal,GATE,10.55.70.33
+GATE-G2-BAR,PLC-PT,T10-gate,G2 inbound OCR 2 - barrier and weighbridge PLC,GATE,10.55.70.34
+GATE-G2-CAM,Webcam,T10-gate,G2 inbound OCR 2 - OCR camera head,GATE,10.55.70.35
+GATE-G3-RFID,RFID Reader,T10-gate,G3 inbound OCR 3 - vehicle/container RFID portal,GATE,10.55.70.36
+GATE-G3-BAR,PLC-PT,T10-gate,G3 inbound OCR 3 - barrier and weighbridge PLC,GATE,10.55.70.37
+GATE-G3-CAM,Webcam,T10-gate,G3 inbound OCR 3 - OCR camera head,GATE,10.55.70.38
+GATE-G4-RFID,RFID Reader,T10-gate,G4 outbound OCR 1 - vehicle/container RFID portal,GATE,10.55.70.39
+GATE-G4-BAR,PLC-PT,T10-gate,G4 outbound OCR 1 - barrier and weighbridge PLC,GATE,10.55.70.40
+GATE-G4-CAM,Webcam,T10-gate,G4 outbound OCR 1 - OCR camera head,GATE,10.55.70.41
+GATE-G5-RFID,RFID Reader,T10-gate,G5 outbound OCR 2 - vehicle/container RFID portal,GATE,10.55.70.42
+GATE-G5-BAR,PLC-PT,T10-gate,G5 outbound OCR 2 - barrier and weighbridge PLC,GATE,10.55.70.43
+GATE-G5-CAM,Webcam,T10-gate,G5 outbound OCR 2 - OCR camera head,GATE,10.55.70.44
+GATE-G6-RFID,RFID Reader,T10-gate,G6 hazmat / oversize - vehicle/container RFID portal,GATE,10.55.70.45
+GATE-G6-BAR,PLC-PT,T10-gate,G6 hazmat / oversize - barrier and weighbridge PLC,GATE,10.55.70.46
+GATE-G6-CAM,Webcam,T10-gate,G6 hazmat / oversize - OCR camera head,GATE,10.55.70.47
+RAIL-RTR-01,ISR4331,T11-rail,Rail terminal router (active),RAIL,10.60.40.2
+RAIL-RTR-02,ISR4331,T11-rail,Rail terminal router (standby),RAIL,10.60.40.3
+RAIL-SW-01,IE-9320,T11-rail,Rail terminal industrial switch A,RAIL,10.60.40.11
+RAIL-SW-02,IE-3400,T11-rail,Rail terminal industrial switch B,RAIL,10.60.40.12
+RAIL-SIGNAL-SVR,Server-PT,T11-rail,Rail signalling interlock interface,RAIL,10.60.140.20
+RAIL-TOS-GW,Server-PT,T11-rail,Rail/TOS interchange gateway,RAIL,10.60.140.21
+RAIL-R1-PLC,PLC-PT,T11-rail,R1 RMG crane controller (track 1 - Shinkansen freight corridor),RAIL,10.60.70.30
+RAIL-R1-HMI,HMI-PT,T11-rail,R1 RMG operator panel (track 1 - Shinkansen freight corridor),RAIL,10.60.70.31
+RAIL-R1-RFID,RFID Reader,T11-rail,R1 wagon/container RFID portal (track 1 - Shinkansen freight corridor),RAIL,10.60.70.32
+RAIL-R2-PLC,PLC-PT,T11-rail,R2 RMG crane controller (track 2 - Tokaido feeder),RAIL,10.60.70.33
+RAIL-R2-HMI,HMI-PT,T11-rail,R2 RMG operator panel (track 2 - Tokaido feeder),RAIL,10.60.70.34
+RAIL-R2-RFID,RFID Reader,T11-rail,R2 wagon/container RFID portal (track 2 - Tokaido feeder),RAIL,10.60.70.35
+RAIL-R3-PLC,PLC-PT,T11-rail,R3 RMG crane controller (track 3 - yard transfer),RAIL,10.60.70.36
+RAIL-R3-HMI,HMI-PT,T11-rail,R3 RMG operator panel (track 3 - yard transfer),RAIL,10.60.70.37
+RAIL-R3-RFID,RFID Reader,T11-rail,R3 wagon/container RFID portal (track 3 - yard transfer),RAIL,10.60.70.38
+CFS-SW-01,2960-24TT,T12-cfs,CFS / warehouse access switch A,CFS,10.70.40.11
+CFS-SW-02,2960-24TT,T12-cfs,CFS / warehouse access switch B,CFS,10.70.40.12
+CFS-WMS-01,Server-PT,T12-cfs,CFS warehouse management node,CFS,10.70.60.21
+CFS-DG-COMPLY-01,Server-PT,T12-cfs,Dangerous-goods segregation compliance service,CFS,10.70.60.22
+CFS-TERM-01,PC-PT,T12-cfs,CFS cargo handling terminal,CFS,10.70.10.40
+CFS-TERM-02,PC-PT,T12-cfs,CFS cargo handling terminal,CFS,10.70.10.41
+CFS-TERM-03,PC-PT,T12-cfs,CFS cargo handling terminal,CFS,10.70.10.42
+CFS-TERM-04,PC-PT,T12-cfs,CFS cargo handling terminal,CFS,10.70.10.43
+CFS-AP-01,AccessPoint-PT-N,T12-cfs,CFS indoor WLAN access point,CFS,10.70.40.30
+CFS-AP-02,AccessPoint-PT-N,T12-cfs,CFS indoor WLAN access point,CFS,10.70.40.31
+REEFER-SW-01,IE-3400,T13-reefer-dg,Reefer yard industrial switch A (temperature compliance),REEFER,10.75.40.11
+DG-SW-01,IE-3400,T13-reefer-dg,Dangerous-goods yard industrial switch B (ex-rated),REEFER,10.75.40.12
+REEFER-BANK-01,Temperature Monitor,T13-reefer-dg,Reefer bank 1 temperature monitor (cold-chain compliance),REEFER,10.75.130.30
+REEFER-BANK-02,Temperature Monitor,T13-reefer-dg,Reefer bank 2 temperature monitor (cold-chain compliance),REEFER,10.75.130.31
+REEFER-BANK-03,Temperature Monitor,T13-reefer-dg,Reefer bank 3 temperature monitor (cold-chain compliance),REEFER,10.75.130.32
+REEFER-BANK-04,Temperature Monitor,T13-reefer-dg,Reefer bank 4 temperature monitor (cold-chain compliance),REEFER,10.75.130.33
+REEFER-BANK-05,Temperature Monitor,T13-reefer-dg,Reefer bank 5 temperature monitor (cold-chain compliance),REEFER,10.75.130.34
+REEFER-BANK-06,Temperature Monitor,T13-reefer-dg,Reefer bank 6 temperature monitor (cold-chain compliance),REEFER,10.75.130.35
+REEFER-BANK-07,Temperature Monitor,T13-reefer-dg,Reefer bank 7 temperature monitor (cold-chain compliance),REEFER,10.75.130.36
+REEFER-BANK-08,Temperature Monitor,T13-reefer-dg,Reefer bank 8 temperature monitor (cold-chain compliance),REEFER,10.75.130.37
+DG-SMOKE-01,Smoke Detector,T13-reefer-dg,DG store smoke detection (hazmat yard),REEFER,10.75.150.30
+DG-BUND-01,Water Level Monitor,T13-reefer-dg,DG bund water-level / spill detection (hazmat yard),REEFER,10.75.150.31
+DG-ALARM-01,Siren,T13-reefer-dg,DG yard evacuation alarm (hazmat yard),REEFER,10.75.150.32
+DG-INTR-01,Motion Detector,T13-reefer-dg,DG store intrusion detection (hazmat yard),REEFER,10.75.150.33
+YML-WLC-01,WLC-3504,T14-wireless,Terminal WLAN controller A (AGV radio + handhelds),WLAN,10.80.40.2
+YML-WLC-02,WLC-3504,T14-wireless,Terminal WLAN controller B (HA pair),WLAN,10.80.40.3
+WLAN-DSW-01,3560-24PS,T14-wireless,WLAN distribution switch (PoE),WLAN,10.80.40.11
+WLAN-ACC-01,2960-24TT,T14-wireless,WLAN access switch (outdoor APs),WLAN,10.80.40.12
+YML-AP-01,AccessPoint-PT-N,T14-wireless,Outdoor 802.11ac AP - AGV-MESH coverage,WLAN,10.80.40.30
+YML-AP-02,AccessPoint-PT-N,T14-wireless,Outdoor 802.11ac AP - YARD coverage,WLAN,10.80.40.31
+YML-AP-03,AccessPoint-PT-N,T14-wireless,Outdoor 802.11ac AP - BERTH coverage,WLAN,10.80.40.32
+YML-AP-04,AccessPoint-PT-N,T14-wireless,Outdoor 802.11ac AP - GATE coverage,WLAN,10.80.40.33
+YML-AP-05,AccessPoint-PT-N,T14-wireless,Outdoor 802.11ac AP - RAIL coverage,WLAN,10.80.40.34
+YML-AP-06,AccessPoint-PT-N,T14-wireless,Outdoor 802.11ac AP - TOC coverage,WLAN,10.80.40.35
+YML-AP-07,AccessPoint-PT-N,T14-wireless,Outdoor 802.11ac AP - AGV-MESH coverage,WLAN,10.80.40.36
+YML-AP-08,AccessPoint-PT-N,T14-wireless,Outdoor 802.11ac AP - YARD coverage,WLAN,10.80.40.37
+YML-AP-09,AccessPoint-PT-N,T14-wireless,Outdoor 802.11ac AP - BERTH coverage,WLAN,10.80.40.38
+YML-AP-10,AccessPoint-PT-N,T14-wireless,Outdoor 802.11ac AP - GATE coverage,WLAN,10.80.40.39
+YML-AP-11,AccessPoint-PT-N,T14-wireless,Outdoor 802.11ac AP - RAIL coverage,WLAN,10.80.40.40
+YML-AP-12,AccessPoint-PT-N,T14-wireless,Outdoor 802.11ac AP - TOC coverage,WLAN,10.80.40.41
+YML-AP-13,AccessPoint-PT-N,T14-wireless,Outdoor 802.11ac AP - AGV-MESH coverage,WLAN,10.80.40.42
+YML-AP-14,AccessPoint-PT-N,T14-wireless,Outdoor 802.11ac AP - YARD coverage,WLAN,10.80.40.43
+SEC-SW-01,3560-24PS,T15-security,Physical security PoE switch A,SEC,10.85.40.11
+SEC-SW-02,2960-24TT,T15-security,Physical security PoE switch B,SEC,10.85.40.12
+CCTV-NVR-01,Server-PT,T15-security,CCTV recording / video analytics,SEC,10.85.80.20
+ACS-DOOR-SVR-01,Server-PT,T15-security,Door access control / TWIC-equivalent credential service,SEC,10.85.80.21
+PERIM-CAM-01,Webcam,T15-security,Perimeter CCTV camera head 1,SEC,10.85.80.30
+PERIM-CAM-02,Webcam,T15-security,Perimeter CCTV camera head 2,SEC,10.85.80.31
+PERIM-CAM-03,Webcam,T15-security,Perimeter CCTV camera head 3,SEC,10.85.80.32
+PERIM-CAM-04,Webcam,T15-security,Perimeter CCTV camera head 4,SEC,10.85.80.33
+PERIM-CAM-05,Webcam,T15-security,Perimeter CCTV camera head 5,SEC,10.85.80.34
+PERIM-CAM-06,Webcam,T15-security,Perimeter CCTV camera head 6,SEC,10.85.80.35
+ACS-DOOR-01,RFID Reader,T15-security,Perimeter gate access-control reader 1,SEC,10.85.80.40
+ACS-DOOR-02,RFID Reader,T15-security,Perimeter gate access-control reader 2,SEC,10.85.80.41
+ACS-DOOR-03,RFID Reader,T15-security,Perimeter gate access-control reader 3,SEC,10.85.80.42
+ACS-DOOR-04,RFID Reader,T15-security,Perimeter gate access-control reader 4,SEC,10.85.80.43
+PERIM-TRIP-01,Trip Sensor,T15-security,Perimeter intrusion trip sensor 1,SEC,10.85.90.40
+PERIM-TRIP-02,Trip Sensor,T15-security,Perimeter intrusion trip sensor 2,SEC,10.85.90.41
+OT-SW-01,IE-3400,T16-ot-power,Substation / utilities industrial switch,OT,10.90.40.11
+OT-SW-02,IE-2000,T16-ot-power,Shore-power / reefer-rack switch,OT,10.90.40.12
+OT-SUBSTATION-PLC,PLC-PT,T16-ot-power,Terminal HV substation PLC,OT,10.90.70.20
+OT-SHOREPOWER-PLC,PLC-PT,T16-ot-power,Cold-ironing / shore power PLC,OT,10.90.70.21
+OT-ENERGY-CTL-01,NetworkController,T16-ot-power,Energy management / demand controller,OT,10.90.70.22
+OT-POWER-METER-01,Power Meter,T16-ot-power,"RMG/shore power meter 1 (kWh, power quality)",OT,10.90.90.50
+OT-POWER-METER-02,Power Meter,T16-ot-power,"RMG/shore power meter 2 (kWh, power quality)",OT,10.90.90.51
+OT-POWER-METER-03,Power Meter,T16-ot-power,"RMG/shore power meter 3 (kWh, power quality)",OT,10.90.90.52
+OT-POWER-METER-04,Power Meter,T16-ot-power,"RMG/shore power meter 4 (kWh, power quality)",OT,10.90.90.53
+OT-ENV-01,Smoke Detector,T16-ot-power,Substation smoke detection,OT,10.90.90.60
+OT-ENV-02,Siren,T16-ot-power,Substation evacuation alarm,OT,10.90.90.61
+NOC-SW-01,2960-24TT,T17-noc,NOC management enclave switch,NOC,10.200.40.11
+NOC-NMS-01,Server-PT,T17-noc,Network management station (SNMP/Syslog/NetFlow),NOC,10.200.40.21
+NOC-JUMP-01,Server-PT,T17-noc,Privileged jump host (all admin access transits here),NOC,10.200.40.22
+NOC-CYBER-OBS,CyberObserver,T17-noc,Behavioural anomaly / OT intrusion detection,NOC,10.200.40.23
+NOC-TAP-01,Sniffer,T17-noc,NOC packet capture tap,NOC,10.200.40.24
+YML-HANDHELD-01,Laptop-PT,T18-clients,Vehicle-mount / handheld terminal (yard and gate ops),MOBILE,10.20.50.50
+YML-HANDHELD-02,Laptop-PT,T18-clients,Vehicle-mount / handheld terminal (yard and gate ops),MOBILE,10.20.50.51
+YML-HANDHELD-03,Laptop-PT,T18-clients,Vehicle-mount / handheld terminal (yard and gate ops),MOBILE,10.20.50.52
+YML-HANDHELD-04,Laptop-PT,T18-clients,Vehicle-mount / handheld terminal (yard and gate ops),MOBILE,10.20.50.53
+YML-HANDHELD-05,Laptop-PT,T18-clients,Vehicle-mount / handheld terminal (yard and gate ops),MOBILE,10.20.50.54
+YML-HANDHELD-06,Laptop-PT,T18-clients,Vehicle-mount / handheld terminal (yard and gate ops),MOBILE,10.20.50.55
+YML-HANDHELD-07,Laptop-PT,T18-clients,Vehicle-mount / handheld terminal (yard and gate ops),MOBILE,10.20.50.56
+YML-HANDHELD-08,Laptop-PT,T18-clients,Vehicle-mount / handheld terminal (yard and gate ops),MOBILE,10.20.50.57
+YML-HANDHELD-09,Laptop-PT,T18-clients,Vehicle-mount / handheld terminal (yard and gate ops),MOBILE,10.20.50.58
+YML-HANDHELD-10,Laptop-PT,T18-clients,Vehicle-mount / handheld terminal (yard and gate ops),MOBILE,10.20.50.59
+YML-HANDHELD-11,Laptop-PT,T18-clients,Vehicle-mount / handheld terminal (yard and gate ops),MOBILE,10.20.50.60
+YML-HANDHELD-12,Laptop-PT,T18-clients,Vehicle-mount / handheld terminal (yard and gate ops),MOBILE,10.20.50.61
+YML-HANDHELD-13,Laptop-PT,T18-clients,Vehicle-mount / handheld terminal (yard and gate ops),MOBILE,10.20.50.62
+YML-HANDHELD-14,Laptop-PT,T18-clients,Vehicle-mount / handheld terminal (yard and gate ops),MOBILE,10.20.50.63
+YML-HANDHELD-15,Laptop-PT,T18-clients,Vehicle-mount / handheld terminal (yard and gate ops),MOBILE,10.20.50.64
+YML-HANDHELD-16,Laptop-PT,T18-clients,Vehicle-mount / handheld terminal (yard and gate ops),MOBILE,10.20.50.65
+YML-HANDHELD-17,Laptop-PT,T18-clients,Vehicle-mount / handheld terminal (yard and gate ops),MOBILE,10.20.50.66
+YML-HANDHELD-18,Laptop-PT,T18-clients,Vehicle-mount / handheld terminal (yard and gate ops),MOBILE,10.20.50.67

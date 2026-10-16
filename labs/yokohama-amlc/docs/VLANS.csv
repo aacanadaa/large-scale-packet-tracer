@@ -1,0 +1,17 @@
+vlan,name,purpose
+10,TERMINAL-OPS,terminal operations workstations and dispatch
+20,TOS-APP,Terminal Operating System application tier
+30,RADIO-DISPATCH,radio dispatch and voice
+40,MGMT-OOB,out-of-band management
+50,HANDHELD-WIFI,handheld and vehicle-mount terminals
+60,SERVER-FARM,server farm services
+70,INDUSTRIAL-CTRL,industrial control (crane and gate PLCs)
+80,CCTV-SECURITY,CCTV and physical security
+90,IOT-SENSOR-MESH,IoT sensor mesh
+100,CUSTOMS-ENCLAVE,customs enclave
+110,EDI-PARTNER,partner EDI / DMZ
+120,AGV-CONTROL,AGV guidance and fleet control
+130,REEFER-MONITOR,reefer cold-chain monitoring
+140,RAIL-SIGNALLING,rail signalling interlock
+150,DANGEROUS-GOODS,dangerous-goods yard
+160,CONTRACTOR-GUEST,contractor and visitor
