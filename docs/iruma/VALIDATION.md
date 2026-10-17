@@ -24,6 +24,7 @@ $ ./run_all.sh enterprise
 | 3 | label-inclusive geometry | `tools/check_layout.py out/IRUMA_AB.pkt` | **OK** — 0 overlaps, 0 off-page, 0 coincident |
 | 4 | every printed count is of *distinct* things | `pkt_core.cli audit …` | **PASSED (0 failures, 0 warnings)** |
 | 5 | Packet Tracer actually opens it | `tools/pt_accept.py out/IRUMA_AB.pkt control.pkt` | **accepted 2/2** (lab and control) |
+| 5b | the model is legible | `tools/check_readability.py out/IRUMA_AB.pkt` | **1,330 crossings (3.58 per cable)** — see "Layout" below |
 | 6 | it renders | `tools/pt_capture.py out/IRUMA_AB.pkt` | **renders** — see "Gate 6" below |
 
 The build is also **reproducible**: an independent re-run of the generator plus
@@ -38,7 +39,8 @@ addressed interfaces 494   subnets 117   VLANs 16
 config lines: 13,728 <LINE> elements in 84 RUNNINGCONFIG blocks
 DNS 780 records (390 distinct x 2 servers); DHCP 51/51; AAA 80/80; AAA users 2/2
 layout: nn min 111.0  median 154.0  label-overlap 0  off-page 0  coincident 0
-packet: 1,400,078 bytes  sha256 aa944bd293d77f4bc118a8bbd0dea2134cec039d56a9f7beb0bf91ec64aa7658
+packet: sha256 a732c02a13f2cdd5169f3593135aad720255a0a10afcefa52cdecefc900ec022
+layout legibility: 372 cables, 1,330 crossings (3.58 per cable), median cable 825 units, p95 2,408
 ```
 
 ---
@@ -180,6 +182,31 @@ of a fault on their own — Packet Tracer draws serial cables red regardless of
 state, and runs spanning-tree convergence after a load, so some access ports are
 amber for the first ~30 s and some ports are *supposed* to be amber on a
 topology with redundant paths.
+
+## Layout — making 392 devices legible
+
+Geometry and legibility are different properties, and only one of them had a
+gate. `check_layout.py` passed this lab at every stage while it measured **4.43
+cable crossings per cable**.
+
+Three things were wrong, and they compound:
+
+| Problem | Measurement | Fix |
+| --- | --- | --- |
+| The single writer's tier rules are another lab's naming convention, so **361 of 392 devices matched no rule** and collapsed into one band | a tenant switch sat **3,538 units** from its own workstation | `--tiers build/tier_map.json`, emitted from `iruma_tiers.py` |
+| Devices were packed in *creation* order, so a band's switch and its access devices landed at opposite ends | mean cable 1,142 units | document order is now a breadth-first walk of each band's cable graph, in chunks sized to one packing row, with each hub centred in its row |
+| The collapsed core sat at the top, so its fan to ~17 zone devices crossed everything below | **70% of all crossings involved a core-band cable** | bands are ordered by their cable graph, strongest connection nearest, with the most-connected band in the middle |
+
+Result: **crossings 1,645 → 1,330 (−19%)**, p95 cable length **2,916 → 2,408
+(−17%)**, mean **1,142 → 992 (−13%)**. None of it changes the network.
+
+What did **not** work, and why it is worth recording: cluster-block placement with
+gaps. Laying each hub-and-leaf cluster out as its own block does produce very
+short cables (median 432 units), but 392 label-inclusive boxes at a 200-unit
+pitch need about 11.8 M units² of a 14.4 M unit² page, so the blocks overflow to
+y≈4,265 — off the page. **The page is saturated at this size, and that density is
+why the row-major packer wraps clusters.** A genuinely tidier model means fewer
+devices per page, not a cleverer packer.
 
 ## Defects found while building, and fixed
 

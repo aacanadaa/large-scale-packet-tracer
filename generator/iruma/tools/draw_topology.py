@@ -38,20 +38,7 @@ from pkt_core import decode_bytes      # noqa: E402
 import iruma_kit as K               # noqa: E402
 
 # tier -> (colour, display name)  order fixed so the picture is stable
-TIERS = [
-    ("T1-edge-carrier",   "#7b1fa2", "Carrier & external liaison edge"),
-    ("T2-core-noc",       "#c62828", "Base backbone & NetOps"),
-    ("T3-datacentres",    "#1565c0", "Air defence & mission DC (+ backup)"),
-    ("T4-opsec",          "#4a148c", "Operations-security enclave"),
-    ("T5-aoc-tower",      "#00695c", "Air Operations Centre / tower"),
-    ("T6-atc-navaid",     "#ef6c00", "Air traffic control & navaids"),
-    ("T7-tenants",        "#f9a825", "Tenant squadrons, hangars, hospital"),
-    ("T8-apron",          "#2e7d32", "Apron, flight line & vehicles"),
-    ("T9-weather",        "#00838f", "Air Weather Squadron"),
-    ("T10-depot-pol",     "#5d4037", "Air depots & bulk fuel farm"),
-    ("T11-facilities",    "#0277bd", "Security, utilities & wireless"),
-    ("T12-mobile",        "#455a64", "Mobile estate"),
-]
+from iruma_tiers import TIERS, tier_of  # noqa: E402
 
 KIND_SHAPE = {
     "router": ("rect", 26, 14),
@@ -72,59 +59,6 @@ KIND_SHAPE = {
 def model_of(dev):
     t = dev.find("ENGINE/TYPE")
     return ((t.get("model") or (t.text or "")).strip() if t is not None else "")
-
-
-def tier_of(name: str) -> str:
-    """Which band this device belongs to, from its own hostname.
-
-    The rules mirror the generator's tier builders, so the diagram's bands match
-    the Packet Tracer workspace's bands.  Order matters: the more specific
-    tokens come first, so ``SIGINT-`` is claimed by the tenant band before the
-    district-police ``SI-`` token can see it.
-    """
-    for key, needles in (
-        ("T1-edge-carrier", (
-            "CARRIER-", "IRM-EDGE-RTR", "FW-INTERNET", "EDGE-DMZ",
-            "MOD-BACKBONE-GW", "YOKOTA-ATC-GW", "JWS-II-WX-GW", "SPPOL-AIR-GW",
-            "SIGINT-BRANCH-GW", "LIAISON-FILE-SVR", "EDGE-PROXY",
-            "EDGE-MAIL-RELAY")),
-        ("T2-core-noc", (
-            "IRM-CORE-SW", "IRM-CORE-RTR", "IRM-WAN-EDGE", "IRM-DCI-RTR",
-            "IRM-NETOPS-GW", "NETOPS-")),
-        ("T3-datacentres", (
-            "MDC-", "BDC-", "FW-MDC", "FW-BDC", "DNS-SVR", "DHCP-SVR",
-            "NTP-SVR", "SYSLOG-SVR", "AAA-SVR", "TFTP-ARCHIVE", "ADSYS-OPS",
-            "SORTIE-TASK", "MISSION-PLAN", "ATO-SVR", "MX-MIS", "SUPPLY-APP",
-            "FLTREC-SVR", "AIRFIELD-OPS", "WX-INTEG", "PERS-SVR",
-            "TRAINING-LMS", "IRM-PORTAL", "PKI-CA", "NETFLOW-SVR",
-            "DATA-HISTORIAN")),
-        ("T4-opsec", ("OPSEC-",)),
-        ("T5-aoc-tower", (
-            "AOC-", "TWR-", "GND-MOVEMENT", "APCH-DISPLAY", "FLT-DATA")),
-        ("T6-atc-navaid", (
-            "ATC-", "GCA-", "ASR-", "NAVAID-", "ATIS-", "D-ATIS-", "PAR-CTL",
-            "TACAN-CTL", "ILS-CTL", "RWY-LIGHT", "TWY-LIGHT", "APCH-LGT",
-            "ARFF-ALERT")),
-        ("T7-tenants", (
-            "402SQ-", "ARWHAS-", "FCS-", "EWC-", "CAMG-", "CACE-", "ASAR-",
-            "SIGINT-", "IMP-", "SI-", "IHS-")),
-        ("T8-apron", (
-            "APRON-", "FLT-LINE", "FUEL-CTL", "HOTFUEL", "RWY-SWEEP",
-            "TOW-TRACTOR", "GSE-MAINT", "ARFF-DISP", "BIRD-CONTROL",
-            "FOLLOWME", "ARFF-CMD", "ARFF-VEH", "GND-VEH")),
-        ("T9-weather", (
-            "IWS-", "WIND-DET", "TEMP-DET", "HUMID-DET", "PRESS-DET",
-            "RAIN-DET", "VIS-DET", "RVR-DET")),
-        ("T10-depot-pol", ("3DEP-", "4DEP-", "DEP-", "POL-")),
-        ("T11-facilities", (
-            "SEC-", "CCTV-NVR", "ACS-DOOR", "PERIM-", "GATE-HOUSE", "UTIL-",
-            "SUBSTN-", "GENERATOR-", "UPS-CTL", "PWR-METER", "IRM-WLC",
-            "WLAN-", "IRM-AP-")),
-        ("T12-mobile", ("EFB-", "HANDSET-")),
-    ):
-        if any(name.startswith(n) for n in needles):
-            return key
-    return "T11-facilities"
 
 
 def main(argv=None) -> int:

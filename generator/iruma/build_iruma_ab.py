@@ -1606,6 +1606,214 @@ class Base:
                 ("tacacs", "FastEthernet0")]):
             self.link("nocsw1", FE0(1 + i), key, port)
 
+    def order_devices_for_layout(self) -> int:
+        """Reorder the DEVICE elements so each device packs beside its cables.
+
+        ``finalise_lab`` repacks in **document order**, so document order *is*
+        packing order.  Emitting each band as a breadth-first walk of its own
+        cable graph puts a switch next to the devices it serves instead of
+        scattering them.  Only the order of ``<DEVICE>`` children changes;
+        links reference devices by id, so nothing else is affected.
+        """
+        adj = self._adjacency()
+        band = self._bands()
+        band_order = self._band_order_for_layout(band)
+
+        # Chunks are sized to one packing row.  The packer fills a row
+        # left-to-right and wraps at the row end, so a cluster that straddles a
+        # boundary gets its switch at one end of the page and its access devices
+        # at the other -- measured at 3,538 units for a tenant switch to its own
+        # workstation.  A chunk that *is* a row cannot straddle: its cables run
+        # along the row instead of across the page.
+        row_capacity = self._row_capacity()
+
+        order: list[str] = []
+        for grp in band_order:
+            members = {k for k in self.sid if band[k] == grp}
+            while members:
+                seed = max(members,
+                           key=lambda k: sum(1 for n in adj[k] if n in members))
+                chunk: list[str] = []
+                queue = [seed]
+                while queue and len(chunk) < row_capacity:
+                    cur = queue.pop(0)
+                    if cur not in members:
+                        continue
+                    members.discard(cur)
+                    chunk.append(cur)
+                    queue.extend(sorted((n for n in adj[cur] if n in members),
+                                        key=lambda n: -sum(1 for m in adj[n]
+                                                           if m in members)))
+                # Centre the hub in its row.  A chunk is a packing row, so the
+                # hub at one end is ~3,400 units from the child at the other;
+                # in the middle it is at most half that, and its fan is
+                # symmetric instead of one-sided.
+                hub, rest = chunk[0], chunk[1:]
+                half = len(rest) // 2
+                order.extend(rest[:half][::-1] + [hub] + rest[half:])
+        if len(order) != len(self.sid):
+            raise SystemExit("layout ordering lost or duplicated a device")
+
+        devs = self.lab.devs
+        for el in list(devs.findall("DEVICE")):
+            devs.remove(el)
+        for key in order:
+            devs.append(self.lab._els[self.sid[key]])
+        return len(order)
+
+    def _row_capacity(self) -> int:
+        """How many of this lab's devices fit across one packing row.
+
+        Derived from the same label-inclusive boxes the packer uses, so it
+        tracks the actual names rather than assuming a width.
+        """
+        import lab_api                                        # noqa: PLC0415
+        widths = []
+        for k, m in self.meta.items():
+            kind = lab_api.kind_for_model(m["model"])
+            widths.append(lab_api.device_box(kind, m["name"], m["model"])[0])
+        if not widths:
+            return 1
+        usable = lab_api.CANVAS_MAX - lab_api.CANVAS_MIN - 60
+        # The packer places boxes until the next one would not fit, so the
+        # capacity is how many *median-width* boxes fit, less one for slack.
+        widths.sort()
+        median = widths[len(widths) // 2]
+        return max(1, usable // median - 1)
+
+    def _band_order_for_layout(self, band: dict[str, str]) -> list[str]:
+        """Order the bands by their cable graph, not by their narrative.
+
+        Bands are stacked in the order their first device appears in the
+        document, so this decides where each band sits on the page.  The stock
+        answer -- the order the generator happens to build them in -- puts the
+        collapsed core at the top and every zone below it, so the core's fan to
+        ~17 zone devices crosses everything in between: **70% of all cable
+        crossings on this lab involve a core-band cable.**
+
+        A fan is shortest when its source sits at the centroid of its
+        destinations, so the band with the most inter-band cables goes in the
+        middle and the rest alternate around it, strongest connection nearest.
+        This trades the conventional "edge at the top" reading order for a
+        measurably calmer picture; the trade is recorded in VALIDATION.md.
+        """
+        counts: collections.Counter = collections.Counter()
+        for (a, _ap, b, _bp, _k, _d) in self.links:
+            if band[a] != band[b]:
+                counts[band[a]] += 1
+                counts[band[b]] += 1
+        if not counts:
+            return list(dict.fromkeys(band[k] for k in self.sid))
+
+        hub = counts.most_common(1)[0][0]
+        rest = [g for g in dict.fromkeys(band[k] for k in self.sid) if g != hub]
+        rest.sort(key=lambda g: -counts[g])
+
+        # Alternate strongest-connection-nearest, above and below the hub.
+        above: list[str] = []
+        below: list[str] = []
+        for i, g in enumerate(rest):
+            (below if i % 2 == 0 else above).append(g)
+        return list(reversed(above)) + [hub] + below
+
+    # -- cluster placement ------------------------------------------------ #
+    def _adjacency(self) -> dict[str, list[str]]:
+        adj: dict[str, list[str]] = collections.defaultdict(list)
+        for (a, _ap, b, _bp, _k, _d) in self.links:
+            adj[a].append(b)
+            adj[b].append(a)
+        return adj
+
+    def _bands(self) -> dict[str, str]:
+        return {k: GROUP_MERGE.get(m["group"], m["group"])
+                for k, m in self.meta.items()}
+
+    def place_clusters(self, cell_max: int = 12, cols: int = 4,
+                       cell_gap: int = 70, band_gap: int = 60) -> dict:
+        """Lay the model out as blocks of one hub plus the devices it serves.
+
+        The stock packer fills a band strictly row-major, so a cluster that
+        straddles a row boundary ends up with its switch at one end of the page
+        and its access devices at the other.  Measured on this lab before the
+        change: **3,538 units** from a tenant switch to its own workstation,
+        and 1,645 cable crossings.
+
+        A cell never straddles a row, so a cluster's internal cables stay within
+        one cell.  Cells are laid out in band order, left to right and wrapping
+        within their band, so the picture still reads top-to-bottom by tier.
+
+        Coordinates are written directly, so this lab's ``run_all.sh`` calls the
+        single writer with ``--no-repack``: the generator owns the placement and
+        ``finalise_lab`` still sanitises, re-gates and round-trip-checks the
+        bytes it writes.
+        """
+        import lab_api                                        # noqa: PLC0415
+
+        adj = self._adjacency()
+        band = self._bands()
+        band_order = list(dict.fromkeys(band[k] for k in self.sid))
+
+        # 1. partition each band into cells by a breadth-first walk from its
+        #    most-connected unplaced device.
+        cells: list[tuple[str, list[str]]] = []
+        for grp in band_order:
+            members = {k for k in self.sid if band[k] == grp}
+            while members:
+                seed = max(members,
+                           key=lambda k: sum(1 for n in adj[k] if n in members))
+                chunk: list[str] = []
+                queue = [seed]
+                while queue and len(chunk) < cell_max:
+                    cur = queue.pop(0)
+                    if cur not in members:
+                        continue
+                    members.discard(cur)
+                    chunk.append(cur)
+                    queue.extend(sorted((n for n in adj[cur] if n in members),
+                                        key=lambda n: -sum(1 for m in adj[n]
+                                                           if m in members)))
+                cells.append((grp, chunk))
+
+        def box(key: str) -> tuple[int, int]:
+            name = self.meta[key]["name"]
+            model = self.meta[key]["model"]
+            return lab_api.device_box(lab_api.kind_for_model(model), name, model)
+
+        # 2. lay the cells out band by band.
+        x_cursor = lab_api.CANVAS_MIN + 20
+        y_cursor = lab_api.CANVAS_MIN + 20
+        placed = 0
+        moved: list[tuple[str, int, int]] = []
+        for grp in band_order:
+            band_cells = [c for g, c in cells if g == grp]
+            row_h = 0
+            band_top = y_cursor
+            for chunk in band_cells:
+                boxes = [box(k) for k in chunk]
+                pitch = max(b[0] for b in boxes)
+                rows = (len(chunk) + cols - 1) // cols
+                cell_w = pitch * min(cols, len(chunk))
+                cell_h = rows * lab_api.ROW_PITCH
+                if x_cursor + cell_w > lab_api.CANVAS_MAX - 40:
+                    x_cursor = lab_api.CANVAS_MIN + 20
+                    y_cursor = band_top + row_h + 30
+                    row_h = 0
+                for i, key in enumerate(chunk):
+                    cx = x_cursor + (i % cols) * pitch + pitch // 2
+                    cy = y_cursor + (i // cols) * lab_api.ROW_PITCH \
+                        + lab_api.ROW_PITCH // 2
+                    el = self.lab._els[self.sid[key]]
+                    ws = el.find("WORKSPACE/LOGICAL")
+                    ws.find("X").text = str(cx)
+                    ws.find("Y").text = str(cy)
+                    moved.append((self.meta[key]["name"], cx, cy))
+                    placed += 1
+                x_cursor += cell_w + cell_gap
+                row_h = max(row_h, cell_h)
+            y_cursor = band_top + row_h + band_gap
+            x_cursor = lab_api.CANVAS_MIN + 20
+        return dict(placed=placed, cells=len(cells), height=y_cursor)
+
     def _bdc_keys(self) -> list[str]:
         return [k for k in self.sid if k.startswith("b_")]
 
@@ -2485,6 +2693,10 @@ def main(argv=None) -> int:
                  t.build_clients):
         step()
     t.cable()
+    # Order the devices for packing *after* the cabling, because the cabling is
+    # what defines the adjacency the order is derived from.
+    n_ordered = t.order_devices_for_layout()
+    cluster_rep = t.place_clusters()
     t.configure()
     t.services()
     n_serial = t.fix_serial()
@@ -2496,6 +2708,14 @@ def main(argv=None) -> int:
     leftovers = t.strip_template_leftovers()
     n_svc = t.strip_unconfigured_services()
     startup = t.clear_template_startup_config()
+
+    # Hand the single writer the band rules for *this* lab.  Without them it
+    # falls back to the toolkit's built-in name rules -- another lab's naming
+    # convention -- and every device lands in one 'misc' band, which repacks
+    # into the tangle the bands exist to prevent.
+    import iruma_tiers                                    # noqa: PLC0415
+    n_tiers = iruma_tiers.write_tier_map(ROOT / "build" / "tier_map.json")
+    print(f"tier map: {n_tiers} rule(s) -> build/tier_map.json")
 
     a.out.parent.mkdir(parents=True, exist_ok=True)
     t.save(a.out)
@@ -2516,7 +2736,9 @@ def main(argv=None) -> int:
             "their configuration; the artefact would render dead links.")
 
     rep = t.report()
-    rep.update(serial_ports_clocked=n_serial, static_ips_written=n_static,
+    rep.update(devices_ordered_for_layout=n_ordered,
+               cluster_layout=cluster_rep,
+               serial_ports_clocked=n_serial, static_ips_written=n_static,
                devices_powered=n_power, ports_powered_on=n_ports,
                stale_nic_fields_cleared=cleared,
                end_device_configs_cleared=n_endcfg,

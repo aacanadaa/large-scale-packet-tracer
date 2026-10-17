@@ -186,7 +186,7 @@ together.
 | | |
 | --- | --- |
 | Full build | [`IRUMA_AB.pkt`](IRUMA_AB.pkt) — 392 devices, 372 links, 1.40 MB |
-| SHA-256 | `aa944bd293d77f4bc118a8bbd0dea2134cec039d56a9f7beb0bf91ec64aa7658` |
+| SHA-256 | `a732c02a13f2cdd5169f3593135aad720255a0a10afcefa52cdecefc900ec022` |
 | Smaller profiles | [`_standard`](IRUMA_AB_standard.pkt) (354/339), [`_smoke`](IRUMA_AB_smoke.pkt) (307/299) |
 | Documents | [`DESIGN.md`](docs/iruma/DESIGN.md) · [`VALIDATION.md`](docs/iruma/VALIDATION.md) · [`EVIDENCE.md`](docs/iruma/EVIDENCE.md) · [`SERVICES.md`](docs/iruma/SERVICES.md) · [`ADDRESS_PLAN.csv`](docs/iruma/ADDRESS_PLAN.csv) |
 
@@ -204,6 +204,7 @@ together.
 | DHCP pools (distinct) | 51 | 45 | 36 |
 | RADIUS clients (distinct) | 80 | 76 | 71 |
 | Distinct device models | 40 | — | — |
+| Cable crossings (per cable) | 1,330 (3.58) | 1,015 (2.99) | 812 (2.72) |
 
 Routing is OSPF multi-area (area 0 backbone plus 11 zone areas), iBGP AS65010
 between the collapsed core and the core routers, and eBGP to the MoD backbone
@@ -317,6 +318,7 @@ the definition of "shippable". Both networks run the same seven-gate chain.
 | 3 | `tools/check_layout.py` | label-inclusive geometry: no overlap, nothing off-page |
 | 4 | `pkt audit` | every printed count is of *distinct* things |
 | 5 | `tools/pt_accept.py` | Packet Tracer actually opens it (verdict read from the window title, with a known-good control) |
+| 5b | `tools/check_readability.py` | the model is **legible** — crossings per cable and cable-length percentiles |
 | 6 | `tools/pt_runtime_verify.py` / `pt_capture.py` | it renders |
 
 Result on both full builds: **gates 0–4 pass with 0 failures and 0 warnings, and

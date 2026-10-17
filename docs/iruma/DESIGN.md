@@ -19,6 +19,7 @@ depots, and the base infrastructure that holds them together.
 | Address families | `10.0.0.0/8` (base), `172.21.0.0/16` (opsec enclave), `10.99.x` (firewall outside) |
 | Tier bands | 12 |
 | Distinct device models | 40 |
+| Cable crossings | 1,330 (3.58 per cable) |
 
 Read [`EVIDENCE.md`](EVIDENCE.md) first if you intend to cite anything about the
 real base: it separates what is sourced from what is modelled.
@@ -219,6 +220,36 @@ Packet Tracer renders a device, not a facility. What this lab represents:
 
 The ratio is stated rather than implied. This is a **control-plane model**, not a
 per-asset model, and it should not be read as an inventory of the real base.
+
+## Layout
+
+The page is the binding constraint. 392 label-inclusive boxes at a 200-unit pitch
+need roughly 11.8 M units² of Packet Tracer's 14.4 M unit² page, so the model
+fits — but only just, and that density is what makes a generated lab look like
+spaghetti.
+
+Three things keep it legible, and all three are free (they change the picture,
+not the network):
+
+* **Twelve semantic bands**, each holding one tier, so the eye can find the
+  navaids or the fuel farm without reading every label.
+* **Cable-graph band order** — the collapsed core sits in the middle of the band
+  order rather than at the top, because a fan is shortest when its source is at
+  the centroid of its destinations. With the core at the top, 70% of all cable
+  crossings involved a core-band cable.
+* **Cable-graph document order** — devices are emitted as a breadth-first walk of
+  each band's own cable graph, in chunks sized to one packing row, with each hub
+  centred in its row. The packer fills rows in document order, so this is what
+  decides whether a switch sits beside its access devices or at the far end of
+  the page.
+
+Measured with `tools/check_readability.py`: 1,330 crossings (3.58 per cable),
+median cable 825 units, 95th percentile 2,408.
+
+The bands are defined once, in `iruma_tiers.py`, and three consumers read that
+one table: the generator's grouping, the diagram's banding, and the tier map that
+`finalise_lab` uses to repack. Three separate lists is how a layout silently
+collapses into a single band — which is what happened here first.
 
 ## Reproducing the build
 

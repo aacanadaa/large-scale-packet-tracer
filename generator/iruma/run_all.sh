@@ -82,8 +82,14 @@ echo "== gate 1: layout, template leftovers, distinct counts, round-trip =="
 # strips template service records, so this pass should be a no-op -- it is kept
 # because it *proves* that on the bytes actually written, and re-checks the
 # round-trip.
+# --tiers is not optional for this lab.  The repack groups devices into bands by
+# name, and the toolkit's built-in rules are another lab's naming convention:
+# without a tier map, 361 of these 392 devices match nothing, collapse into one
+# 'misc' band, and repack into a tangle.  The generator writes the map from
+# iruma_tiers.py, which is the same table the diagram uses.
 "$PY" "$PKT_TOOLKIT/tools/finalise_lab.py" \
       --templates "$PKT_TOOLKIT/tools/device_templates.json" \
+      --tiers build/tier_map.json \
       "$OUT"
 
 echo
@@ -94,6 +100,13 @@ echo "== gate 2: project validation (identity, ports, power, distinctness) =="
 echo
 echo "== gate 3: layout =="
 "$PY" "$PKT_TOOLKIT/tools/check_layout.py" "$OUT"
+
+echo
+echo "== gate 3b: is the model legible? =="
+# Geometry and legibility are different properties.  check_layout.py answers
+# "does anything overlap or fall off the page"; this answers "can I follow a
+# cable".  A lab can pass the first and still measure 4.4 crossings per cable.
+"$PY" tools/check_readability.py "$OUT" --json "build/readability${SFX}.json"
 
 echo
 echo "== gate 4: every printed count is of distinct things =="
