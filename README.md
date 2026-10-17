@@ -186,7 +186,7 @@ together.
 | | |
 | --- | --- |
 | Full build | [`IRUMA_AB.pkt`](IRUMA_AB.pkt) — 392 devices, 372 links, 1.40 MB |
-| SHA-256 | `4a4253f9c2691929bd9e8cbdeff9e100694c9a3c9910d4cc1b79e0dc4d5e19aa` |
+| SHA-256 | `4a00daf3a2c7223f3b0c8779fe7060c9028f7011337246ba98613772071724bd` |
 | Smaller profiles | [`_standard`](IRUMA_AB_standard.pkt) (354/339), [`_smoke`](IRUMA_AB_smoke.pkt) (307/299) |
 | Documents | [`DESIGN.md`](docs/iruma/DESIGN.md) · [`VALIDATION.md`](docs/iruma/VALIDATION.md) · [`EVIDENCE.md`](docs/iruma/EVIDENCE.md) · [`SERVICES.md`](docs/iruma/SERVICES.md) · [`ADDRESS_PLAN.csv`](docs/iruma/ADDRESS_PLAN.csv) |
 
@@ -290,17 +290,19 @@ the diagram and these documents.
 
 ### Screenshots
 
-The diagram above is generated from the artefact and shows the sixteen labelled
-sections. A Packet Tracer render of the sectioned layout is not published here:
-capturing one needs the document to finish loading (~10 minutes) *and* the
-"outdated run-time scripts" prompt answered with **Escape** — Return picks the
-default "Yes", rewrites device scripts and closes the document — and the timing
-is fragile enough that two attempts caught a partial load. Rather than publish a
-screenshot that misrepresents the layout, the diagram stands in for it.
+The full base in Packet Tracer 9.0.1 — all 392 devices, with the sixteen section
+boundaries drawn as hollow boxes and the cables mostly staying inside their own
+section:
 
-Earlier renders of the pre-section layout are still in
-[`docs/iruma/VALIDATION.md`](docs/iruma/VALIDATION.md)'s gate history; they show
-the twelve-band arrangement this pass replaced.
+![Full topology in Packet Tracer](docs/iruma/img/pt_full_topology.png)
+
+The same canvas at native zoom. Section boundaries and live link indicators:
+
+![Section detail](docs/iruma/img/pt_sections_detail.png)
+
+The diagram at the top of this chapter is generated from the artefact and carries
+the section *names*; Packet Tracer cannot draw text on the logical canvas, so the
+screenshot shows the boundaries and the diagram supplies the labels.
 
 ### Sourced, or modelled?
 

@@ -39,7 +39,7 @@ addressed interfaces 494   subnets 117   VLANs 16
 config lines: 13,728 <LINE> elements in 84 RUNNINGCONFIG blocks
 DNS 780 records (390 distinct x 2 servers); DHCP 51/51; AAA 80/80; AAA users 2/2
 layout: nn min 111.0  median 154.0  label-overlap 0  off-page 0  coincident 0
-packet: sha256 4a4253f9c2691929bd9e8cbdeff9e100694c9a3c9910d4cc1b79e0dc4d5e19aa
+packet: sha256 4a00daf3a2c7223f3b0c8779fe7060c9028f7011337246ba98613772071724bd
 layout legibility: 372 cables, 1,079 crossings (2.9 per cable), median cable 410 units, p95 1,444
 sections: 16 blocks with drawn boundaries (RECTANGLES), 392/392 devices placed
 ```
@@ -182,7 +182,8 @@ section names. That was not Packet Tracer still drawing: it was sixteen clusters
 each rendered as one collapsed icon with the devices hidden inside. A
 three-device probe settled it — three PCs plus one cluster renders as two PCs and
 one icon captioned with the cluster name. Replacing the clusters with `RECTANGLE`
-boundaries restored the full render.
+boundaries restored the full render, which is what
+[`img/pt_full_topology.png`](img/pt_full_topology.png) shows.
 
 **Still not verified on this build:** end-to-end traffic and convergence. The
 evidence supports "Packet Tracer opens it and draws it", not "every path
