@@ -176,6 +176,15 @@ three-device lab built with the toolkit renders in ~45 s. When a capture looked
 blank, the control was batched with it — and the control rendered — which is what
 localised the fault to the harness rather than to either lab.
 
+**The sectioned layout has no Packet Tracer render.** Four capture attempts on
+the reorganised file either caught a partial load (the first section drawn, the
+rest of the page empty) or had the run-time-scripts prompt still covering the
+canvas. The file itself is accepted and the earlier layouts did render, so this
+is a capture-timing problem rather than a defect — but the honest position is
+that the sixteen-section arrangement is evidenced by the generated diagram
+(`docs/iruma/img/topology_overview.png`, recomputed from the artefact) and by
+`check_layout.py` and `check_readability.py`, not by a screenshot.
+
 **Still not verified on this build:** end-to-end traffic and convergence. The
 evidence supports "Packet Tracer opens it and draws it", not "every path
 forwards". Red and amber link indicators in the screenshots are **not** evidence
