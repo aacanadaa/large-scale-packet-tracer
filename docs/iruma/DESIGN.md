@@ -229,9 +229,9 @@ need roughly 11.8 M units² of Packet Tracer's 14.4 M unit² page, so the model
 fits — but only just, and that density is what makes a generated lab look like a
 random chain of devices.
 
-The model is therefore organised as **sixteen named sections**, each placed as its
-own block with space around it and wrapped in a **Packet Tracer cluster**, which
-draws the section's name on the canvas:
+The model is therefore organised as **sixteen sections**, each placed as its own
+block with space around it and a **drawn boundary** — a hollow `RECTANGLE` — so
+the blocks read as sections:
 
 | Section | Devices | | Section | Devices |
 | --- | ---: | --- | --- | ---: |
@@ -248,6 +248,19 @@ Sections are packed masonry-style into three columns, each block going to the
 shortest column that can hold it, so the reading order is stable and the page
 fills evenly. `iruma_tiers.py` holds the one section table; the generator's
 placement, the diagram's boxes and the tier map all read it.
+
+Two constraints worth knowing, both measured rather than assumed:
+
+* **A cluster is not a group box.** Packet Tracer renders a cluster as a single
+  collapsible icon carrying its name, with the member devices hidden inside. A
+  three-device probe with one cluster renders as two PCs and one icon captioned
+  with the section name; at 392 devices in 16 clusters the whole model appears to
+  vanish. The boundaries are therefore `RECTANGLES` — a plain drawing layer that
+  groups nothing.
+* **The section names cannot be drawn on the logical canvas.** `NOTE` elements
+  exist, but across 293 labs shipped inside Packet Tracer every one sits under
+  `PHYSICALWORKSPACE`, annotating the physical view; there is no logical-canvas
+  text element. Names live in the diagram and these documents.
 
 Three further rules keep it legible, and all are free — they change the picture,
 not the network:

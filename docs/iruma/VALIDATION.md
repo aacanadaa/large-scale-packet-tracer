@@ -41,7 +41,7 @@ DNS 780 records (390 distinct x 2 servers); DHCP 51/51; AAA 80/80; AAA users 2/2
 layout: nn min 111.0  median 154.0  label-overlap 0  off-page 0  coincident 0
 packet: sha256 4a4253f9c2691929bd9e8cbdeff9e100694c9a3c9910d4cc1b79e0dc4d5e19aa
 layout legibility: 372 cables, 1,079 crossings (2.9 per cable), median cable 410 units, p95 1,444
-sections: 16 labelled Packet Tracer clusters, 392/392 devices assigned
+sections: 16 blocks with drawn boundaries (RECTANGLES), 392/392 devices placed
 ```
 
 ---
@@ -176,14 +176,13 @@ three-device lab built with the toolkit renders in ~45 s. When a capture looked
 blank, the control was batched with it — and the control rendered — which is what
 localised the fault to the harness rather than to either lab.
 
-**The sectioned layout has no Packet Tracer render.** Four capture attempts on
-the reorganised file either caught a partial load (the first section drawn, the
-rest of the page empty) or had the run-time-scripts prompt still covering the
-canvas. The file itself is accepted and the earlier layouts did render, so this
-is a capture-timing problem rather than a defect — but the honest position is
-that the sixteen-section arrangement is evidenced by the generated diagram
-(`docs/iruma/img/topology_overview.png`, recomputed from the artefact) and by
-`check_layout.py` and `check_readability.py`, not by a screenshot.
+**The apparent "partial render" was a cluster bug, not a slow load.** Several
+captures showed a nearly empty workspace with only a handful of icons and some
+section names. That was not Packet Tracer still drawing: it was sixteen clusters
+each rendered as one collapsed icon with the devices hidden inside. A
+three-device probe settled it — three PCs plus one cluster renders as two PCs and
+one icon captioned with the cluster name. Replacing the clusters with `RECTANGLE`
+boundaries restored the full render.
 
 **Still not verified on this build:** end-to-end traffic and convergence. The
 evidence supports "Packet Tracer opens it and draws it", not "every path
@@ -205,7 +204,7 @@ the last two made it *legal but tangled*.
 | Problem | Measurement | Fix |
 | --- | --- | --- |
 | The single writer's tier rules are another lab's naming convention, so **361 of 392 devices matched no rule** and collapsed into one band | a tenant switch sat **3,538 units** from its own workstation | `--no-repack`: the generator owns the placement, and `iruma_tiers.py` is the one section table |
-| Twelve bands of loose icons is still a chain — no way to find the fuel farm | — | **16 named sections**, each a block wrapped in a Packet Tracer **cluster**, which draws the name on the canvas |
+| Twelve bands of loose icons is still a chain — no way to find the fuel farm | — | **16 sections**, each a block with a drawn `RECTANGLE` boundary. A cluster was tried first and abandoned: it is a collapsible container that hides its members |
 | Devices were packed in *creation* order, so a section's switch and its access devices landed at opposite ends | mean cable 1,142 units | document order is a breadth-first walk of each section's cable graph, chunked to one packing row, hubs centred |
 | The collapsed core sat at the top, so its fan crossed everything below | **70% of all crossings involved a core-band cable** | sections are packed masonry-style into three columns, the most-connected block placed to fill evenly |
 

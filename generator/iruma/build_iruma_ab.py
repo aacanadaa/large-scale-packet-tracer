@@ -1805,62 +1805,49 @@ class Base:
         self.section_rects = rects
         return rects
 
-    def add_section_clusters(self) -> int:
-        """Wrap each section in a Packet Tracer cluster, so it is *named*.
+    def add_section_rectangles(self) -> int:
+        """Draw a hollow box around each section on the logical canvas.
 
-        A cluster is a labelled group box: the element carries the name and the
-        members point at it through ``LOGICAL/DEVCLUSTERID``.  Shape taken from a
-        Cisco-authored lab shipped inside Packet Tracer itself
-        (``isa3000_dmz.pkt``), where a cluster is
+        A Packet Tracer **cluster** is the obvious way to label a group -- and it
+        is the wrong one.  A cluster is a *container*: Packet Tracer renders it
+        as a single collapsible icon carrying the cluster's name, and the member
+        devices disappear inside it.  Measured on a three-device probe: three
+        PCs plus a cluster renders as two PCs and one icon captioned with the
+        section name.  On a 392-device lab that hides the entire model.
 
-            <CLUSTER><NAME>Internet</NAME><X>..</X><Y>..</Y>
-              <CLOUDID>1-1</CLOUDID>
-              <CLUSTERID>2-{uuid}#2</CLUSTERID> ... </CLUSTER>
+        A ``RECTANGLE`` is a plain drawing-layer element: no grouping, no
+        collapsing, devices stay visible.  It carries no text, so the section
+        *names* live in the diagram and the documents; the canvas gets the
+        boundaries, which is what makes the blocks read as sections.
 
-        and a member device carries ``<DEVCLUSTERID>2-{uuid}#2</DEVCLUSTERID>``.
-        ``1-1`` is the root cluster every device belongs to by default.
+        Shape taken from a Cisco-authored lab shipped inside Packet Tracer
+        (``isa3000_dmz.pkt``): ``PACKETTRACER5/RECTANGLES/RECTANGLE`` with
+        TopLeft/BottomRight, a colour, and ``<Filled OUTLINED="true"
+        OUTLINECOLOR="#...">0</Filled>`` for a hollow outline.
         """
-        clusters = self.lab.base.find("CLUSTERS")
-        rootcl = clusters.find("ROOTCLUSTER") if clusters is not None else None
-        if rootcl is None:
+        layer = self.lab.base.find("RECTANGLES")
+        if layer is None:
             return 0
-
-        members: dict[str, list[str]] = collections.defaultdict(list)
-        for key in self.sid:
-            members[section_of(self.meta[key]["name"])].append(key)
-
-        n = 0
         for rect in getattr(self, "section_rects", []):
-            keys = members.get(rect["name"]) or []
-            if not keys:
-                continue
-            # Deterministic id: a random uuid per run would make two builds of
-            # the same profile differ, and this repo publishes a re-derivable
-            # SHA-256 for every artefact.
-            cid = f"2-{{{uuid.uuid5(uuid.NAMESPACE_URL, 'iruma-ab/section/' + rect['name'])}}}#2"
-            el = ET.SubElement(rootcl, "CLUSTER")
-            ET.SubElement(el, "NAME", {"translate": "true"}).text = rect["name"]
-            ET.SubElement(el, "X").text = str((rect["x0"] + rect["x1"]) // 2)
-            ET.SubElement(el, "Y").text = str(rect["y0"] + 40)
-            ET.SubElement(el, "CLOUDID").text = "1-1"
-            ET.SubElement(el, "CLUSTERID").text = cid
-            # Stable, not hash(): Python randomises string hashing per process,
-            # so hash() makes every run produce a different file.
+            el = ET.SubElement(layer, "RECTANGLE",
+                               {"uuid": "{" + str(uuid.uuid5(
+                                   uuid.NAMESPACE_URL,
+                                   "iruma-ab/rect/" + rect["name"])) + "}"})
+            ET.SubElement(el, "TopLeftX").text = str(rect["x0"])
+            ET.SubElement(el, "TopLeftY").text = str(rect["y0"])
+            ET.SubElement(el, "BottomRightX").text = str(rect["x1"])
+            ET.SubElement(el, "BottomRightY").text = str(rect["y1"])
+            colour = ET.SubElement(el, "Color")
+            for tag, val in (("Red", 21), ("Green", 101), ("Blue", 192)):
+                ET.SubElement(colour, tag).text = str(val)
+            ET.SubElement(el, "Filled",
+                          {"OUTLINED": "true",
+                           "OUTLINECOLOR": "#1565c0"}).text = "0"
+            ET.SubElement(el, "RECTCLUSTERID").text = "1-1"
             ET.SubElement(el, "MEM_ADDR").text = str(uuid.uuid5(
-                uuid.NAMESPACE_URL, cid).int % 10 ** 12)
-            ET.SubElement(el, "CLUSTER_BG_IMAGE", {"isanim": "false"})
-            ET.SubElement(el, "CLUSTER_EMBEDDED_BG_IMAGE")
-            ET.SubElement(el, "CLUSTER_ICON_IMAGE").text = \
-                "../art/Workspace/Logical/iCluster.png"
-            ET.SubElement(el, "TILED_BG").text = "false"
-            for key in keys:
-                logical = self.lab._els[self.sid[key]].find("WORKSPACE/LOGICAL")
-                dc = logical.find("DEVCLUSTERID")
-                if dc is None:
-                    dc = ET.SubElement(logical, "DEVCLUSTERID")
-                dc.text = cid
-            n += 1
-        return n
+                uuid.NAMESPACE_URL, "iruma-ab/rectmem/" + rect["name"]).int
+                % 10 ** 12)
+        return len(getattr(self, "section_rects", []))
 
     def _bdc_keys(self) -> list[str]:
         return [k for k in self.sid if k.startswith("b_")]
@@ -2745,7 +2732,7 @@ def main(argv=None) -> int:
     # what defines the adjacency the order is derived from.
     n_ordered = t.order_devices_for_layout()
     section_rects = t.place_sections()
-    n_sections = t.add_section_clusters()
+    n_sections = t.add_section_rectangles()
     t.configure()
     t.services()
     n_serial = t.fix_serial()
@@ -2786,7 +2773,7 @@ def main(argv=None) -> int:
 
     rep = t.report()
     rep.update(devices_ordered_for_layout=n_ordered,
-               sections=len(section_rects), section_clusters=n_sections,
+               sections=len(section_rects), section_boxes=n_sections,
                serial_ports_clocked=n_serial, static_ips_written=n_static,
                devices_powered=n_power, ports_powered_on=n_ports,
                stale_nic_fields_cleared=cleared,

@@ -266,9 +266,8 @@ things drive the design:
 
 ### Sections
 
-The model is organised as **sixteen named sections**, each placed as its own
-block and wrapped in a Packet Tracer **cluster**, so the name is drawn on the
-canvas: external liaison edge, base backbone & NetOps, mission data centre,
+The model is organised as **sixteen sections**, each placed as its own compact
+block with a drawn boundary around it: external liaison edge, base backbone & NetOps, mission data centre,
 backup data centre, operations-security enclave, air operations centre & tower,
 air traffic control & navaids, tenant squadrons & hangars, JSDF Iruma Hospital,
 apron/flight line & vehicles, Air Weather Squadron, air depots & supply, bulk
@@ -279,6 +278,15 @@ Measured with `tools/check_readability.py`: **1,079 crossings (2.9 per cable)**,
 median cable **410** units. Before the reorganisation the same network measured
 4.43 crossings per cable and a mean cable of 1,142 units — and read as one long
 chain of devices.
+
+The boundaries are drawn as `RECTANGLES`, **not** as Packet Tracer clusters. A
+cluster is a collapsible *container*: Packet Tracer renders it as one icon
+carrying the name and hides the member devices inside it — a three-device probe
+with one cluster renders as two PCs and one icon captioned with the section name.
+At this scale that hid the entire model. A rectangle is a plain drawing-layer
+element, so the devices stay visible. The section *names* cannot be drawn on the
+logical canvas at all (there is no logical-canvas text element), so they live in
+the diagram and these documents.
 
 ### Screenshots
 
