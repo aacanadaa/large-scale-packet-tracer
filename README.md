@@ -282,17 +282,17 @@ chain of devices.
 
 ### Screenshots
 
-The full base in Packet Tracer 9.0.1 — carrier and liaison edge at the top,
-through the backbone and mission data centre, the enclave, the tower, ATC and
-navaids, the tenant squadrons, the apron, weather, the depots and fuel farm,
-security and utilities, to the mobile estate:
+The diagram above is generated from the artefact and shows the sixteen labelled
+sections. A Packet Tracer render of the sectioned layout is not published here:
+capturing one needs the document to finish loading (~10 minutes) *and* the
+"outdated run-time scripts" prompt answered with **Escape** — Return picks the
+default "Yes", rewrites device scripts and closes the document — and the timing
+is fragile enough that two attempts caught a partial load. Rather than publish a
+screenshot that misrepresents the layout, the diagram stands in for it.
 
-![Full topology in Packet Tracer](docs/iruma/img/pt_full_topology.png)
-
-The edge, backbone and data-centre tiers at readable zoom. Green indicators on
-the cables are live links:
-
-![Edge, backbone and data centre detail](docs/iruma/img/pt_core_detail.png)
+Earlier renders of the pre-section layout are still in
+[`docs/iruma/VALIDATION.md`](docs/iruma/VALIDATION.md)'s gate history; they show
+the twelve-band arrangement this pass replaced.
 
 ### Sourced, or modelled?
 
