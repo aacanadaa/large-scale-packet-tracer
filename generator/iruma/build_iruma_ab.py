@@ -70,6 +70,7 @@ import collections
 import csv
 import json
 import sys
+import uuid
 import xml.etree.ElementTree as ET
 from pathlib import Path
 
@@ -85,6 +86,7 @@ for _p in (str(ROOT), str(TOOLKIT), str(TOOLKIT / "tools"), str(TOOLKIT / "src")
 import lab_api                        # noqa: E402
 from pkt_core import decode_bytes     # noqa: E402
 import iruma_kit as K                 # noqa: E402
+from iruma_tiers import section_of     # noqa: E402
 
 NETWORK_DEVICE_MODELS = K.NETWORK_DEVICE_MODELS
 
@@ -1627,12 +1629,17 @@ class Base:
         # along the row instead of across the page.
         row_capacity = self._row_capacity()
 
+        # Ties are broken by creation index throughout.  A `set` iterates in an
+        # order that varies between processes, so a set-based `max` here makes
+        # two runs of the same profile produce different files -- which breaks
+        # the byte-identical rebuild this repo publishes a hash for.
+        seq = {k: i for i, k in enumerate(self.sid)}
         order: list[str] = []
         for grp in band_order:
-            members = {k for k in self.sid if band[k] == grp}
+            members = set(k for k in self.sid if band[k] == grp)
             while members:
-                seed = max(members,
-                           key=lambda k: sum(1 for n in adj[k] if n in members))
+                seed = max(members, key=lambda k: (
+                    sum(1 for n in adj[k] if n in members), -seq[k]))
                 chunk: list[str] = []
                 queue = [seed]
                 while queue and len(chunk) < row_capacity:
@@ -1641,9 +1648,10 @@ class Base:
                         continue
                     members.discard(cur)
                     chunk.append(cur)
-                    queue.extend(sorted((n for n in adj[cur] if n in members),
-                                        key=lambda n: -sum(1 for m in adj[n]
-                                                           if m in members)))
+                    queue.extend(sorted(
+                        (n for n in adj[cur] if n in members),
+                        key=lambda n: (-sum(1 for m in adj[n] if m in members),
+                                       seq[n])))
                 # Centre the hub in its row.  A chunk is a packing row, so the
                 # hub at one end is ~3,400 units from the child at the other;
                 # in the middle it is at most half that, and its fan is
@@ -1728,91 +1736,131 @@ class Base:
         return {k: GROUP_MERGE.get(m["group"], m["group"])
                 for k, m in self.meta.items()}
 
-    def place_clusters(self, cell_max: int = 12, cols: int = 4,
-                       cell_gap: int = 70, band_gap: int = 60) -> dict:
-        """Lay the model out as blocks of one hub plus the devices it serves.
+    def place_sections(self, max_width: int = 1150, col_gap: int = 90,
+                       row_gap: int = 70, rect_pad: int = 55) -> list[dict]:
+        """Lay the model out as labelled **sections**, not as one long chain.
 
-        The stock packer fills a band strictly row-major, so a cluster that
-        straddles a row boundary ends up with its switch at one end of the page
-        and its access devices at the other.  Measured on this lab before the
-        change: **3,538 units** from a tenant switch to its own workstation,
-        and 1,645 cable crossings.
+        A band of loose icons is still a chain: the reader can see that there are
+        392 devices and no way to find the fuel farm.  This places each section
+        as its own block -- a rectangle of devices with space around it -- and
+        returns the blocks so :meth:`add_section_clusters` can wrap each one in a
+        Packet Tracer cluster, which draws the section's **name** on the canvas.
 
-        A cell never straddles a row, so a cluster's internal cables stay within
-        one cell.  Cells are laid out in band order, left to right and wrapping
-        within their band, so the picture still reads top-to-bottom by tier.
+        Blocks are packed masonry-style into three columns, each block going to
+        the shortest column that can hold it.  Sections are emitted in the order
+        they are declared, so the reading order is stable.
 
         Coordinates are written directly, so this lab's ``run_all.sh`` calls the
-        single writer with ``--no-repack``: the generator owns the placement and
-        ``finalise_lab`` still sanitises, re-gates and round-trip-checks the
-        bytes it writes.
+        single writer with ``--no-repack``: the generator owns the placement, and
+        ``finalise_lab`` still sanitises, re-gates and round-trip-checks the bytes
+        it writes.
         """
         import lab_api                                        # noqa: PLC0415
 
-        adj = self._adjacency()
-        band = self._bands()
-        band_order = list(dict.fromkeys(band[k] for k in self.sid))
-
-        # 1. partition each band into cells by a breadth-first walk from its
-        #    most-connected unplaced device.
-        cells: list[tuple[str, list[str]]] = []
-        for grp in band_order:
-            members = {k for k in self.sid if band[k] == grp}
-            while members:
-                seed = max(members,
-                           key=lambda k: sum(1 for n in adj[k] if n in members))
-                chunk: list[str] = []
-                queue = [seed]
-                while queue and len(chunk) < cell_max:
-                    cur = queue.pop(0)
-                    if cur not in members:
-                        continue
-                    members.discard(cur)
-                    chunk.append(cur)
-                    queue.extend(sorted((n for n in adj[cur] if n in members),
-                                        key=lambda n: -sum(1 for m in adj[n]
-                                                           if m in members)))
-                cells.append((grp, chunk))
+        order: list[str] = []
+        members: dict[str, list[str]] = collections.OrderedDict()
+        for key in self.sid:
+            sec = section_of(self.meta[key]["name"])
+            if sec not in members:
+                members[sec] = []
+                order.append(sec)
+            members[sec].append(key)
 
         def box(key: str) -> tuple[int, int]:
             name = self.meta[key]["name"]
             model = self.meta[key]["model"]
             return lab_api.device_box(lab_api.kind_for_model(model), name, model)
 
-        # 2. lay the cells out band by band.
-        x_cursor = lab_api.CANVAS_MIN + 20
-        y_cursor = lab_api.CANVAS_MIN + 20
-        placed = 0
-        moved: list[tuple[str, int, int]] = []
-        for grp in band_order:
-            band_cells = [c for g, c in cells if g == grp]
-            row_h = 0
-            band_top = y_cursor
-            for chunk in band_cells:
-                boxes = [box(k) for k in chunk]
-                pitch = max(b[0] for b in boxes)
-                rows = (len(chunk) + cols - 1) // cols
-                cell_w = pitch * min(cols, len(chunk))
-                cell_h = rows * lab_api.ROW_PITCH
-                if x_cursor + cell_w > lab_api.CANVAS_MAX - 40:
-                    x_cursor = lab_api.CANVAS_MIN + 20
-                    y_cursor = band_top + row_h + 30
-                    row_h = 0
-                for i, key in enumerate(chunk):
-                    cx = x_cursor + (i % cols) * pitch + pitch // 2
-                    cy = y_cursor + (i // cols) * lab_api.ROW_PITCH \
-                        + lab_api.ROW_PITCH // 2
-                    el = self.lab._els[self.sid[key]]
-                    ws = el.find("WORKSPACE/LOGICAL")
-                    ws.find("X").text = str(cx)
-                    ws.find("Y").text = str(cy)
-                    moved.append((self.meta[key]["name"], cx, cy))
-                    placed += 1
-                x_cursor += cell_w + cell_gap
-                row_h = max(row_h, cell_h)
-            y_cursor = band_top + row_h + band_gap
-            x_cursor = lab_api.CANVAS_MIN + 20
-        return dict(placed=placed, cells=len(cells), height=y_cursor)
+        blocks = []
+        for sec in order:
+            keys = members[sec]
+            pitch = max(box(k)[0] for k in keys)
+            cols = max(1, min(len(keys), int(max_width // pitch)))
+            rows = (len(keys) + cols - 1) // cols
+            blocks.append(dict(name=sec, keys=keys, pitch=pitch, cols=cols,
+                               rows=rows, w=cols * pitch,
+                               h=rows * lab_api.ROW_PITCH))
+
+        n_cols = 3
+        left = lab_api.CANVAS_MIN + 20
+        col_x = [left + i * (max_width + col_gap) for i in range(n_cols)]
+        col_y = [lab_api.CANVAS_MIN + 40] * n_cols
+
+        rects: list[dict] = []
+        for b in blocks:
+            col = min(range(n_cols), key=lambda i: col_y[i])
+            x0, y0 = col_x[col], col_y[col]
+            for i, key in enumerate(b["keys"]):
+                cx = x0 + (i % b["cols"]) * b["pitch"] + b["pitch"] // 2
+                cy = y0 + (i // b["cols"]) * lab_api.ROW_PITCH \
+                    + lab_api.ROW_PITCH // 2
+                ws = self.lab._els[self.sid[key]].find("WORKSPACE/LOGICAL")
+                ws.find("X").text = str(cx)
+                ws.find("Y").text = str(cy)
+            col_y[col] = y0 + b["h"] + row_gap
+            rects.append(dict(name=b["name"], n=len(b["keys"]),
+                              x0=x0 - rect_pad, y0=y0 - rect_pad,
+                              x1=x0 + b["w"] + rect_pad,
+                              y1=y0 + b["h"] + rect_pad, col=col))
+        self.section_rects = rects
+        return rects
+
+    def add_section_clusters(self) -> int:
+        """Wrap each section in a Packet Tracer cluster, so it is *named*.
+
+        A cluster is a labelled group box: the element carries the name and the
+        members point at it through ``LOGICAL/DEVCLUSTERID``.  Shape taken from a
+        Cisco-authored lab shipped inside Packet Tracer itself
+        (``isa3000_dmz.pkt``), where a cluster is
+
+            <CLUSTER><NAME>Internet</NAME><X>..</X><Y>..</Y>
+              <CLOUDID>1-1</CLOUDID>
+              <CLUSTERID>2-{uuid}#2</CLUSTERID> ... </CLUSTER>
+
+        and a member device carries ``<DEVCLUSTERID>2-{uuid}#2</DEVCLUSTERID>``.
+        ``1-1`` is the root cluster every device belongs to by default.
+        """
+        clusters = self.lab.base.find("CLUSTERS")
+        rootcl = clusters.find("ROOTCLUSTER") if clusters is not None else None
+        if rootcl is None:
+            return 0
+
+        members: dict[str, list[str]] = collections.defaultdict(list)
+        for key in self.sid:
+            members[section_of(self.meta[key]["name"])].append(key)
+
+        n = 0
+        for rect in getattr(self, "section_rects", []):
+            keys = members.get(rect["name"]) or []
+            if not keys:
+                continue
+            # Deterministic id: a random uuid per run would make two builds of
+            # the same profile differ, and this repo publishes a re-derivable
+            # SHA-256 for every artefact.
+            cid = f"2-{{{uuid.uuid5(uuid.NAMESPACE_URL, 'iruma-ab/section/' + rect['name'])}}}#2"
+            el = ET.SubElement(rootcl, "CLUSTER")
+            ET.SubElement(el, "NAME", {"translate": "true"}).text = rect["name"]
+            ET.SubElement(el, "X").text = str((rect["x0"] + rect["x1"]) // 2)
+            ET.SubElement(el, "Y").text = str(rect["y0"] + 40)
+            ET.SubElement(el, "CLOUDID").text = "1-1"
+            ET.SubElement(el, "CLUSTERID").text = cid
+            # Stable, not hash(): Python randomises string hashing per process,
+            # so hash() makes every run produce a different file.
+            ET.SubElement(el, "MEM_ADDR").text = str(uuid.uuid5(
+                uuid.NAMESPACE_URL, cid).int % 10 ** 12)
+            ET.SubElement(el, "CLUSTER_BG_IMAGE", {"isanim": "false"})
+            ET.SubElement(el, "CLUSTER_EMBEDDED_BG_IMAGE")
+            ET.SubElement(el, "CLUSTER_ICON_IMAGE").text = \
+                "../art/Workspace/Logical/iCluster.png"
+            ET.SubElement(el, "TILED_BG").text = "false"
+            for key in keys:
+                logical = self.lab._els[self.sid[key]].find("WORKSPACE/LOGICAL")
+                dc = logical.find("DEVCLUSTERID")
+                if dc is None:
+                    dc = ET.SubElement(logical, "DEVCLUSTERID")
+                dc.text = cid
+            n += 1
+        return n
 
     def _bdc_keys(self) -> list[str]:
         return [k for k in self.sid if k.startswith("b_")]
@@ -2696,7 +2744,8 @@ def main(argv=None) -> int:
     # Order the devices for packing *after* the cabling, because the cabling is
     # what defines the adjacency the order is derived from.
     n_ordered = t.order_devices_for_layout()
-    cluster_rep = t.place_clusters()
+    section_rects = t.place_sections()
+    n_sections = t.add_section_clusters()
     t.configure()
     t.services()
     n_serial = t.fix_serial()
@@ -2737,7 +2786,7 @@ def main(argv=None) -> int:
 
     rep = t.report()
     rep.update(devices_ordered_for_layout=n_ordered,
-               cluster_layout=cluster_rep,
+               sections=len(section_rects), section_clusters=n_sections,
                serial_ports_clocked=n_serial, static_ips_written=n_static,
                devices_powered=n_power, ports_powered_on=n_ports,
                stale_nic_fields_cleared=cleared,

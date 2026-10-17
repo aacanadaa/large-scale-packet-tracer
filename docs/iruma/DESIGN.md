@@ -18,8 +18,9 @@ depots, and the base infrastructure that holds them together.
 | RADIUS/AAA clients (distinct) | 80 |
 | Address families | `10.0.0.0/8` (base), `172.21.0.0/16` (opsec enclave), `10.99.x` (firewall outside) |
 | Tier bands | 12 |
+| Labelled sections | 16 |
 | Distinct device models | 40 |
-| Cable crossings | 1,330 (3.58 per cable) |
+| Cable crossings | 1,079 (2.9 per cable) |
 
 Read [`EVIDENCE.md`](EVIDENCE.md) first if you intend to cite anything about the
 real base: it separates what is sourced from what is modelled.
@@ -225,33 +226,53 @@ per-asset model, and it should not be read as an inventory of the real base.
 
 The page is the binding constraint. 392 label-inclusive boxes at a 200-unit pitch
 need roughly 11.8 M units² of Packet Tracer's 14.4 M unit² page, so the model
-fits — but only just, and that density is what makes a generated lab look like
-spaghetti.
+fits — but only just, and that density is what makes a generated lab look like a
+random chain of devices.
 
-Three things keep it legible, and all three are free (they change the picture,
-not the network):
+The model is therefore organised as **sixteen named sections**, each placed as its
+own block with space around it and wrapped in a **Packet Tracer cluster**, which
+draws the section's name on the canvas:
 
-* **Twelve semantic bands**, each holding one tier, so the eye can find the
-  navaids or the fuel farm without reading every label.
-* **Cable-graph band order** — the collapsed core sits in the middle of the band
-  order rather than at the top, because a fan is shortest when its source is at
-  the centroid of its destinations. With the core at the top, 70% of all cable
-  crossings involved a core-band cable.
-* **Cable-graph document order** — devices are emitted as a breadth-first walk of
-  each band's own cable graph, in chunks sized to one packing row, with each hub
-  centred in its row. The packer fills rows in document order, so this is what
-  decides whether a switch sits beside its access devices or at the far end of
-  the page.
+| Section | Devices | | Section | Devices |
+| --- | ---: | --- | --- | ---: |
+| Tenant squadrons & hangars | 60 | | Air depots & supply | 30 |
+| Security & utilities | 47 | | Bulk fuel farm (POL) | 26 |
+| Apron, flight line & vehicles | 46 | | Air traffic control & navaids | 20 |
+| Mission data centre | 32 | | Mobile estate | 18 |
+| Air operations centre & tower | 17 | | Air Weather Squadron | 17 |
+| Wireless infrastructure | 16 | | Operations-security enclave | 15 |
+| External liaison edge | 14 | | Base backbone & NetOps | 14 |
+| Backup data centre | 10 | | JSDF Iruma Hospital | 10 |
 
-Measured with `tools/check_readability.py`: 1,330 crossings (3.58 per cable),
-median cable 825 units, 95th percentile 2,408.
+Sections are packed masonry-style into three columns, each block going to the
+shortest column that can hold it, so the reading order is stable and the page
+fills evenly. `iruma_tiers.py` holds the one section table; the generator's
+placement, the diagram's boxes and the tier map all read it.
 
-The bands are defined once, in `iruma_tiers.py`, and three consumers read that
-one table: the generator's grouping, the diagram's banding, and the tier map that
-`finalise_lab` uses to repack. Three separate lists is how a layout silently
-collapses into a single band — which is what happened here first.
+Three further rules keep it legible, and all are free — they change the picture,
+not the network:
 
-## Reproducing the build
+* **Cable-graph document order** — within a section, devices are emitted as a
+  breadth-first walk of their own cable graph, chunked to one packing row, with
+  each hub centred in its row.
+* **Cable-graph band order** — the collapsed core sits in the middle rather than
+  at the top, because a fan is shortest when its source is at the centroid of its
+  destinations. With the core at the top, 70% of all cable crossings involved a
+  core-band cable.
+* **Section blocks** — a section is a place a reader looks for ("the fuel farm",
+  "the hospital"), so each is a compact block and its cables stay local.
+
+Measured with `tools/check_readability.py`: **1,079 crossings (2.9 per cable)**,
+median cable **410** units, 95th percentile **1,444**, mean **515**.
+
+The generator owns the placement, so this lab's `run_all.sh` calls the single
+writer with `--no-repack`: `finalise_lab` still sanitises, re-gates and
+round-trip-checks the bytes it writes, but it no longer repositions them. The
+repack groups devices into bands by *name*, and its built-in rules are another
+lab's naming convention — 361 of these 392 devices match none of them — so it
+would flatten the sections into one band.
+
+## Reproducing the build## Reproducing the build
 
 The build is deterministic: placement, physical-workspace identifiers, MAC
 addresses and every other identifier derive from stable inputs, so two runs of

@@ -38,7 +38,7 @@ from pkt_core import decode_bytes      # noqa: E402
 import iruma_kit as K               # noqa: E402
 
 # tier -> (colour, display name)  order fixed so the picture is stable
-from iruma_tiers import TIERS, tier_of  # noqa: E402
+from iruma_tiers import SECTIONS, section_of  # noqa: E402
 
 KIND_SHAPE = {
     "router": ("rect", 26, 14),
@@ -85,27 +85,28 @@ def main(argv=None) -> int:
         if x and y:
             edges.append((x, y))
 
-    bands = collections.OrderedDict((t, []) for t, _c, _n in TIERS)
+    # Sections, not tiers: a labelled box per place a reader looks for.
+    bands: collections.OrderedDict = collections.OrderedDict()
     for nm in sorted(devices):
-        bands.setdefault(tier_of(nm), []).append(nm)
+        bands.setdefault(section_of(nm), []).append(nm)
+    colour_of = {name: colour for name, colour, _p in SECTIONS}
+    for name in bands:
+        colour_of.setdefault(name, "#607d8b")
 
-    # geometry
+    # geometry -- one box per section, sections stacked vertically
     PAD, ROW, COLW, NODE = 40, 150, 210, 30
     width = max(1400, PAD * 2 + COLW * 14 + 260)
-    pos, y = {}, PAD + 40
+    pos, y = {}, PAD + 46
     band_meta = []
-    for tier, colour, label in TIERS:
-        members = bands.get(tier) or []
-        if not members:
-            continue
+    for sec, members in bands.items():
         per_row = max(1, (width - PAD * 2) // COLW)
         rows = (len(members) + per_row - 1) // per_row
-        band_meta.append((tier, colour, label, y, rows, len(members)))
+        band_meta.append((sec, colour_of[sec], sec, y, rows, len(members)))
         for i, nm in enumerate(members):
             cx = PAD + NODE + (i % per_row) * COLW
-            cy = y + 30 + (i // per_row) * 46
+            cy = y + 34 + (i // per_row) * 46
             pos[nm] = (cx, cy)
-        y += 30 + rows * 46 + 60
+        y += 34 + rows * 46 + 54
     height = y + PAD
 
     out = [f'<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" '
@@ -113,8 +114,9 @@ def main(argv=None) -> int:
            f'<rect width="{width}" height="{height}" fill="#fbfbfd"/>']
     for tier, colour, label, by, rows, n in band_meta:
         out.append(f'<rect x="{PAD//2}" y="{by}" width="{width-PAD}" '
-                   f'height="{30+rows*46+30}" rx="8" fill="{colour}" opacity="0.06"/>')
-        out.append(f'<text x="{PAD//2+12}" y="{by+20}" font-size="15" font-weight="bold" '
+                   f'height="{34+rows*46+34}" rx="10" fill="{colour}" opacity="0.07" '
+                   f'stroke="{colour}" stroke-width="1.2" stroke-opacity="0.55"/>')
+        out.append(f'<text x="{PAD//2+14}" y="{by+23}" font-size="16" font-weight="bold" '
                    f'fill="{colour}">{html.escape(label)} '
                    f'<tspan font-weight="normal" fill="#666">({n} devices)</tspan></text>')
     for x, y2 in edges:
@@ -123,7 +125,7 @@ def main(argv=None) -> int:
             out.append(f'<line x1="{x1}" y1="{y1}" x2="{x2}" y2="{y2_}" '
                        f'stroke="#9aa4b0" stroke-width="0.7" opacity="0.75"/>')
     for nm, (cx, cy) in pos.items():
-        colour = next(c for t, c, _l in TIERS if t == tier_of(nm))
+        colour = colour_of[section_of(nm)]
         out.append(f'<circle cx="{cx}" cy="{cy}" r="6" fill="{colour}"/>')
         out.append(f'<text x="{cx+10}" y="{cy+4}" font-size="9" fill="#222">'
                    f'{html.escape(nm)}</text>')

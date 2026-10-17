@@ -82,14 +82,16 @@ echo "== gate 1: layout, template leftovers, distinct counts, round-trip =="
 # strips template service records, so this pass should be a no-op -- it is kept
 # because it *proves* that on the bytes actually written, and re-checks the
 # round-trip.
-# --tiers is not optional for this lab.  The repack groups devices into bands by
-# name, and the toolkit's built-in rules are another lab's naming convention:
-# without a tier map, 361 of these 392 devices match nothing, collapse into one
-# 'misc' band, and repack into a tangle.  The generator writes the map from
-# iruma_tiers.py, which is the same table the diagram uses.
+# --no-repack: this generator owns the placement, because it places *sections*.
+# The repack would flatten them -- it groups devices into bands by name, and its
+# built-in rules are another lab's naming convention (361 of these 392 devices
+# match none of them).  finalise_lab still sanitises, re-gates and
+# round-trip-checks the bytes it writes; only the coordinates are left alone.
+# build/tier_map.json is still emitted, from the same table the diagram uses, for
+# anyone who does want to repack.
 "$PY" "$PKT_TOOLKIT/tools/finalise_lab.py" \
       --templates "$PKT_TOOLKIT/tools/device_templates.json" \
-      --tiers build/tier_map.json \
+      --no-repack \
       "$OUT"
 
 echo

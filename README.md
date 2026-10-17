@@ -186,7 +186,7 @@ together.
 | | |
 | --- | --- |
 | Full build | [`IRUMA_AB.pkt`](IRUMA_AB.pkt) — 392 devices, 372 links, 1.40 MB |
-| SHA-256 | `a732c02a13f2cdd5169f3593135aad720255a0a10afcefa52cdecefc900ec022` |
+| SHA-256 | `4a4253f9c2691929bd9e8cbdeff9e100694c9a3c9910d4cc1b79e0dc4d5e19aa` |
 | Smaller profiles | [`_standard`](IRUMA_AB_standard.pkt) (354/339), [`_smoke`](IRUMA_AB_smoke.pkt) (307/299) |
 | Documents | [`DESIGN.md`](docs/iruma/DESIGN.md) · [`VALIDATION.md`](docs/iruma/VALIDATION.md) · [`EVIDENCE.md`](docs/iruma/EVIDENCE.md) · [`SERVICES.md`](docs/iruma/SERVICES.md) · [`ADDRESS_PLAN.csv`](docs/iruma/ADDRESS_PLAN.csv) |
 
@@ -204,7 +204,8 @@ together.
 | DHCP pools (distinct) | 51 | 45 | 36 |
 | RADIUS clients (distinct) | 80 | 76 | 71 |
 | Distinct device models | 40 | — | — |
-| Cable crossings (per cable) | 1,330 (3.58) | 1,015 (2.99) | 812 (2.72) |
+| Cable crossings (per cable) | 1,079 (2.90) | 873 (2.58) | 695 (2.32) |
+| Labelled sections | 16 | 16 | 16 |
 
 Routing is OSPF multi-area (area 0 backbone plus 11 zone areas), iBGP AS65010
 between the collapsed core and the core routers, and eBGP to the MoD backbone
@@ -262,6 +263,22 @@ things drive the design:
   centre, the operations-security enclave, and the general IT estate are three
   separate zones at three trust levels, the enclave in its own address space
   (`172.21.0.0/16`).
+
+### Sections
+
+The model is organised as **sixteen named sections**, each placed as its own
+block and wrapped in a Packet Tracer **cluster**, so the name is drawn on the
+canvas: external liaison edge, base backbone & NetOps, mission data centre,
+backup data centre, operations-security enclave, air operations centre & tower,
+air traffic control & navaids, tenant squadrons & hangars, JSDF Iruma Hospital,
+apron/flight line & vehicles, Air Weather Squadron, air depots & supply, bulk
+fuel farm (POL), security & utilities, wireless infrastructure, and the mobile
+estate.
+
+Measured with `tools/check_readability.py`: **1,079 crossings (2.9 per cable)**,
+median cable **410** units. Before the reorganisation the same network measured
+4.43 crossings per cable and a mean cable of 1,142 units — and read as one long
+chain of devices.
 
 ### Screenshots
 

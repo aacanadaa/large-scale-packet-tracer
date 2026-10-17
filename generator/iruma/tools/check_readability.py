@@ -44,7 +44,7 @@ for _p in (str(TOOLKIT), str(TOOLKIT / "tools")):
 from pkt_core import decode_bytes          # noqa: E402
 import xml.etree.ElementTree as ET         # noqa: E402
 
-import draw_topology as DT                 # noqa: E402
+from iruma_tiers import section_of          # noqa: E402
 
 
 def _segments_intersect(p, p2, q, q2) -> bool:
@@ -68,7 +68,7 @@ def analyse(root: ET.Element) -> dict:
         if not nm or x is None or y is None:
             continue
         pos[nm] = (int(float(x)), int(float(y)))
-        band[nm] = DT.tier_of(nm)
+        band[nm] = section_of(nm)
 
     sid_name = {d.findtext("ENGINE/SAVE_REF_ID"): d.findtext("ENGINE/NAME")
                 for d in root.iter("DEVICE")}
@@ -156,7 +156,7 @@ def main(argv=None) -> int:
     print(f"crossings : {r['crossings']}  ({r['crossings_per_cable']} per cable)")
     print(f"length    : min {r['length_min']}  median {r['length_median']}  "
           f"p95 {r['length_p95']}  max {r['length_max']}  mean {r['length_mean']}")
-    print("\n-- per band: cables and mean cable length --")
+    print("\n-- per section: cables and mean cable length --")
     for b in r["band_cables"]:
         print(f"   {b:20s} cables {r['band_cables'][b]:4d}   "
               f"mean length {r['band_mean_length'][b]:7.1f}")

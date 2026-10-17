@@ -87,6 +87,62 @@ TIER_RULES: list[tuple[str, tuple[str, ...]]] = [
 
 FALLBACK = "T11-facilities"
 
+# Finer than the tiers: the labelled sections Packet Tracer draws as group boxes.
+# A section is a *place* a reader looks for ("the fuel farm", "the hospital"),
+# where a tier is a band of the page.  (name, colour, name prefixes), first match
+# wins, so SIGINT- is claimed before the district police's SI- token can see it.
+SECTIONS: list[tuple[str, str, tuple[str, ...]]] = [
+    ("External liaison edge", "#7b1fa2", (
+        "CARRIER-", "IRM-EDGE-RTR", "FW-INTERNET", "EDGE-DMZ", "MOD-BACKBONE-GW",
+        "YOKOTA-ATC-GW", "JWS-II-WX-GW", "SPPOL-AIR-GW", "SIGINT-BRANCH-GW",
+        "LIAISON-FILE-SVR", "EDGE-PROXY", "EDGE-MAIL-RELAY")),
+    ("Base backbone & NetOps", "#c62828", (
+        "IRM-CORE-SW", "IRM-CORE-RTR", "IRM-WAN-EDGE", "IRM-DCI-RTR",
+        "IRM-NETOPS-GW", "NETOPS-")),
+    ("Mission data centre", "#1565c0", (
+        "MDC-", "FW-MDC", "DNS-SVR", "DHCP-SVR", "NTP-SVR", "SYSLOG-SVR",
+        "AAA-SVR", "TFTP-ARCHIVE", "ADSYS-OPS", "SORTIE-TASK", "MISSION-PLAN",
+        "ATO-SVR", "MX-MIS", "SUPPLY-APP", "FLTREC-SVR", "AIRFIELD-OPS",
+        "WX-INTEG", "PERS-SVR", "TRAINING-LMS", "IRM-PORTAL", "PKI-CA",
+        "NETFLOW-SVR", "DATA-HISTORIAN")),
+    ("Backup data centre", "#0d47a1", ("BDC-", "FW-BDC")),
+    ("Operations-security enclave", "#4a148c", ("OPSEC-",)),
+    ("Air operations centre & tower", "#00695c", (
+        "AOC-", "TWR-", "GND-MOVEMENT", "APCH-DISPLAY", "FLT-DATA")),
+    ("Air traffic control & navaids", "#ef6c00", (
+        "ATC-", "GCA-", "ASR-", "NAVAID-", "ATIS-", "D-ATIS-", "PAR-CTL",
+        "TACAN-CTL", "ILS-CTL", "RWY-LIGHT", "TWY-LIGHT", "APCH-LGT",
+        "ARFF-ALERT")),
+    ("Tenant squadrons & hangars", "#f9a825", (
+        "402SQ-", "ARWHAS-", "FCS-", "EWC-", "CAMG-", "CACE-", "ASAR-",
+        "SIGINT-", "IMP-", "SI-")),
+    ("JSDF Iruma Hospital", "#ad1457", ("IHS-",)),
+    ("Apron, flight line & vehicles", "#2e7d32", (
+        "APRON-", "FLT-LINE", "FUEL-CTL", "HOTFUEL", "RWY-SWEEP", "TOW-TRACTOR",
+        "GSE-MAINT", "ARFF-DISP", "BIRD-CONTROL", "FOLLOWME", "ARFF-CMD",
+        "ARFF-VEH", "GND-VEH")),
+    ("Air Weather Squadron", "#00838f", (
+        "IWS-", "WIND-DET", "TEMP-DET", "HUMID-DET", "PRESS-DET", "RAIN-DET",
+        "VIS-DET", "RVR-DET")),
+    ("Air depots & supply", "#5d4037", ("3DEP-", "4DEP-", "DEP-")),
+    ("Bulk fuel farm (POL)", "#bf360c", ("POL-",)),
+    ("Security & utilities", "#0277bd", (
+        "SEC-", "CCTV-NVR", "ACS-DOOR", "PERIM-", "GATE-HOUSE", "UTIL-",
+        "SUBSTN-", "GENERATOR-", "UPS-CTL", "PWR-METER")),
+    ("Wireless infrastructure", "#455a64", ("IRM-WLC", "WLAN-", "IRM-AP-")),
+    ("Mobile estate", "#37474f", ("EFB-", "HANDSET-")),
+]
+
+SECTION_FALLBACK = "Security & utilities"
+
+
+def section_of(name: str) -> str:
+    """Which labelled section this device belongs to, from its hostname."""
+    for section, _colour, needles in SECTIONS:
+        if any(name.startswith(n) for n in needles):
+            return section
+    return SECTION_FALLBACK
+
 
 def tier_of(name: str) -> str:
     """Which band this device belongs to, from its own hostname."""
